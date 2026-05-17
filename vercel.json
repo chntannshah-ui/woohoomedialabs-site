@@ -1,5 +1,5 @@
 {
-  "buildCommand": "python3 build_playlists.py && python3 build_site.py",
+  "buildCommand": "python3 build_site.py",
   "outputDirectory": ".",
   "cleanUrls": true,
   "trailingSlash": false,

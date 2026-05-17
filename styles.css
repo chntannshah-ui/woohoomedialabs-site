@@ -44,7 +44,7 @@ nav {
   z-index: 100; mix-blend-mode: difference;
 }
 .logo { display: flex; align-items: center; gap: 12px; }
-.logo img { height: 36px; width: auto; filter: invert(1); }
+.logo img { height: 36px; width: auto; }
 .logo span {
   font-family: 'Fraunces', serif;
   font-size: 18px; font-weight: 400; font-style: italic; letter-spacing: -0.02em;

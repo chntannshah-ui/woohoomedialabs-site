@@ -147,7 +147,6 @@ def render_ig_card(reel):
           <div class="ig-stats-row"><span><b>{reel["likes"]}</b> likes</span><span><b>{reel["comments"]}</b> comments</span><span><b>{reel["views"]}</b> views</span></div>
         </div>
       </div>
-      <blockquote class="instagram-media" data-instgrm-permalink="{url}" data-instgrm-version="14" style="display:none;background:#FFF;border:0;margin:0;max-width:540px;min-width:326px;width:100%;"><a href="{url}" target="_blank">View on Instagram</a></blockquote>
     </a>'''
 
 

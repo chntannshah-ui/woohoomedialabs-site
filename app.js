@@ -64,19 +64,6 @@ document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeVideo
   wrap.addEventListener('click', play);
 })();
 
-// ─── INSTAGRAM EMBED WATCHER ────────────────────────────────
-// When embed.js processes a blockquote and replaces with iframe, hide the fallback.
-(function watchIGEmbeds() {
-  function check() {
-    document.querySelectorAll('.ig-card').forEach(card => {
-      const bq = card.querySelector('blockquote.instagram-media');
-      if (bq && bq.querySelector('iframe')) card.classList.add('embed-loaded');
-    });
-  }
-  let n = 0;
-  const t = setInterval(() => { check(); if (++n > 30) clearInterval(t); }, 500);
-})();
-
 // ─── CONTACT FORM ───────────────────────────────────────────
 function handleSubmit(e) {
   e.preventDefault();

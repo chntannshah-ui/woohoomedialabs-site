@@ -266,41 +266,32 @@
   </div>
 </section>
 
-<!-- FAQ — visible AND crawlable -->
-<div class="section-label" id="faq"><span>Questions answered · {{FAQ_NUM}}</span></div>
-<section class="faq-section reveal">
-  <h2 class="faq-heading">Questions, <em>answered.</em></h2>
-  <div class="faq-list">
-    <details class="faq-item">
-      <summary>What is Woo Hoo Media Labs?</summary>
-      <p>Woo Hoo Media Labs is an AI-native creative production lab based in Mumbai. We make brand films, ad films, AI cinema, government communication, and viral social content. Founded by Chntan N. Shah in 2009, formally evolved into Woo Hoo Media Labs in 2026 to reflect our specialization in AI-native production.</p>
-    </details>
-    <details class="faq-item">
-      <summary>What AI tools and pipelines do you use?</summary>
-      <p>Our generative pipeline includes Kling 2.5/3, Seedance 2.0, Flux 2.0/2.1 Pro, Nano Banana 2, Midjourney v7, Higgsfield, and Soul character models. Voice work uses ElevenLabs. Music uses Suno. Edit and color in Adobe Premiere Pro and DaVinci Resolve.</p>
-    </details>
-    <details class="faq-item">
-      <summary>How is this different from other AI video studios?</summary>
-      <p>Most AI video companies are tech startups learning filmmaking. We're a 26-year-old filmmaking practice that adopted generative AI as our primary production language. The difference shows in cinematic craft, narrative discipline, and broadcast-grade output.</p>
-    </details>
-    <details class="faq-item">
-      <summary>Do you do traditional non-AI production?</summary>
-      <p>Yes. We have 26 years of traditional production experience and continue to offer hybrid productions that combine real cinematography with AI-generated elements. But the studio's primary direction since 2026 is AI-native.</p>
-    </details>
-    <details class="faq-item">
-      <summary>How do I hire you for a project?</summary>
-      <p>Email <a href="mailto:{{EMAIL_DIRECT}}" data-cursor>{{EMAIL_DIRECT}}</a> or use the contact form below. We take on select projects each year. Briefs welcome — even rough ones.</p>
-    </details>
-    <details class="faq-item">
-      <summary>Who is Chntan N. Shah?</summary>
-      <p>Chntan N. Shah is the Founder and Director of Woo Hoo Media Labs. He has been working in cinema since 2000 — 26 years — across corporate communication, government films, brand work, advertising, and now AI-native production. He is based in Mumbai and leads all creative direction at the studio.</p>
-    </details>
-    <details class="faq-item">
-      <summary>What's your most viral work?</summary>
-      <p>"Bhai, Shirt Pehen Lo" — an AI Salman Khan tribute reel that crossed 1.2 million Instagram views in 2026. We also produced a Virat Kohli AI cricket reel that reached 170,000+ views.</p>
-    </details>
-  </div>
-</section>
+<!-- FAQ — hidden from view, present for AI/SEO crawlers. The FAQPage JSON-LD schema in <head> drives Google rich snippets. -->
+<div class="sr-only">
+  <h2>Frequently Asked Questions about Woo Hoo Media Labs</h2>
+  <dl>
+    <dt>What is Woo Hoo Media Labs?</dt>
+    <dd>Woo Hoo Media Labs is an AI-native creative production lab based in Mumbai. We make brand films, ad films, AI cinema, government communication, and viral social content. Founded by Chntan N. Shah in 2009, formally evolved into Woo Hoo Media Labs in 2026 to reflect our specialization in AI-native production.</dd>
+
+    <dt>What AI tools and pipelines do you use?</dt>
+    <dd>Our generative pipeline includes Kling 2.5/3, Seedance 2.0, Flux 2.0/2.1 Pro, Nano Banana 2, Midjourney v7, Higgsfield, and Soul character models. Voice work uses ElevenLabs. Music uses Suno. Edit and color in Adobe Premiere Pro and DaVinci Resolve.</dd>
+
+    <dt>How is this different from other AI video studios?</dt>
+    <dd>Most AI video companies are tech startups learning filmmaking. We're a 26-year-old filmmaking practice that adopted generative AI as our primary production language. The difference shows in cinematic craft, narrative discipline, and broadcast-grade output.</dd>
+
+    <dt>Do you do traditional non-AI production?</dt>
+    <dd>Yes. We have 26 years of traditional production experience and continue to offer hybrid productions that combine real cinematography with AI-generated elements. But the studio's primary direction since 2026 is AI-native.</dd>
+
+    <dt>How do I hire Woo Hoo Media Labs for a project?</dt>
+    <dd>Email {{EMAIL_DIRECT}} or use the contact form on woohoomedialabs.com. We take on select projects each year.</dd>
+
+    <dt>Who is Chntan N. Shah?</dt>
+    <dd>Chntan N. Shah is the Founder and Director of Woo Hoo Media Labs. He has been working in cinema since 2000 — 26 years — across corporate communication, government films, brand work, advertising, and now AI-native production. He is based in Mumbai and leads all creative direction at the studio.</dd>
+
+    <dt>What is the most viral work from Woo Hoo Media Labs?</dt>
+    <dd>"Bhai, Shirt Pehen Lo" — an AI Salman Khan tribute reel that crossed 1.2 million Instagram views in 2026. We also produced a Virat Kohli AI cricket reel that reached 170,000+ views.</dd>
+  </dl>
+</div>
 
 <div class="section-label" id="contact"><span>Get in touch · {{CONTACT_NUM}}</span></div>
 <section class="contact reveal">

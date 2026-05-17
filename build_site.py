@@ -68,7 +68,7 @@ IG_REELS = [
         "type": "p",
         "thumb_yt_id": "kVmC-V77Y90",
         "caption": '"Aapki secret fantasy, bina permission ke reel mein."',
-        "likes": "17K", "comments": "420", "views": "800K+",
+        "likes": "17K", "comments": "420", "views": "170K+",
     },
     {
         "shortcode": "DWnqKzSGQ31",

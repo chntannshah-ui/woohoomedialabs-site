@@ -19,7 +19,7 @@ from datetime import datetime
 SITE = {
     "domain": "woohoomedialabs.com",
     "title": "Woo Hoo Media Labs — AI-Native Creative Production Lab | Mumbai",
-    "description": "Mumbai-based AI-native creative production lab founded by Chntan N. Shah. 26 years of cinematic craft applied to brand films, ad films, AI films, government communication and product launches.",
+    "description": "AI-native creative production lab in Mumbai, founded 2009 by Chntan N. Shah. 26 years of cinematic craft. Brand films, ad films, AI commercials, government communication, product films. Production stack: Kling, Seedance, Flux, Nano Banana, Soul characters, ElevenLabs.",
     "email_primary": "hello@woohoomedialabs.com",
     "email_direct": "chntan.n.shah@gmail.com",
     "instagram_handle": "chntan.n.shah",
@@ -165,6 +165,25 @@ def render_hero_metrics():
 # ────────────────────────────────────────────────────────────────
 # MAIN BUILD
 # ────────────────────────────────────────────────────────────────
+def render_video_schema(v, playlist_name):
+    """Render a single VideoObject schema for a featured video."""
+    vid = v["id"]
+    title = clean_title(v.get("title", "Untitled"))
+    return f'''<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "{title}",
+  "description": "{title} — produced by Woo Hoo Media Labs ({playlist_name})",
+  "thumbnailUrl": "https://img.youtube.com/vi/{vid}/maxresdefault.jpg",
+  "uploadDate": "2025-01-01",
+  "contentUrl": "https://www.youtube.com/watch?v={vid}",
+  "embedUrl": "https://www.youtube.com/embed/{vid}",
+  "publisher": {{ "@type": "Organization", "name": "Woo Hoo Media Labs" }}
+}}
+</script>'''
+
+
 def build():
     data = json.loads(Path("playlists.json").read_text())
     playlists = data["playlists"]
@@ -176,6 +195,13 @@ def build():
     sections_html = "\n\n".join(section_blocks)
 
     next_num = len(playlists) + 2  # capabilities number
+
+    # Generate VideoObject schemas — top 2 videos from each playlist (12 total)
+    video_schemas_list = []
+    for p in playlists:
+        for v in p.get("videos", [])[:2]:
+            video_schemas_list.append(render_video_schema(v, p["name"]))
+    video_schemas = "\n".join(video_schemas_list)
 
     # Render IG cards
     ig_cards_html = "\n".join(render_ig_card(r) for r in IG_REELS)
@@ -215,7 +241,9 @@ def build():
         .replace("{{IG_CARDS}}", ig_cards_html)
         .replace("{{ORIGIN_NUM}}", f"{next_num + 2:02d}")
         .replace("{{PRE_AI_VIDEO_ID}}", PRE_AI_VIDEO_ID)
-        .replace("{{CONTACT_NUM}}", f"{next_num + 3:02d}")
+        .replace("{{FAQ_NUM}}", f"{next_num + 3:02d}")
+        .replace("{{CONTACT_NUM}}", f"{next_num + 4:02d}")
+        .replace("{{VIDEO_SCHEMAS}}", video_schemas)
         .replace("{{BUILD_TIME}}", datetime.utcnow().isoformat() + "Z")
     )
 

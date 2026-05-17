@@ -6,47 +6,168 @@
 <meta name="theme-color" content="#0a0a0a" />
 <meta name="build" content="{{BUILD_TIME}}" />
 
+<!-- PRIMARY META -->
 <title>{{TITLE}}</title>
 <meta name="description" content="{{DESCRIPTION}}" />
-<meta name="keywords" content="AI film production Mumbai, AI-native creative production lab India, Chntan N Shah, Woo Hoo Media Labs, brand films, ad films, AI commercials, generative video production" />
+<meta name="keywords" content="AI film production Mumbai, AI-native production studio India, Chntan N Shah, Woo Hoo Media Labs, brand films, ad films, AI commercials, generative video production India, AI filmmaker Mumbai, generative AI cinema, Kling Seedance Flux production" />
 <meta name="author" content="Chntan N. Shah" />
-<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="publisher" content="Woo Hoo Media Labs" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow" />
 <link rel="canonical" href="https://{{DOMAIN}}/" />
 
+<!-- GEO -->
+<meta name="geo.region" content="IN-MH" />
+<meta name="geo.placename" content="Mumbai" />
+<meta name="ICBM" content="19.0760, 72.8777" />
+<meta http-equiv="content-language" content="en-IN" />
+
+<!-- ICONS / PWA -->
 <link rel="icon" type="image/png" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/logo-mark.png" />
+<link rel="manifest" href="/site.webmanifest" />
 
+<!-- AI / LLM HINTS -->
+<link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-readable site overview" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM-readable full reference" />
+
+<!-- OPEN GRAPH -->
 <meta property="og:type" content="website" />
 <meta property="og:title" content="{{TITLE}}" />
 <meta property="og:description" content="{{DESCRIPTION}}" />
 <meta property="og:url" content="https://{{DOMAIN}}/" />
 <meta property="og:image" content="https://{{DOMAIN}}/og-cover.jpg" />
+<meta property="og:image:secure_url" content="https://{{DOMAIN}}/og-cover.jpg" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Woo Hoo Media Labs — Cinema for the age of intelligence. Mumbai." />
 <meta property="og:site_name" content="Woo Hoo Media Labs" />
+<meta property="og:locale" content="en_IN" />
+<meta property="article:author" content="Chntan N. Shah" />
 
+<!-- TWITTER -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="{{TITLE}}" />
 <meta name="twitter:description" content="{{DESCRIPTION}}" />
 <meta name="twitter:image" content="https://{{DOMAIN}}/og-cover.jpg" />
+<meta name="twitter:image:alt" content="Woo Hoo Media Labs — AI-Native Creative Production Lab Mumbai" />
+<meta name="twitter:creator" content="@chntannshah" />
 
+<!-- SCHEMA: ORGANIZATION -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": "https://{{DOMAIN}}/#organization",
   "name": "Woo Hoo Media Labs",
-  "alternateName": "Woo Hoo Media",
-  "founder": { "@type": "Person", "name": "Chntan N. Shah", "jobTitle": "Founder & Director" },
+  "alternateName": ["Woo Hoo Media", "WooHoo Media Labs"],
+  "founder": { "@id": "https://{{DOMAIN}}/#chntan" },
   "foundingDate": "2009",
+  "foundingLocation": { "@type": "Place", "name": "Mumbai, Maharashtra, India" },
   "url": "https://{{DOMAIN}}",
   "logo": "https://{{DOMAIN}}/logo.png",
+  "image": "https://{{DOMAIN}}/og-cover.jpg",
+  "description": "AI-native creative production lab based in Mumbai. 26 years of cinematic craft, now produced with generative AI pipelines.",
   "email": "{{EMAIL_DIRECT}}",
-  "address": { "@type": "PostalAddress", "addressLocality": "Mumbai", "addressRegion": "Maharashtra", "addressCountry": "IN" },
-  "sameAs": ["{{YOUTUBE_CHANNEL}}", "https://www.instagram.com/{{IG_HANDLE}}", "{{LINKEDIN}}"]
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Mumbai",
+    "addressRegion": "Maharashtra",
+    "addressCountry": "IN"
+  },
+  "areaServed": [
+    { "@type": "Country", "name": "India" },
+    { "@type": "Place", "name": "Worldwide" }
+  ],
+  "sameAs": [
+    "{{YOUTUBE_CHANNEL}}",
+    "https://www.instagram.com/{{IG_HANDLE}}",
+    "{{LINKEDIN}}"
+  ],
+  "knowsAbout": [
+    "AI Filmmaking", "Generative Video Production", "Brand Films", "Ad Films",
+    "Government Communication", "Product Launch Films", "Cinematic Storytelling",
+    "Kling AI", "Seedance", "Flux AI", "Nano Banana", "ElevenLabs", "Higgsfield"
+  ],
+  "makesOffer": [
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Brand Film Production" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI-Native Ad Film Production" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Government Communication Films" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Product Launch Films" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Cinema Production" } }
+  ]
 }
 </script>
 
+<!-- SCHEMA: PERSON (Chntan) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://{{DOMAIN}}/#chntan",
+  "name": "Chntan N. Shah",
+  "alternateName": ["Chntan Shah"],
+  "jobTitle": "Founder & Director, Woo Hoo Media Labs",
+  "description": "Indian filmmaker with 26 years of experience in cinema. Founder of Woo Hoo Media Labs, an AI-native creative production lab in Mumbai. Pioneer of AI-native filmmaking in India.",
+  "url": "https://{{DOMAIN}}/",
+  "image": "https://{{DOMAIN}}/logo.png",
+  "worksFor": { "@id": "https://{{DOMAIN}}/#organization" },
+  "knowsAbout": [
+    "AI Filmmaking", "Cinematic Direction", "Generative Video Production",
+    "Brand Communication", "Government Films", "Advertising"
+  ],
+  "homeLocation": { "@type": "Place", "name": "Mumbai, India" },
+  "nationality": { "@type": "Country", "name": "India" },
+  "sameAs": [
+    "https://www.instagram.com/{{IG_HANDLE}}",
+    "{{LINKEDIN}}",
+    "{{YOUTUBE_CHANNEL}}"
+  ]
+}
+</script>
+
+<!-- SCHEMA: WEBSITE -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://{{DOMAIN}}/#website",
+  "name": "Woo Hoo Media Labs",
+  "url": "https://{{DOMAIN}}/",
+  "publisher": { "@id": "https://{{DOMAIN}}/#organization" },
+  "inLanguage": "en-IN"
+}
+</script>
+
+<!-- SCHEMA: FAQ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What is Woo Hoo Media Labs?", "acceptedAnswer": { "@type": "Answer", "text": "Woo Hoo Media Labs is an AI-native creative production lab based in Mumbai, India. It produces brand films, ad films, AI-generated commercials, government communication films, and viral social content. Founded by Chntan N. Shah in 2009 (as Woo Hoo Media), the studio formally evolved into Woo Hoo Media Labs in 2026 to reflect its specialization in AI-native cinema." } },
+    { "@type": "Question", "name": "Who is the founder of Woo Hoo Media Labs?", "acceptedAnswer": { "@type": "Answer", "text": "Chntan N. Shah, an Indian filmmaker with 26 years of experience in cinema. He started his career in 2000 in corporate and government communication filmmaking and progressively transitioned the studio to an AI-native production model from 2024 onward." } },
+    { "@type": "Question", "name": "Where is Woo Hoo Media Labs located?", "acceptedAnswer": { "@type": "Answer", "text": "Woo Hoo Media Labs is based in Mumbai, Maharashtra, India. The studio works with clients across India and internationally." } },
+    { "@type": "Question", "name": "What AI tools does Woo Hoo Media Labs use?", "acceptedAnswer": { "@type": "Answer", "text": "Woo Hoo Media Labs uses Kling 2.5 and 3, Seedance 2.0, Flux 2.0 and 2.1 Pro, Nano Banana 2, Midjourney v7, Higgsfield, Soul characters for consistency, ElevenLabs for voice synthesis, and Suno for music generation. Final edit and color is done in Adobe Premiere Pro and DaVinci Resolve." } },
+    { "@type": "Question", "name": "How do I hire Woo Hoo Media Labs for a project?", "acceptedAnswer": { "@type": "Answer", "text": "Email chntan.n.shah@gmail.com or use the contact form on woohoomedialabs.com. The studio accepts select brand, advertising, government, and AI cinema projects each year." } },
+    { "@type": "Question", "name": "What is the most viral work from Woo Hoo Media Labs?", "acceptedAnswer": { "@type": "Answer", "text": "Bhai, Shirt Pehen Lo — an AI Salman Khan tribute reel that crossed 1.2 million Instagram views in 2026. The studio also produced a Virat Kohli AI cricket reel that reached 170,000 views." } },
+    { "@type": "Question", "name": "How is Woo Hoo Media Labs different from other AI video studios?", "acceptedAnswer": { "@type": "Answer", "text": "Most AI video companies are technology startups learning filmmaking. Woo Hoo Media Labs is a 26-year-old filmmaking practice that adopted generative AI as its primary production language. The difference shows in cinematic craft, narrative discipline, and client-grade output that meets broadcast and advertising standards." } }
+  ]
+}
+</script>
+
+<!-- SCHEMA: VIDEOS (top featured) -->
+{{VIDEO_SCHEMAS}}
+
+<!-- FONTS -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Geist+Mono:wght@400;500&family=Geist:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- PRELOAD HERO POSTER -->
+<link rel="preload" as="image" href="/hero-poster.jpg" fetchpriority="high">
+
 <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
@@ -55,8 +176,8 @@
 <div class="cursor-trail"></div>
 
 <nav>
-  <a href="/" class="logo">
-    <img src="/logo-mark.png" alt="Woo Hoo Media Labs" />
+  <a href="/" class="logo" aria-label="Woo Hoo Media Labs — home">
+    <img src="/logo-mark.png" alt="Woo Hoo Media Labs logo" width="32" height="32" />
     <span class="wordmark">Woo Hoo Media<sup>Labs</sup></span>
   </a>
   <ul class="nav-links">
@@ -67,9 +188,12 @@
   </ul>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="/hero-poster.jpg">
+<section class="hero" aria-label="Woo Hoo Media Labs — AI-Native Creative Production Lab">
+  <video class="hero-video"
+    autoplay muted loop playsinline
+    preload="metadata"
+    poster="/hero-poster.jpg"
+    aria-hidden="true">
     <source src="/hero-reel.mp4" type="video/mp4">
   </video>
   <div class="hero-overlay"></div>
@@ -78,10 +202,17 @@
     <h1>{{HERO_HEADLINE}}</h1>
     <div class="hero-meta">{{HERO_METRICS}}</div>
   </div>
-  <div class="scroll-cue">Scroll</div>
+  <div class="scroll-cue" aria-hidden="true">Scroll</div>
 </section>
 
-<!-- MANIFESTO -->
+<!-- AI-readable summary (sr-only — invisible to users, visible to search/AI) -->
+<div class="sr-only">
+  <h2>About Woo Hoo Media Labs</h2>
+  <p>Woo Hoo Media Labs is an AI-native creative production lab founded in 2009 by Chntan N. Shah in Mumbai, India. The studio specializes in brand films, ad films, AI-generated commercials, government communication, product films, and viral vertical content. With 26 years of cinematic craft and a generative AI production pipeline including Kling, Seedance, Flux, Nano Banana, and Soul characters, Woo Hoo Media Labs is one of India's first AI-native production studios.</p>
+  <p>Notable clients: Speed 4 Defence, SelectAI, Earthion Tech, Saffron Home, Norwood Modular, Government of Maharashtra, ICICI Prudential, Fybros, Merck, JNPT.</p>
+  <p>Most viral work: "Bhai, Shirt Pehen Lo" — AI Salman Khan tribute reel with 1.2 million Instagram views.</p>
+</div>
+
 <div class="section-label" id="about"><span>Manifesto · 01</span></div>
 <section class="manifesto reveal">
   <h2>{{MANIFESTO_HEADLINE}}</h2>
@@ -93,7 +224,6 @@
 
 {{FILM_SECTIONS}}
 
-<!-- CAPABILITIES -->
 <div class="section-label" id="services"><span>Capabilities · {{CAPABILITIES_NUM}}</span><span class="count">Drag →</span></div>
 <section class="services reveal">
   <div class="services-track">
@@ -101,12 +231,11 @@
   </div>
 </section>
 
-<!-- INSTAGRAM REELS -->
 <div class="section-label" id="reactions"><span>📱 When craft meets the scroll · {{IG_NUM}}</span><span class="count">Instagram · live</span></div>
 <section class="ig-section reveal">
   <div class="ig-intro">
     <h3>When craft meets<br/><em>the scroll.</em></h3>
-    <p>Vertical films built for the phone — where cinematic craft is forced to land in three seconds, or disappear. Embedded live from Instagram with reactions and view counts updating themselves.</p>
+    <p>Vertical films built for the phone — where cinematic craft is forced to land in three seconds, or disappear. Click any reel to view on Instagram with full comments and reactions.</p>
   </div>
   <div class="ig-grid">
 {{IG_CARDS}}
@@ -114,7 +243,6 @@
   <a href="https://www.instagram.com/{{IG_HANDLE}}" target="_blank" rel="noopener" class="view-all" data-cursor>Follow @{{IG_HANDLE}} for more →</a>
 </section>
 
-<!-- PRE-AI SHOWREEL -->
 <div class="section-label" id="origin"><span>Where we came from · {{ORIGIN_NUM}}</span><span class="count">The pre-AI archive</span></div>
 <section class="origin-section reveal">
   <div class="origin-intro">
@@ -123,9 +251,9 @@
   </div>
   <div class="origin-video-wrap">
     <div class="origin-video" id="origin-video">
-      <img class="origin-poster" src="https://img.youtube.com/vi/{{PRE_AI_VIDEO_ID}}/maxresdefault.jpg" alt="Pre-AI Showreel" />
-      <button class="origin-play" type="button" aria-label="Play showreel">
-        <svg viewBox="0 0 64 64" fill="none">
+      <img class="origin-poster" src="https://img.youtube.com/vi/{{PRE_AI_VIDEO_ID}}/maxresdefault.jpg" alt="Woo Hoo Media — Pre-AI Showreel. 26 years of brand films, government communication, and corporate storytelling by Chntan N. Shah." />
+      <button class="origin-play" type="button" aria-label="Play pre-AI showreel">
+        <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
           <circle cx="32" cy="32" r="31" stroke="currentColor" stroke-width="1.5" fill="rgba(0,0,0,0.4)"/>
           <path d="M26 21 L26 43 L44 32 Z" fill="currentColor"/>
         </svg>
@@ -138,15 +266,50 @@
   </div>
 </section>
 
-<!-- CONTACT -->
+<!-- FAQ — visible AND crawlable -->
+<div class="section-label" id="faq"><span>Questions answered · {{FAQ_NUM}}</span></div>
+<section class="faq-section reveal">
+  <h2 class="faq-heading">Questions, <em>answered.</em></h2>
+  <div class="faq-list">
+    <details class="faq-item">
+      <summary>What is Woo Hoo Media Labs?</summary>
+      <p>Woo Hoo Media Labs is an AI-native creative production lab based in Mumbai. We make brand films, ad films, AI cinema, government communication, and viral social content. Founded by Chntan N. Shah in 2009, formally evolved into Woo Hoo Media Labs in 2026 to reflect our specialization in AI-native production.</p>
+    </details>
+    <details class="faq-item">
+      <summary>What AI tools and pipelines do you use?</summary>
+      <p>Our generative pipeline includes Kling 2.5/3, Seedance 2.0, Flux 2.0/2.1 Pro, Nano Banana 2, Midjourney v7, Higgsfield, and Soul character models. Voice work uses ElevenLabs. Music uses Suno. Edit and color in Adobe Premiere Pro and DaVinci Resolve.</p>
+    </details>
+    <details class="faq-item">
+      <summary>How is this different from other AI video studios?</summary>
+      <p>Most AI video companies are tech startups learning filmmaking. We're a 26-year-old filmmaking practice that adopted generative AI as our primary production language. The difference shows in cinematic craft, narrative discipline, and broadcast-grade output.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Do you do traditional non-AI production?</summary>
+      <p>Yes. We have 26 years of traditional production experience and continue to offer hybrid productions that combine real cinematography with AI-generated elements. But the studio's primary direction since 2026 is AI-native.</p>
+    </details>
+    <details class="faq-item">
+      <summary>How do I hire you for a project?</summary>
+      <p>Email <a href="mailto:{{EMAIL_DIRECT}}" data-cursor>{{EMAIL_DIRECT}}</a> or use the contact form below. We take on select projects each year. Briefs welcome — even rough ones.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Who is Chntan N. Shah?</summary>
+      <p>Chntan N. Shah is the Founder and Director of Woo Hoo Media Labs. He has been working in cinema since 2000 — 26 years — across corporate communication, government films, brand work, advertising, and now AI-native production. He is based in Mumbai and leads all creative direction at the studio.</p>
+    </details>
+    <details class="faq-item">
+      <summary>What's your most viral work?</summary>
+      <p>"Bhai, Shirt Pehen Lo" — an AI Salman Khan tribute reel that crossed 1.2 million Instagram views in 2026. We also produced a Virat Kohli AI cricket reel that reached 170,000+ views.</p>
+    </details>
+  </div>
+</section>
+
 <div class="section-label" id="contact"><span>Get in touch · {{CONTACT_NUM}}</span></div>
 <section class="contact reveal">
   <div class="kicker">Available for select projects · 2026</div>
   <h2>Let's make<br/>something <em>unforgettable.</em></h2>
   <form class="contact-form" onsubmit="handleSubmit(event)">
-    <div class="field"><label for="name">Your name</label><input id="name" type="text" required placeholder="e.g. Riya Mehta" /></div>
-    <div class="field"><label for="email">Email</label><input id="email" type="email" required placeholder="you@brand.com" /></div>
-    <div class="field"><label for="company">Company <span class="opt">(optional)</span></label><input id="company" type="text" placeholder="Brand or organisation" /></div>
+    <div class="field"><label for="name">Your name</label><input id="name" type="text" required placeholder="e.g. Riya Mehta" autocomplete="name" /></div>
+    <div class="field"><label for="email">Email</label><input id="email" type="email" required placeholder="you@brand.com" autocomplete="email" /></div>
+    <div class="field"><label for="company">Company <span class="opt">(optional)</span></label><input id="company" type="text" placeholder="Brand or organisation" autocomplete="organization" /></div>
     <div class="field"><label for="inquiry">Tell us about your project</label><textarea id="inquiry" required placeholder="A film, an idea, a brief, a question — start anywhere."></textarea></div>
     <div class="submit-row">
       <button type="submit" data-cursor>Send Inquiry →</button>
@@ -156,7 +319,7 @@
 </section>
 
 <footer>
-  <div>© 2026 Woo Hoo Media Labs · Mumbai</div>
+  <div>© 2026 Woo Hoo Media Labs · Mumbai · India</div>
   <div>
     <a href="https://www.instagram.com/{{IG_HANDLE}}" target="_blank" rel="noopener" data-cursor>Instagram</a>
     <a href="{{YOUTUBE_CHANNEL}}" target="_blank" rel="noopener" data-cursor>YouTube</a>
@@ -164,10 +327,9 @@
   </div>
 </footer>
 
-<!-- VIDEO MODAL -->
 <div class="modal" id="modal" aria-hidden="true">
-  <button class="modal-close" data-cursor aria-label="Close">✕</button>
-  <div class="modal-inner"><iframe id="modal-iframe" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe></div>
+  <button class="modal-close" data-cursor aria-label="Close video">✕</button>
+  <div class="modal-inner"><iframe id="modal-iframe" allow="autoplay; encrypted-media; fullscreen" allowfullscreen title="Video player"></iframe></div>
 </div>
 
 <script src="/app.js"></script>

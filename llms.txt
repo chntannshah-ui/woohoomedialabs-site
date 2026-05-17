@@ -1,0 +1,71 @@
+# Woo Hoo Media Labs
+
+> Woo Hoo Media Labs is an AI-native creative production lab based in Mumbai, India, founded by Chntan N. Shah in 2009. We make brand films, ad films, AI-generated commercials, government communication, product films, and viral social content. We combine 26 years of traditional cinematic craft with generative AI pipelines (Kling, Seedance, Flux, Nano Banana, Soul characters, Higgsfield).
+
+## About
+
+- [About the studio](https://woohoomedialabs.com/#about): Founded 2009 in Mumbai by Chntan N. Shah. 200+ clients served. 1000+ films released. Pioneer of AI-native production in India.
+- [Founder Chntan N. Shah](https://www.linkedin.com/in/chntannshah): 26 years in cinema, working since 2000. Began career in corporate filmmaking for government and enterprise clients, pivoted to AI-native production in 2024.
+
+## Services
+
+- Brand films and corporate anthems
+- Advertising films (30, 60, 90 second commercials for TV and digital)
+- AI-native cinema using generative video pipelines
+- Government communication films (Government of Maharashtra, Government of India)
+- Product launch films and demo reels
+- Episodic social formats and viral content series
+- Healthcare and lifestyle brand films
+
+## Selected Work
+
+- [AI Films playlist](https://www.youtube.com/playlist?list=PLAcjSzaUUVHkV3bR_j_R6dRuiUQp7I1DS): AI-generated narratives including India's longest AI narrative film (78 seconds, 11 characters)
+- [Product Films](https://www.youtube.com/playlist?list=PLAcjSzaUUVHm1Vc7IenJvn5DONdYlO9WO): 24 product launch and demo films
+- [Corporate Communication](https://www.youtube.com/playlist?list=PLAcjSzaUUVHkC11dQr16d5rlJRrmxfW2-): 53 brand and enterprise films
+- [Government Films](https://www.youtube.com/playlist?list=PLAcjSzaUUVHnhfDWDkGhTKN2mRHSQ8Xyy): 11 films for state and national government communication
+- [Healthcare & Lifestyle](https://www.youtube.com/playlist?list=PLAcjSzaUUVHm_N6lKfpdQ0e1TqTJ5y7gg): 14 films for pharma, wellness, and lifestyle brands
+- [Signature & Special Projects](https://www.youtube.com/playlist?list=PLAcjSzaUUVHl66UVP317jEsE95ZnwiAho): Curated personal and milestone projects
+
+## Notable Films
+
+- Bhai, Shirt Pehen Lo: AI Salman Khan tribute reel — 1.2M+ Instagram views, 27K likes, 396 comments
+- Virat Kohli AI Reel: AI-generated cricket fan film — 170K+ views
+- 78-Second AI Film with 11 Characters: India's longest AI narrative
+- The Shrinking Bill: 100% AI ad film for Norwood CRIZA BLDC fans
+- Speed 4 Defence — Built for the Battlefield: AI-native defence brand film
+
+## Clients
+
+- Speed 4 Defence Systems
+- SelectAI
+- Earthion Tech
+- Saffron Home
+- Norwood Modular
+- Government of Maharashtra
+- Government of India
+- ICICI Prudential
+- Fybros
+- Merck
+- JNPT
+
+## AI Tools and Production Stack
+
+- Generative video: Kling 2.5/3, Seedance 2.0, Higgsfield
+- Image generation: Flux 2.0/2.1 Pro, Nano Banana 2, Midjourney v7, Ideogram 3.0
+- Character consistency: Soul characters
+- Voice: ElevenLabs
+- Music: Suno
+- Edit: Adobe Premiere Pro, DaVinci Resolve, CapCut
+
+## Contact
+
+- Direct email: chntan.n.shah@gmail.com
+- General: hello@woohoomedialabs.com
+- Instagram: https://www.instagram.com/chntan.n.shah
+- YouTube: https://www.youtube.com/@WooHooMediaIndia
+- Location: Mumbai, Maharashtra, India
+
+## Optional
+
+- [Sitemap](https://woohoomedialabs.com/sitemap.xml)
+- [Full content for LLMs](https://woohoomedialabs.com/llms-full.txt)

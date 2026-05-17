@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0a0a0a" />
+<meta name="build" content="{{BUILD_TIME}}" />
+
+<title>{{TITLE}}</title>
+<meta name="description" content="{{DESCRIPTION}}" />
+<meta name="keywords" content="AI film production Mumbai, AI-native creative production lab India, Chntan N Shah, Woo Hoo Media Labs, brand films, ad films, AI commercials, generative video production" />
+<meta name="author" content="Chntan N. Shah" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://{{DOMAIN}}/" />
+
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/logo-mark.png" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="{{TITLE}}" />
+<meta property="og:description" content="{{DESCRIPTION}}" />
+<meta property="og:url" content="https://{{DOMAIN}}/" />
+<meta property="og:image" content="https://{{DOMAIN}}/og-cover.jpg" />
+<meta property="og:site_name" content="Woo Hoo Media Labs" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{TITLE}}" />
+<meta name="twitter:description" content="{{DESCRIPTION}}" />
+<meta name="twitter:image" content="https://{{DOMAIN}}/og-cover.jpg" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Woo Hoo Media Labs",
+  "alternateName": "Woo Hoo Media",
+  "founder": { "@type": "Person", "name": "Chntan N. Shah", "jobTitle": "Founder & Director" },
+  "foundingDate": "2009",
+  "url": "https://{{DOMAIN}}",
+  "logo": "https://{{DOMAIN}}/logo.png",
+  "email": "{{EMAIL_DIRECT}}",
+  "address": { "@type": "PostalAddress", "addressLocality": "Mumbai", "addressRegion": "Maharashtra", "addressCountry": "IN" },
+  "sameAs": ["{{YOUTUBE_CHANNEL}}", "https://www.instagram.com/{{IG_HANDLE}}", "{{LINKEDIN}}"]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Geist+Mono:wght@400;500&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="cursor"></div>
+<div class="cursor-trail"></div>
+
+<nav>
+  <a href="/" class="logo">
+    <img src="/logo-mark.png" alt="Woo Hoo Media Labs" />
+    <span>Woo Hoo<sup>Labs</sup></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#section-02" data-cursor>Work</a></li>
+    <li><a href="#about" data-cursor>Studio</a></li>
+    <li><a href="#services" data-cursor>Services</a></li>
+    <li><a href="#contact" data-cursor>Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="/hero-poster.jpg">
+    <source src="/hero-reel.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">{{HERO_TAG}}</div>
+    <h1>{{HERO_HEADLINE}}</h1>
+    <div class="hero-meta">{{HERO_METRICS}}</div>
+  </div>
+  <div class="scroll-cue">Scroll</div>
+</section>
+
+<!-- MANIFESTO -->
+<div class="section-label" id="about"><span>Manifesto · 01</span></div>
+<section class="manifesto reveal">
+  <h2>{{MANIFESTO_HEADLINE}}</h2>
+  <div class="since">
+    <p>{{MANIFESTO_BODY}}</p>
+    <p style="margin-top:20px;">{{MANIFESTO_FOUNDER}}</p>
+  </div>
+</section>
+
+{{FILM_SECTIONS}}
+
+<!-- CAPABILITIES -->
+<div class="section-label" id="services"><span>Capabilities · {{CAPABILITIES_NUM}}</span><span class="count">Drag →</span></div>
+<section class="services reveal">
+  <div class="services-track">
+{{CAPABILITIES}}
+  </div>
+</section>
+
+<!-- INSTAGRAM REELS -->
+<div class="section-label" id="reactions"><span>📱 When craft meets the scroll · {{IG_NUM}}</span><span class="count">Instagram · live</span></div>
+<section class="ig-section reveal">
+  <div class="ig-intro">
+    <h3>When craft meets<br/><em>the scroll.</em></h3>
+    <p>Vertical films built for the phone — where cinematic craft is forced to land in three seconds, or disappear. Embedded live from Instagram with reactions and view counts updating themselves.</p>
+  </div>
+  <div class="ig-grid">
+{{IG_CARDS}}
+  </div>
+  <a href="https://www.instagram.com/{{IG_HANDLE}}" target="_blank" rel="noopener" class="view-all" data-cursor>Follow @{{IG_HANDLE}} for more →</a>
+</section>
+
+<!-- PRE-AI SHOWREEL -->
+<div class="section-label" id="origin"><span>Where we came from · {{ORIGIN_NUM}}</span><span class="count">The pre-AI archive</span></div>
+<section class="origin-section reveal">
+  <div class="origin-intro">
+    <h3>Twenty-three years of cinema,<br/><em>before the algorithms.</em></h3>
+    <p>The discipline underneath everything new. Brand films, government communication, corporate storytelling, product launches — earned the slow way, frame by frame, on real sets, with real cameras.</p>
+  </div>
+  <div class="origin-video-wrap">
+    <div class="origin-video" id="origin-video">
+      <img class="origin-poster" src="https://img.youtube.com/vi/{{PRE_AI_VIDEO_ID}}/maxresdefault.jpg" alt="Pre-AI Showreel" />
+      <button class="origin-play" type="button" aria-label="Play showreel">
+        <svg viewBox="0 0 64 64" fill="none">
+          <circle cx="32" cy="32" r="31" stroke="currentColor" stroke-width="1.5" fill="rgba(0,0,0,0.4)"/>
+          <path d="M26 21 L26 43 L44 32 Z" fill="currentColor"/>
+        </svg>
+      </button>
+    </div>
+    <div class="origin-caption">
+      <span class="dot">●</span>
+      <span>Pre-AI Showreel · 2000 — 2023 · The foundation everything new stands on.</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="section-label" id="contact"><span>Get in touch · {{CONTACT_NUM}}</span></div>
+<section class="contact reveal">
+  <div class="kicker">Available for select projects · 2026</div>
+  <h2>Let's make<br/>something <em>unforgettable.</em></h2>
+  <form class="contact-form" onsubmit="handleSubmit(event)">
+    <div class="field"><label for="name">Your name</label><input id="name" type="text" required placeholder="e.g. Riya Mehta" /></div>
+    <div class="field"><label for="email">Email</label><input id="email" type="email" required placeholder="you@brand.com" /></div>
+    <div class="field"><label for="company">Company <span class="opt">(optional)</span></label><input id="company" type="text" placeholder="Brand or organisation" /></div>
+    <div class="field"><label for="inquiry">Tell us about your project</label><textarea id="inquiry" required placeholder="A film, an idea, a brief, a question — start anywhere."></textarea></div>
+    <div class="submit-row">
+      <button type="submit" data-cursor>Send Inquiry →</button>
+      <div class="alt">Direct: <a href="mailto:{{EMAIL_DIRECT}}" data-cursor>{{EMAIL_DIRECT}}</a></div>
+    </div>
+  </form>
+</section>
+
+<footer>
+  <div>© 2026 Woo Hoo Media Labs · Mumbai</div>
+  <div>
+    <a href="https://www.instagram.com/{{IG_HANDLE}}" target="_blank" rel="noopener" data-cursor>Instagram</a>
+    <a href="{{YOUTUBE_CHANNEL}}" target="_blank" rel="noopener" data-cursor>YouTube</a>
+    <a href="{{LINKEDIN}}" target="_blank" rel="noopener" data-cursor>LinkedIn</a>
+  </div>
+</footer>
+
+<!-- VIDEO MODAL -->
+<div class="modal" id="modal" aria-hidden="true">
+  <button class="modal-close" data-cursor aria-label="Close">✕</button>
+  <div class="modal-inner"><iframe id="modal-iframe" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe></div>
+</div>
+
+<script async src="//www.instagram.com/embed.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>

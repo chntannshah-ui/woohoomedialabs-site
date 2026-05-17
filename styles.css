@@ -46,24 +46,26 @@ nav {
 .logo { display: flex; align-items: center; gap: 14px; }
 .logo img { height: 32px; width: auto; }
 .logo .wordmark {
-  font-family: 'Geist', -apple-system, sans-serif;
-  font-size: 14px;
-  font-weight: 400;
+  font-family: 'Montserrat', -apple-system, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
   font-style: normal;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink);
   line-height: 1;
 }
 .logo .wordmark sup {
+  font-family: 'Montserrat', sans-serif;
   font-size: 8px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  margin-left: 4px;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  margin-left: 5px;
   color: var(--accent);
   vertical-align: top;
   position: relative;
-  top: -2px;
+  top: -1px;
 }
 .nav-links {
   display: flex; gap: 36px; list-style: none;

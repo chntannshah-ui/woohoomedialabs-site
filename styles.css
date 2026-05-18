@@ -104,18 +104,27 @@ nav {
   .nav-toggle { display: flex; }
 }
 
-/* Mobile menu overlay */
+/* Mobile menu overlay — DESKTOP: completely hidden, MOBILE: enabled when .open */
 .menu-overlay {
-  position: fixed; inset: 0;
-  background: var(--bg);
-  z-index: 150;
-  display: flex; flex-direction: column;
-  justify-content: center; align-items: flex-start;
-  padding: 80px 48px;
-  opacity: 0; visibility: hidden;
-  transition: opacity 0.5s var(--ease), visibility 0.5s;
+  display: none;
 }
-.menu-overlay.open { opacity: 1; visibility: visible; }
+@media (max-width: 768px) {
+  .menu-overlay {
+    position: fixed; inset: 0;
+    background: var(--bg);
+    z-index: 150;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: flex-start;
+    padding: 80px 28px;
+    opacity: 0; visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.5s var(--ease), visibility 0.5s;
+  }
+  .menu-overlay.open {
+    opacity: 1; visibility: visible;
+    pointer-events: auto;
+  }
+}
 .menu-close {
   position: absolute; top: 24px; right: 24px;
   width: 48px; height: 48px;
@@ -163,21 +172,19 @@ nav {
   vertical-align: super;
   letter-spacing: 0.15em;
 }
-.menu-foot {
-  position: absolute; bottom: 36px; left: 48px; right: 48px;
-  display: flex; flex-direction: column; gap: 12px;
-  font-family: 'Geist Mono', monospace;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--ink-dim);
-}
-.menu-foot span::first-letter { color: var(--accent); }
-.menu-foot a { color: var(--ink); border-bottom: 1px solid var(--line); padding-bottom: 4px; transition: border-color 0.3s, color 0.3s; }
-.menu-foot a:hover { border-color: var(--accent); color: var(--accent); }
-@media (max-width: 480px) {
-  .menu-overlay { padding: 80px 28px; }
-  .menu-foot { left: 28px; right: 28px; bottom: 28px; }
+@media (max-width: 768px) {
+  .menu-foot {
+    position: absolute; bottom: 28px; left: 28px; right: 28px;
+    display: flex; flex-direction: column; gap: 12px;
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ink-dim);
+  }
+  .menu-foot span::first-letter { color: var(--accent); }
+  .menu-foot a { color: var(--ink); border-bottom: 1px solid var(--line); padding-bottom: 4px; transition: border-color 0.3s, color 0.3s; }
+  .menu-foot a:hover { border-color: var(--accent); color: var(--accent); }
 }
 
 /* HERO */

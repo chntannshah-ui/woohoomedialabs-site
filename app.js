@@ -1,21 +1,68 @@
-// ─── CUSTOM CURSOR ──────────────────────────────────────────
-const cursor = document.querySelector('.cursor');
-const trail = document.querySelector('.cursor-trail');
-let mx = 0, my = 0, tx = 0, ty = 0;
-document.addEventListener('mousemove', (e) => {
-  mx = e.clientX; my = e.clientY;
-  cursor.style.left = mx + 'px';
-  cursor.style.top = my + 'px';
-});
-(function animateTrail() {
-  tx += (mx - tx) * 0.15; ty += (my - ty) * 0.15;
-  trail.style.left = tx + 'px'; trail.style.top = ty + 'px';
-  requestAnimationFrame(animateTrail);
+// ─── VIGNETTE SPOTLIGHT CURSOR ──────────────────────────────
+// The page has a soft radial vignette that follows the mouse,
+// like a flashlight in a dark cinema. A small marigold dot appears
+// when hovering interactive elements.
+(function setupVignette() {
+  if (window.matchMedia('(max-width: 768px)').matches) return;
+  const root = document.documentElement;
+  const hotDot = document.getElementById('hot-dot');
+  let mx = 0, my = 0, dx = 0, dy = 0;
+  let interactive = false;
+
+  document.addEventListener('mousemove', (e) => {
+    mx = e.clientX; my = e.clientY;
+    if (hotDot) {
+      hotDot.style.left = mx + 'px';
+      hotDot.style.top = my + 'px';
+    }
+  });
+
+  // Smooth vignette tracking (slight lerp for buttery feel)
+  function tick() {
+    dx += (mx - dx) * 0.18;
+    dy += (my - dy) * 0.18;
+    root.style.setProperty('--mx', dx + 'px');
+    root.style.setProperty('--my', dy + 'px');
+    requestAnimationFrame(tick);
+  }
+  tick();
+
+  // Marigold dot on hover targets
+  const interactiveSel = '[data-cursor], button, a, input, textarea, .film-card, summary, details';
+  document.querySelectorAll(interactiveSel).forEach(el => {
+    el.addEventListener('mouseenter', () => hotDot && hotDot.classList.add('active'));
+    el.addEventListener('mouseleave', () => hotDot && hotDot.classList.remove('active'));
+  });
 })();
-document.querySelectorAll('[data-cursor], button, a, input, textarea, .film-card').forEach(el => {
-  el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-  el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-});
+
+// ─── MOBILE MENU ────────────────────────────────────────────
+(function setupMobileMenu() {
+  const toggle = document.getElementById('nav-toggle');
+  const overlay = document.getElementById('menu-overlay');
+  const closeBtn = document.getElementById('menu-close');
+  if (!toggle || !overlay) return;
+
+  function open() {
+    overlay.classList.add('open');
+    overlay.setAttribute('aria-hidden', 'false');
+    toggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  function close() {
+    overlay.classList.remove('open');
+    overlay.setAttribute('aria-hidden', 'true');
+    toggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+  toggle.addEventListener('click', open);
+  if (closeBtn) closeBtn.addEventListener('click', close);
+  // Close on link click (so anchor navigation works)
+  overlay.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('open')) close();
+  });
+})();
 
 // ─── REVEAL ON SCROLL ───────────────────────────────────────
 const observer = new IntersectionObserver((entries) => {

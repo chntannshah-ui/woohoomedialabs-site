@@ -46,12 +46,18 @@ MANIFESTO = {
 }
 
 CAPABILITIES = [
-    ("01 / Brand", "Brand <em>films.</em>", "Anthems, manifestos, founder stories. Built to move the room."),
-    ("02 / Advertising", "Ad <em>films.</em>", "30, 60, 90 second cinematic commercials for TV and digital."),
-    ("03 / AI", "AI-native <em>cinema.</em>", "Generative pipelines: Kling, Seedance, Flux, Nano Banana, Soul characters."),
-    ("04 / Government", "Public <em>narrative.</em>", "Government and defence communication, with the gravity it deserves."),
-    ("05 / Product", "Product <em>films.</em>", "Hero films, demo reels, launch cinema — for products people actually buy."),
-    ("06 / Series", "Episodic <em>formats.</em>", "Social-first series engineered for retention, virality, and recall."),
+    ("01 / Brand", "Brand <em>films.</em>", "Anthems, manifestos, founder stories. Built to move the room.",
+     '<svg viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="30" cy="14" r="2.5" fill="currentColor"/><line x1="22" y1="26" x2="22" y2="50"/><line x1="30" y1="26" x2="30" y2="50"/><line x1="38" y1="26" x2="38" y2="50"/></svg>'),
+    ("02 / Advertising", "Ad <em>films.</em>", "30, 60, 90 second cinematic commercials for TV and digital.",
+     '<svg viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M10 18 L10 12 L18 12"/><path d="M50 18 L50 12 L42 12"/><path d="M10 42 L10 48 L18 48"/><path d="M50 42 L50 48 L42 48"/><circle cx="30" cy="30" r="9" stroke-dasharray="2 3"/></svg>'),
+    ("03 / AI", "AI-native <em>cinema.</em>", "Every frame imagined first, then made. The camera multiplied a thousand times.",
+     '<svg viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="10" y="10" width="40" height="40"/><line x1="10" y1="10" x2="50" y2="50"/><circle cx="30" cy="30" r="2.5" fill="currentColor"/></svg>'),
+    ("04 / Government", "Public <em>narrative.</em>", "Government and defence communication, with the gravity it deserves.",
+     '<svg viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="46" x2="54" y2="46"/><path d="M14 46 L30 16 L46 46 Z"/><line x1="22" y1="32" x2="38" y2="32"/></svg>'),
+    ("05 / Product", "Product <em>films.</em>", "Hero films, demo reels, launch cinema — for products people actually buy.",
+     '<svg viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="8" y="18" width="26" height="32"/><rect x="20" y="12" width="26" height="32"/><line x1="34" y1="18" x2="46" y2="12"/></svg>'),
+    ("06 / Series", "Episodic <em>formats.</em>", "Social-first series engineered for retention, virality, and recall.",
+     '<svg viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="30" x2="54" y2="30"/><rect x="12" y="22" width="10" height="16"/><rect x="25" y="22" width="10" height="16"/><rect x="38" y="22" width="10" height="16"/></svg>'),
 ]
 
 # Instagram reels — these are manually managed since IG has no playlist API
@@ -150,9 +156,12 @@ def render_ig_card(reel):
     </a>'''
 
 
-def render_capability(num, title, body):
+def render_capability(num, title, body, glyph):
     return f'''    <div class="service" data-cursor>
-      <div class="num">{num}</div>
+      <div class="service-top">
+        <div class="num">{num}</div>
+        <div class="glyph">{glyph}</div>
+      </div>
       <h3>{title}</h3>
       <p>{body}</p>
     </div>'''

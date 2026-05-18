@@ -172,13 +172,12 @@
 </head>
 <body>
 
-<div class="cursor"></div>
-<div class="cursor-trail"></div>
+<div class="vignette" aria-hidden="true"></div>
+<div class="hot-dot" id="hot-dot" aria-hidden="true"></div>
 
 <nav>
   <a href="/" class="logo" aria-label="Woo Hoo Media Labs — home">
-    <img src="/logo-mark.png" alt="Woo Hoo Media Labs logo" width="32" height="32" />
-    <span class="wordmark">Woo Hoo Media<sup>Labs</sup></span>
+    <img class="logo-img" src="/logo-white.png" alt="Woo Hoo Media Labs" />
   </a>
   <ul class="nav-links">
     <li><a href="#section-02" data-cursor>Work</a></li>
@@ -186,7 +185,25 @@
     <li><a href="#services" data-cursor>Services</a></li>
     <li><a href="#contact" data-cursor>Contact</a></li>
   </ul>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE MENU OVERLAY -->
+<div class="menu-overlay" id="menu-overlay" aria-hidden="true">
+  <button class="menu-close" id="menu-close" aria-label="Close menu">✕</button>
+  <nav class="menu-nav">
+    <a href="#section-02" class="menu-link" data-cursor>Work</a>
+    <a href="#about" class="menu-link" data-cursor>Studio</a>
+    <a href="#services" class="menu-link" data-cursor>Services</a>
+    <a href="#contact" class="menu-link" data-cursor>Contact</a>
+  </nav>
+  <div class="menu-foot">
+    <span>● Available for select projects · 2026</span>
+    <a href="mailto:{{EMAIL_DIRECT}}">{{EMAIL_DIRECT}}</a>
+  </div>
+</div>
 
 <section class="hero" aria-label="Woo Hoo Media Labs — AI-Native Creative Production Lab">
   <video class="hero-video"

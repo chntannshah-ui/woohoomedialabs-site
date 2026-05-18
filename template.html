@@ -1,758 +1,443 @@
-:root {
-  --bg: #0a0a0a;
-  --bg-2: #111111;
-  --ink: #fafafa;
-  --ink-dim: #8a8a8a;
-  --line: #1f1f1f;
-  --accent: #FFB000;
-  --ease: cubic-bezier(0.65, 0, 0.35, 1);
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0a0a0a" />
+<meta name="build" content="{{BUILD_TIME}}" />
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  background: var(--bg); color: var(--ink);
-  font-family: 'Geist', -apple-system, sans-serif;
-  font-weight: 400; -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-}
-a { color: inherit; text-decoration: none; }
+<!-- PRIMARY META -->
+<title>{{TITLE}}</title>
+<meta name="description" content="{{DESCRIPTION}}" />
+<meta name="keywords" content="AI film production Mumbai, AI-native production studio India, Chntan N Shah, Woo Hoo Media Labs, brand films, ad films, AI commercials, generative video production India, AI filmmaker Mumbai, generative AI cinema, Kling Seedance Flux production" />
+<meta name="author" content="Chntan N. Shah" />
+<meta name="publisher" content="Woo Hoo Media Labs" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow" />
+<link rel="canonical" href="https://{{DOMAIN}}/" />
 
-/* CURSOR — Vignette Spotlight (medium intensity, darkening) */
-/* The page has a soft radial darkening at the edges — like holding a small
-   light source in a dim cinema. The area near the cursor stays normal,
-   edges fade slightly dark. ~50% the intensity of the original heavy version. */
-.vignette {
-  position: fixed; inset: 0;
-  pointer-events: none; z-index: 9998;
-  background: radial-gradient(
-    circle 480px at var(--mx, 50%) var(--my, 50%),
-    transparent 0%,
-    rgba(10, 10, 10, 0.0) 35%,
-    rgba(10, 10, 10, 0.22) 80%,
-    rgba(10, 10, 10, 0.38) 100%
-  );
-  mix-blend-mode: multiply;
-  transition: opacity 0.4s var(--ease);
-  opacity: 1;
-}
-.hot-dot {
-  position: fixed; left: 0; top: 0;
-  width: 10px; height: 10px;
-  border-radius: 50%;
-  background: var(--accent);
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%) scale(0);
-  transition: transform 0.25s var(--ease-out), opacity 0.3s var(--ease);
-  opacity: 0;
-  box-shadow: 0 0 20px rgba(255, 176, 0, 0.55);
-}
-.hot-dot.active {
-  transform: translate(-50%, -50%) scale(1);
-  opacity: 1;
-}
-@media (max-width: 768px) {
-  .vignette, .hot-dot, .aperture { display: none !important; }
-}
+<!-- GEO -->
+<meta name="geo.region" content="IN-MH" />
+<meta name="geo.placename" content="Mumbai" />
+<meta name="ICBM" content="19.0760, 72.8777" />
+<meta http-equiv="content-language" content="en-IN" />
 
-/* NAV */
-nav {
-  position: fixed; top: 0; left: 0; right: 0;
-  z-index: 100;
-  padding: 0;
-}
-.nav-inner {
-  max-width: 1800px;
-  margin: 0 auto;
-  padding: 20px 48px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.logo { display: flex; align-items: center; }
-.logo-img {
-  height: 38px; width: auto;
-  display: block;
-  transition: opacity 0.3s var(--ease);
-}
-.logo:hover .logo-img { opacity: 0.85; }
-.nav-links {
-  display: flex; gap: 36px; list-style: none;
-  font-family: 'Geist Mono', monospace;
-  font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em;
-  color: var(--ink);
-}
-.nav-links a { opacity: 0.7; transition: opacity 0.3s var(--ease), color 0.3s var(--ease); }
-.nav-links a:hover { opacity: 1; color: var(--accent); }
+<!-- ICONS / PWA -->
+<link rel="icon" type="image/png" sizes="64x64" href="/favicon-v4.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-v4.png" />
+<link rel="shortcut icon" href="/favicon-v4.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon-v4.png" />
+<link rel="manifest" href="/site.webmanifest" />
 
-/* Hamburger toggle (mobile only) */
-.nav-toggle {
-  display: none;
-  background: none; border: none;
-  width: 40px; height: 40px;
-  cursor: pointer;
-  flex-direction: column; justify-content: center; align-items: center;
-  gap: 6px; padding: 0;
-}
-.nav-toggle span {
-  display: block;
-  width: 24px; height: 1.5px;
-  background: var(--ink);
-  transition: transform 0.4s var(--ease), opacity 0.4s var(--ease), background 0.3s;
-}
-.nav-toggle:hover span { background: var(--accent); }
+<!-- AI / LLM HINTS -->
+<link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-readable site overview" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM-readable full reference" />
 
-@media (max-width: 768px) {
-  nav { background: rgba(10,10,10,0.6); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
-  .nav-inner { padding: 14px 20px; }
-  .nav-links { display: none; }
-  .logo-img { height: 30px; }
-  .nav-toggle { display: flex; }
-}
+<!-- OPEN GRAPH -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="{{TITLE}}" />
+<meta property="og:description" content="{{DESCRIPTION}}" />
+<meta property="og:url" content="https://{{DOMAIN}}/" />
+<meta property="og:image" content="https://{{DOMAIN}}/og-cover.jpg" />
+<meta property="og:image:secure_url" content="https://{{DOMAIN}}/og-cover.jpg" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Woo Hoo Media Labs — Cinema for the age of intelligence. Mumbai." />
+<meta property="og:site_name" content="Woo Hoo Media Labs" />
+<meta property="og:locale" content="en_IN" />
+<meta property="article:author" content="Chntan N. Shah" />
 
-/* Mobile menu overlay — DESKTOP: completely hidden, MOBILE: enabled when .open */
-.menu-overlay {
-  display: none;
-}
-@media (max-width: 768px) {
-  .menu-overlay {
-    position: fixed; inset: 0;
-    background: var(--bg);
-    z-index: 150;
-    /* Multiple safety nets to prevent any flash before JS attaches */
-    display: flex; flex-direction: column;
-    justify-content: center; align-items: flex-start;
-    padding: 80px 28px;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transform: translateY(-100%);
-    clip-path: inset(100% 0 0 0);
-    transition: opacity 0.45s var(--ease), visibility 0.45s, transform 0.45s var(--ease), clip-path 0.45s var(--ease);
-  }
-  .menu-overlay.open {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transform: translateY(0);
-    clip-path: inset(0 0 0 0);
-  }
-}
-@media (min-width: 769px) {
-  /* Belt + suspenders — never show on desktop no matter what */
-  .menu-overlay,
-  .menu-overlay * {
-    display: none !important;
-  }
-}
-.menu-close {
-  position: absolute; top: 24px; right: 24px;
-  width: 48px; height: 48px;
-  background: none; border: 1px solid var(--line);
-  color: var(--ink);
-  font-size: 18px; cursor: pointer;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  z-index: 200;
-  transition: background 0.3s, color 0.3s, border-color 0.3s, transform 0.4s var(--ease);
-}
-.menu-close:hover { background: var(--accent); color: var(--bg); border-color: var(--accent); transform: rotate(90deg); }
-.menu-nav {
-  display: flex; flex-direction: column; gap: 24px;
-  width: 100%;
-}
-.menu-link {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(48px, 12vw, 96px);
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -0.03em;
-  color: var(--ink);
-  transition: color 0.3s var(--ease), transform 0.4s var(--ease);
-  display: inline-block;
-  opacity: 0;
-  transform: translateY(20px);
-  text-decoration: none;
-}
-.menu-overlay.open .menu-link {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.6s var(--ease) calc(var(--i, 0) * 0.08s + 0.15s), transform 0.6s var(--ease) calc(var(--i, 0) * 0.08s + 0.15s), color 0.3s;
-}
-.menu-overlay.open .menu-link:nth-child(1) { --i: 0; }
-.menu-overlay.open .menu-link:nth-child(2) { --i: 1; }
-.menu-overlay.open .menu-link:nth-child(3) { --i: 2; }
-.menu-overlay.open .menu-link:nth-child(4) { --i: 3; }
-.menu-link:hover { color: var(--accent); }
-.menu-link::before {
-  content: attr(data-num);
-  font-family: 'Geist Mono', monospace;
-  font-size: 11px;
-  color: var(--ink-dim);
-  margin-right: 16px;
-  vertical-align: super;
-  letter-spacing: 0.15em;
-}
-@media (max-width: 768px) {
-  .menu-foot {
-    position: absolute; bottom: 28px; left: 28px; right: 28px;
-    display: flex; flex-direction: column; gap: 12px;
-    font-family: 'Geist Mono', monospace;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--ink-dim);
-  }
-  .menu-foot span::first-letter { color: var(--accent); }
-  .menu-foot a { color: var(--ink); border-bottom: 1px solid var(--line); padding-bottom: 4px; transition: border-color 0.3s, color 0.3s; }
-  .menu-foot a:hover { border-color: var(--accent); color: var(--accent); }
-}
+<!-- TWITTER -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{TITLE}}" />
+<meta name="twitter:description" content="{{DESCRIPTION}}" />
+<meta name="twitter:image" content="https://{{DOMAIN}}/og-cover.jpg" />
+<meta name="twitter:image:alt" content="Woo Hoo Media Labs — AI-Native Creative Production Lab Mumbai" />
+<meta name="twitter:creator" content="@chntannshah" />
 
-/* HERO */
-.hero { height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; background: #000; }
-.hero-video {
-  position: absolute; inset: 0; width: 100%; height: 100%;
-  object-fit: cover; object-position: center;
-  opacity: 0.5; filter: contrast(1.05) saturate(0.9);
-  pointer-events: none; border: none;
+<!-- SCHEMA: ORGANIZATION -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://{{DOMAIN}}/#organization",
+  "name": "Woo Hoo Media Labs",
+  "alternateName": ["Woo Hoo Media", "WooHoo Media Labs"],
+  "founder": { "@id": "https://{{DOMAIN}}/#chntan" },
+  "foundingDate": "2009",
+  "foundingLocation": { "@type": "Place", "name": "Mumbai, Maharashtra, India" },
+  "url": "https://{{DOMAIN}}",
+  "logo": "https://{{DOMAIN}}/logo.png",
+  "image": "https://{{DOMAIN}}/og-cover.jpg",
+  "description": "AI-native creative production lab based in Mumbai. 26 years of cinematic craft, now produced with generative AI pipelines.",
+  "email": "{{EMAIL_DIRECT}}",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Mumbai",
+    "addressRegion": "Maharashtra",
+    "addressCountry": "IN"
+  },
+  "areaServed": [
+    { "@type": "Country", "name": "India" },
+    { "@type": "Place", "name": "Worldwide" }
+  ],
+  "sameAs": [
+    "{{YOUTUBE_CHANNEL}}",
+    "https://www.instagram.com/{{IG_HANDLE}}",
+    "{{LINKEDIN}}"
+  ],
+  "knowsAbout": [
+    "AI Filmmaking", "Generative Video Production", "Brand Films", "Ad Films",
+    "Government Communication", "Product Launch Films", "Cinematic Storytelling",
+    "Kling AI", "Seedance", "Flux AI", "Nano Banana", "ElevenLabs", "Higgsfield"
+  ],
+  "makesOffer": [
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Brand Film Production" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI-Native Ad Film Production" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Government Communication Films" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Product Launch Films" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Cinema Production" } }
+  ]
 }
-.hero-overlay {
-  position: absolute; inset: 0;
-  background: radial-gradient(ellipse at center, transparent 0%, rgba(10,10,10,0.6) 70%, var(--bg) 100%);
-  z-index: 1;
-}
-.hero-content { position: relative; z-index: 2; text-align: center; padding: 0 24px; }
-.hero-tag {
-  font-family: 'Geist Mono', monospace;
-  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
-  opacity: 0; animation: fadeUp 1.2s var(--ease-out) 0.4s forwards;
-  margin-bottom: 32px; color: var(--ink-dim);
-}
-.hero-tag::before { content: "● "; color: var(--accent); }
-.hero h1 {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(56px, 12vw, 200px);
-  font-weight: 300; line-height: 0.9; letter-spacing: -0.04em;
-  font-variation-settings: "opsz" 144;
-}
-.hero h1 .line { display: block; overflow: hidden; }
-.hero h1 .line span { display: inline-block; transform: translateY(110%); animation: slideUp 1.4s var(--ease-out) forwards; }
-.hero h1 .line:nth-child(2) span { animation-delay: 0.15s; }
-.hero h1 .line:nth-child(3) span { animation-delay: 0.3s; }
-.hero h1 em { font-style: italic; font-weight: 400; color: var(--ink-dim); }
-.hero-meta {
-  margin-top: 48px; display: flex; justify-content: center; gap: 56px;
-  font-family: 'Geist Mono', monospace;
-  font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
-  opacity: 0; animation: fadeUp 1s var(--ease-out) 1.2s forwards;
-  flex-wrap: wrap;
-}
-.hero-meta span { color: var(--ink-dim); }
-.hero-meta b { font-weight: 500; color: var(--ink); }
-@media (max-width: 768px) { .hero-meta { gap: 20px; font-size: 10px; } }
+</script>
 
-.scroll-cue {
-  position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
-  font-family: 'Geist Mono', monospace;
-  font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--ink-dim); z-index: 3;
-  opacity: 0; animation: fadeUp 1s var(--ease-out) 1.6s forwards;
+<!-- SCHEMA: PERSON (Chntan) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://{{DOMAIN}}/#chntan",
+  "name": "Chntan N. Shah",
+  "alternateName": ["Chntan Shah"],
+  "jobTitle": "Founder & Director, Woo Hoo Media Labs",
+  "description": "Indian filmmaker with 26 years of experience in cinema. Founder of Woo Hoo Media Labs, an AI-native creative production lab in Mumbai. Pioneer of AI-native filmmaking in India.",
+  "url": "https://{{DOMAIN}}/",
+  "image": "https://{{DOMAIN}}/logo.png",
+  "worksFor": { "@id": "https://{{DOMAIN}}/#organization" },
+  "knowsAbout": [
+    "AI Filmmaking", "Cinematic Direction", "Generative Video Production",
+    "Brand Communication", "Government Films", "Advertising"
+  ],
+  "homeLocation": { "@type": "Place", "name": "Mumbai, India" },
+  "nationality": { "@type": "Country", "name": "India" },
+  "sameAs": [
+    "https://www.instagram.com/{{IG_HANDLE}}",
+    "{{LINKEDIN}}",
+    "{{YOUTUBE_CHANNEL}}"
+  ]
 }
-.scroll-cue::after { content: ""; display: block; width: 1px; height: 32px; background: var(--ink-dim); margin: 12px auto 0; animation: scrollPulse 2s ease-in-out infinite; }
+</script>
 
-@keyframes slideUp { to { transform: translateY(0); } }
-@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes scrollPulse { 0%, 100% { transform: scaleY(1); opacity: 0.5; } 50% { transform: scaleY(1.5); opacity: 1; } }
+<!-- SCHEMA: WEBSITE -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://{{DOMAIN}}/#website",
+  "name": "Woo Hoo Media Labs",
+  "url": "https://{{DOMAIN}}/",
+  "publisher": { "@id": "https://{{DOMAIN}}/#organization" },
+  "inLanguage": "en-IN"
+}
+</script>
 
-/* SECTION DIVIDER */
-.section-label {
-  font-family: 'Geist Mono', monospace;
-  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--ink-dim);
-  padding: 120px 48px 16px;
-  display: flex; justify-content: space-between; align-items: center;
+<!-- SCHEMA: FAQ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What is Woo Hoo Media Labs?", "acceptedAnswer": { "@type": "Answer", "text": "Woo Hoo Media Labs is an AI-native creative production lab based in Mumbai, India. It produces brand films, ad films, AI-generated commercials, government communication films, and viral social content. Founded by Chntan N. Shah in 2009 (as Woo Hoo Media), the studio formally evolved into Woo Hoo Media Labs in 2026 to reflect its specialization in AI-native cinema." } },
+    { "@type": "Question", "name": "Who is the founder of Woo Hoo Media Labs?", "acceptedAnswer": { "@type": "Answer", "text": "Chntan N. Shah, an Indian filmmaker with 26 years of experience in cinema. He started his career in 2000 in corporate and government communication filmmaking and progressively transitioned the studio to an AI-native production model from 2024 onward." } },
+    { "@type": "Question", "name": "Where is Woo Hoo Media Labs located?", "acceptedAnswer": { "@type": "Answer", "text": "Woo Hoo Media Labs is based in Mumbai, Maharashtra, India. The studio works with clients across India and internationally." } },
+    { "@type": "Question", "name": "What AI tools does Woo Hoo Media Labs use?", "acceptedAnswer": { "@type": "Answer", "text": "Woo Hoo Media Labs uses Kling 2.5 and 3, Seedance 2.0, Flux 2.0 and 2.1 Pro, Nano Banana 2, Midjourney v7, Higgsfield, Soul characters for consistency, ElevenLabs for voice synthesis, and Suno for music generation. Final edit and color is done in Adobe Premiere Pro and DaVinci Resolve." } },
+    { "@type": "Question", "name": "How do I hire Woo Hoo Media Labs for a project?", "acceptedAnswer": { "@type": "Answer", "text": "Email chntan.n.shah@gmail.com or use the contact form on woohoomedialabs.com. The studio accepts select brand, advertising, government, and AI cinema projects each year." } },
+    { "@type": "Question", "name": "What is the most viral work from Woo Hoo Media Labs?", "acceptedAnswer": { "@type": "Answer", "text": "Bhai, Shirt Pehen Lo — an AI Salman Khan tribute reel that crossed 1.2 million Instagram views in 2026. The studio also produced a Virat Kohli AI cricket reel that reached 170,000 views." } },
+    { "@type": "Question", "name": "How is Woo Hoo Media Labs different from other AI video studios?", "acceptedAnswer": { "@type": "Answer", "text": "Most AI video companies are technology startups learning filmmaking. Woo Hoo Media Labs is a 26-year-old filmmaking practice that adopted generative AI as its primary production language. The difference shows in cinematic craft, narrative discipline, and client-grade output that meets broadcast and advertising standards." } }
+  ]
 }
-.section-label::before, .section-label::after { content: ""; flex: 1; height: 1px; background: var(--line); }
-.section-label span { padding: 0 24px; }
-.section-label .count { color: var(--accent); }
-@media (max-width: 768px) { .section-label { padding: 72px 24px 12px; font-size: 10px; } }
+</script>
 
-/* MANIFESTO */
-.manifesto { padding: 80px 48px 40px; max-width: 1400px; margin: 0 auto; }
-.manifesto h2 {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(40px, 7vw, 110px);
-  font-weight: 300; line-height: 1; letter-spacing: -0.03em; max-width: 1100px;
-}
-.manifesto h2 em { font-style: italic; color: var(--ink-dim); }
-.manifesto .since {
-  margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--line);
-  max-width: 720px;
-}
-.manifesto .since p { font-size: 16px; line-height: 1.55; color: var(--ink-dim); max-width: 520px; }
-.manifesto .since b { color: var(--ink); }
-@media (max-width: 900px) { .manifesto { padding: 40px 24px 24px; } }
+<!-- SCHEMA: VIDEOS (top featured) -->
+{{VIDEO_SCHEMAS}}
 
-/* FILM SECTIONS */
-.film-section { padding: 0 48px 0; max-width: 1800px; margin: 0 auto; }
-.section-tagline {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(20px, 2.4vw, 32px);
-  font-weight: 300; font-style: italic; letter-spacing: -0.01em; line-height: 1.3;
-  color: var(--ink-dim); max-width: 700px; margin: 0 0 40px;
-}
-.section-tagline em { color: var(--ink); font-style: italic; }
-@media (max-width: 768px) { .film-section { padding: 0 24px; } .section-tagline { margin-bottom: 28px; } }
+<!-- FONTS -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Geist+Mono:wght@400;500&family=Geist:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-.film-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.film-grid .film-card { aspect-ratio: 16/9; position: relative; overflow: hidden; cursor: pointer; background: var(--bg-2); }
-@media (max-width: 1100px) { .film-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 700px) { .film-grid { grid-template-columns: 1fr; gap: 12px; } }
+<!-- PRELOAD HERO POSTER -->
+<link rel="preload" as="image" href="/hero-poster-v2.jpg" fetchpriority="high">
 
-.film-card { transition: transform 0.4s var(--ease); }
-.film-thumb {
-  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
-  transition: transform 1.2s var(--ease-out), filter 0.6s var(--ease);
-  filter: grayscale(1) contrast(1.05) brightness(0.92);
-}
-.film-card:hover .film-thumb { transform: scale(1.05); filter: grayscale(0) contrast(1.05) brightness(1); }
-.film-meta {
-  position: absolute; bottom: 0; left: 0; right: 0; padding: 20px;
-  background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
-  z-index: 2; display: flex; justify-content: space-between; align-items: end; gap: 16px;
-}
-.film-meta h3 {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(15px, 1.4vw, 19px);
-  font-weight: 400; letter-spacing: -0.01em; line-height: 1.15; flex: 1;
-}
-.film-meta .play {
-  font-family: 'Geist Mono', monospace;
-  font-size: 9px; text-transform: uppercase; letter-spacing: 0.15em;
-  border: 1px solid var(--ink); padding: 7px 12px; border-radius: 999px;
-  transition: background 0.3s var(--ease), color 0.3s var(--ease), border-color 0.3s;
-  flex-shrink: 0; white-space: nowrap;
-}
-.film-card:hover .film-meta .play { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+<link rel="stylesheet" href="/styles.css">
 
-.view-all {
-  display: inline-block; margin-top: 32px;
-  font-family: 'Geist Mono', monospace;
-  font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
-  color: var(--ink); border-bottom: 1px solid var(--ink-dim);
-  padding-bottom: 6px;
-  transition: color 0.3s var(--ease), border-color 0.3s var(--ease);
-}
-.view-all:hover { color: var(--accent); border-color: var(--accent); }
+<!-- ─── ANALYTICS ────────────────────────────────────────── -->
+<!-- Vercel Analytics — privacy-friendly, no cookies, free up to 2,500 events/month -->
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
 
-/* SERVICES */
-.services { padding: 0 48px 0; max-width: 1800px; margin: 0 auto; }
-.services-track {
-  display: flex; gap: 16px;
-  overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
-  margin: 0 -48px; padding: 0 48px 16px;
-}
-.services-track::-webkit-scrollbar { display: none; }
-.service {
-  flex: 0 0 360px; scroll-snap-align: start;
-  position: relative;
-  border: 1px solid var(--line);
-  overflow: hidden;
-  transition: border-color 0.5s var(--ease), transform 0.5s var(--ease), background 0.5s var(--ease);
-  min-height: 460px;
-  display: flex;
-}
-/* Three subtle shade variations across the row */
-.service[data-shade="0"] { background: #0e0e0e; }
-.service[data-shade="1"] { background: #131313; }
-.service[data-shade="2"] { background: #181818; }
-.service:hover {
-  border-color: var(--accent);
-  transform: translateY(-6px);
-  background: #1c1c1c;
-}
-.service-content {
-  position: relative; z-index: 3;
-  padding: 36px 32px;
-  display: flex; flex-direction: column; justify-content: space-between;
-  width: 100%;
-}
-.service .num {
-  font-family: 'Geist Mono', monospace;
-  font-size: 11px; letter-spacing: 0.15em;
-  color: var(--ink-dim);
-  transition: color 0.3s var(--ease);
-}
-.service:hover .num { color: var(--accent); }
-.service h3 {
-  font-family: 'Fraunces', serif;
-  font-size: 64px; font-weight: 300; line-height: 0.95; letter-spacing: -0.03em;
-  color: var(--ink);
-  margin-top: auto;
-}
-.service h3 em { font-style: italic; color: var(--ink-dim); }
-.service p {
-  margin-top: 20px;
-  font-size: 14px;
-  color: var(--ink-dim);
-  line-height: 1.55;
-  max-width: 280px;
-}
-@media (max-width: 768px) {
-  .services { padding: 0 24px; }
-  .services-track { margin: 0 -24px; padding: 0 24px 16px; }
-  .service { flex: 0 0 280px; min-height: 380px; }
-  .service h3 { font-size: 44px; }
-  .service-content { padding: 28px 24px; }
-}
+<!-- Vercel Speed Insights — Core Web Vitals, helps SEO -->
+<script>
+  window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
 
-/* PRE-AI SHOWREEL */
-.origin-section { padding: 0 48px 0; max-width: 1800px; margin: 0 auto; }
-.origin-intro {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
-  align-items: end; padding: 0 0 48px;
-}
-.origin-intro h3 {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(36px, 5vw, 72px); font-weight: 300; line-height: 1; letter-spacing: -0.03em;
-}
-.origin-intro h3 em { font-style: italic; color: var(--ink-dim); }
-.origin-intro p { font-size: 15px; line-height: 1.55; color: var(--ink-dim); max-width: 520px; }
-.origin-video-wrap { position: relative; max-width: 1400px; margin: 0 auto; }
-.origin-video {
-  position: relative; aspect-ratio: 16/9;
-  background: var(--bg-2); border: 1px solid var(--line); overflow: hidden;
-  cursor: pointer;
-}
-.origin-poster {
-  position: absolute; inset: 0; width: 100%; height: 100%;
-  object-fit: cover; transition: filter 0.6s var(--ease), transform 0.8s var(--ease-out);
-  filter: brightness(0.7);
-}
-.origin-video:hover .origin-poster { filter: brightness(0.5); transform: scale(1.02); }
-.origin-play {
-  position: absolute; inset: 0; margin: auto;
-  width: 96px; height: 96px;
-  background: none; border: none;
-  color: #fff; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  transition: transform 0.3s var(--ease);
-}
-.origin-video:hover .origin-play { transform: scale(1.1); color: var(--accent); }
-.origin-play svg { width: 100%; height: 100%; }
-.origin-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; z-index: 5; }
-.origin-caption {
-  margin-top: 16px; display: flex; align-items: center; gap: 12px;
-  font-family: 'Geist Mono', monospace;
-  font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
-  color: var(--ink-dim);
-}
-.origin-caption .dot { color: var(--accent); }
-@media (max-width: 768px) {
-  .origin-section { padding: 0 24px; }
-  .origin-intro { grid-template-columns: 1fr; gap: 20px; padding-bottom: 28px; }
-  .origin-play { width: 64px; height: 64px; }
-}
+<!-- Google Analytics 4 — disabled until you add your Measurement ID -->
+<!-- To enable: replace G-XXXXXXXXXX below with your actual GA4 ID -->
+<!--
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX', { anonymize_ip: true });
+</script>
+-->
+</head>
+<body>
 
-/* IG SECTION */
-.ig-section { padding: 0 48px; max-width: 1800px; margin: 0 auto; }
-.ig-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: end; padding: 0 0 48px; }
-.ig-intro h3 {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(36px, 5vw, 72px); font-weight: 300; line-height: 1; letter-spacing: -0.03em;
-}
-.ig-intro h3 em { font-style: italic; color: var(--ink-dim); }
-.ig-intro p { font-size: 15px; line-height: 1.55; color: var(--ink-dim); max-width: 480px; }
-@media (max-width: 768px) {
-  .ig-section { padding: 0 24px; }
-  .ig-intro { grid-template-columns: 1fr; gap: 20px; padding-bottom: 32px; }
-}
-.ig-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
-  max-width: 1280px; margin: 0 auto;
-  justify-items: center; align-items: start;
-}
-@media (max-width: 1100px) { .ig-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 700px) { .ig-grid { grid-template-columns: 1fr; } }
+<div class="vignette" aria-hidden="true"></div>
+<div class="hot-dot" id="hot-dot" aria-hidden="true"></div>
 
-.ig-card {
-  position: relative; width: 100%; max-width: 380px;
-  aspect-ratio: 9/16;
-  background: linear-gradient(180deg, #1a1a1a 0%, #0e0e0e 100%);
-  border: 1px solid var(--line);
-  display: flex; flex-direction: column;
-  text-decoration: none; overflow: hidden;
-  transition: border-color 0.4s var(--ease), transform 0.4s var(--ease);
-}
-.ig-card:hover { border-color: var(--accent); transform: translateY(-4px); }
-.ig-label {
-  display: flex; align-items: center; gap: 10px;
-  padding: 16px 18px; border-bottom: 1px solid var(--line);
-  font-family: 'Geist Mono', monospace;
-  font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
-}
-.ig-label .dot { color: var(--accent); }
-.ig-label .handle { color: var(--ink); flex: 1; text-transform: none; letter-spacing: 0.04em; }
-.ig-label .badge { color: var(--ink-dim); }
-.ig-fallback { flex: 1; position: relative; overflow: hidden; }
-.ig-with-thumb { padding: 0 !important; }
-.ig-thumb {
-  position: absolute; inset: 0; width: 100%; height: 100%;
-  object-fit: cover; object-position: center;
-  filter: contrast(1.05) saturate(1.1);
-  transition: transform 0.8s var(--ease-out);
-}
-.ig-card:hover .ig-thumb { transform: scale(1.06); }
-.ig-overlay {
-  position: absolute; top: 0; left: 0; right: 0;
-  display: flex; justify-content: space-between; align-items: flex-start;
-  padding: 16px;
-  background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, transparent 100%);
-  z-index: 2;
-}
-.ig-logo { width: 22px; height: 22px; color: #fff; opacity: 1; }
-.ig-views {
-  display: flex; align-items: center; gap: 6px;
-  background: rgba(0,0,0,0.55); padding: 6px 10px; border-radius: 999px;
-  font-family: 'Geist Mono', monospace;
-  font-size: 11px; font-weight: 500; color: #fff; letter-spacing: 0.05em;
-}
-.ig-views span { font-size: 9px; }
-.ig-fallback-caption {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  padding: 20px 16px 16px;
-  background: linear-gradient(0deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.7) 50%, transparent 100%);
-  z-index: 3;
-}
-.ig-caption-text {
-  font-family: 'Fraunces', serif;
-  font-size: 14px; font-style: italic; font-weight: 400;
-  color: #fff; line-height: 1.3; margin-bottom: 12px;
-}
-.ig-stats-row {
-  display: flex; gap: 14px; flex-wrap: wrap;
-  font-family: 'Geist Mono', monospace;
-  font-size: 10px; letter-spacing: 0.05em;
-  color: rgba(255,255,255,0.75); text-transform: none;
-}
-.ig-stats-row b { color: #fff; font-weight: 600; }
-.ig-card.embed-loaded { aspect-ratio: auto; background: transparent; border: none; }
-.ig-card.embed-loaded .ig-fallback, .ig-card.embed-loaded .ig-label { display: none; }
-.ig-card.embed-loaded .instagram-media { display: block !important; }
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo" aria-label="Woo Hoo Media Labs — home">
+      <img class="logo-img" src="/logo-white.png" alt="Woo Hoo Media Labs" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="#section-02" data-cursor>Work</a></li>
+      <li><a href="#about" data-cursor>Studio</a></li>
+      <li><a href="#services" data-cursor>Services</a></li>
+      <li><a href="#contact" data-cursor>Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </div>
+</nav>
 
-/* FOLLOW SECTION */
-.follow-section {
-  padding: 0 48px 100px;
-  max-width: 1800px;
-  margin: 0 auto;
-}
-.follow-heading {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(40px, 6vw, 88px);
-  font-weight: 300;
-  line-height: 0.98;
-  letter-spacing: -0.03em;
-  max-width: 900px;
-  margin-bottom: 18px;
-}
-.follow-heading em { font-style: italic; color: var(--ink-dim); }
-.follow-tagline {
-  font-family: 'Geist', sans-serif;
-  font-size: 15px;
-  color: var(--ink-dim);
-  max-width: 580px;
-  line-height: 1.55;
-  margin-bottom: 60px;
-}
-.follow-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  border-top: 1px solid var(--line);
-}
-.follow-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 40px 36px 36px;
-  border-right: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  min-height: 280px;
-  color: var(--ink);
-  text-decoration: none;
-  transition: background 0.45s var(--ease), transform 0.45s var(--ease);
-}
-.follow-card:last-child { border-right: 1px solid var(--line); }
-.follow-card:hover {
-  background: #131313;
-  transform: translateY(-4px);
-}
-.follow-icon {
-  width: 44px; height: 44px;
-  color: var(--ink-dim);
-  transition: color 0.4s var(--ease), transform 0.5s var(--ease);
-  margin-bottom: auto;
-}
-.follow-icon svg { width: 100%; height: 100%; }
-.follow-card:hover .follow-icon {
-  color: var(--accent);
-  transform: scale(1.1) rotate(-2deg);
-}
-.follow-meta {
-  display: flex; flex-direction: column; gap: 6px;
-  margin-top: 32px; margin-bottom: 20px;
-}
-.follow-platform {
-  font-family: 'Fraunces', serif;
-  font-size: 26px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.01em;
-  color: var(--ink);
-}
-.follow-handle {
-  font-family: 'Geist Mono', monospace;
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--ink-dim);
-}
-.follow-action {
-  font-family: 'Geist Mono', monospace;
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--ink);
-  transition: color 0.3s var(--ease);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-.follow-action em {
-  font-style: normal;
-  transition: transform 0.4s var(--ease), color 0.3s var(--ease);
-}
-.follow-card:hover .follow-action { color: var(--accent); }
-.follow-card:hover .follow-action em { transform: translateX(6px); color: var(--accent); }
-@media (max-width: 900px) {
-  .follow-grid { grid-template-columns: repeat(2, 1fr); }
-  .follow-card:nth-child(2n) { border-right: 1px solid var(--line); }
-}
-@media (max-width: 560px) {
-  .follow-section { padding: 0 24px 80px; }
-  .follow-heading { font-size: 40px; margin-bottom: 14px; }
-  .follow-tagline { margin-bottom: 40px; }
-  .follow-grid { grid-template-columns: 1fr; }
-  .follow-card { min-height: 200px; padding: 32px 24px; border-right: 1px solid var(--line); }
-  .follow-platform { font-size: 22px; }
-}
+<!-- MOBILE MENU OVERLAY -->
+<div class="menu-overlay" id="menu-overlay" aria-hidden="true">
+  <button class="menu-close" id="menu-close" aria-label="Close menu">✕</button>
+  <nav class="menu-nav">
+    <a href="#section-02" class="menu-link" data-cursor>Work</a>
+    <a href="#about" class="menu-link" data-cursor>Studio</a>
+    <a href="#services" class="menu-link" data-cursor>Services</a>
+    <a href="#contact" class="menu-link" data-cursor>Contact</a>
+  </nav>
+  <div class="menu-foot">
+    <span>● Available for select projects · 2026</span>
+    <a href="mailto:{{EMAIL_DIRECT}}">{{EMAIL_DIRECT}}</a>
+  </div>
+</div>
 
-/* CONTACT */
-.contact { padding: 160px 48px 80px; text-align: center; border-top: 1px solid var(--line); }
-.contact .kicker {
-  font-family: 'Geist Mono', monospace;
-  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--ink-dim); margin-bottom: 32px;
-}
-.contact .kicker::before { content: "● "; color: var(--accent); }
-.contact h2 {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(60px, 11vw, 180px);
-  font-weight: 300; line-height: 0.9; letter-spacing: -0.04em;
-}
-.contact h2 em { font-style: italic; color: var(--ink-dim); }
+<section class="hero" aria-label="Woo Hoo Media Labs — AI-Native Creative Production Lab">
+  <video class="hero-video"
+    autoplay muted loop playsinline
+    preload="metadata"
+    poster="/hero-poster-v2.jpg"
+    aria-hidden="true">
+    <source src="/hero-reel-v2.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">{{HERO_TAG}}</div>
+    <h1>{{HERO_HEADLINE}}</h1>
+    <div class="hero-meta">{{HERO_METRICS}}</div>
+  </div>
+  <div class="scroll-cue" aria-hidden="true">Scroll</div>
+</section>
 
-.contact-form { max-width: 640px; margin: 64px auto 0; display: grid; gap: 0; text-align: left; }
-.contact-form .field { display: flex; flex-direction: column; border-bottom: 1px solid var(--line); padding: 20px 0; transition: border-color 0.3s var(--ease); }
-.contact-form .field:focus-within { border-color: var(--accent); }
-.contact-form label { font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-dim); margin-bottom: 8px; }
-.contact-form label .opt { color: var(--ink-dim); opacity: 0.6; margin-left: 8px; text-transform: none; letter-spacing: 0.05em; }
-.contact-form input, .contact-form textarea {
-  background: transparent; border: none; outline: none;
-  font-family: 'Fraunces', serif; color: var(--ink);
-  font-size: clamp(18px, 2.4vw, 28px); font-weight: 300; letter-spacing: -0.01em;
-  resize: vertical; cursor: text; padding: 0;
-}
-.contact-form input::placeholder, .contact-form textarea::placeholder { color: var(--ink-dim); opacity: 0.4; font-style: italic; }
-.contact-form textarea { min-height: 80px; line-height: 1.4; font-family: 'Fraunces', serif; }
-.contact-form .submit-row { margin-top: 40px; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
-.contact-form button {
-  background: var(--ink); color: var(--bg); border: none;
-  font-family: 'Geist Mono', monospace;
-  font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
-  padding: 18px 32px; border-radius: 999px;
-  cursor: pointer; transition: background 0.3s var(--ease), transform 0.4s var(--ease);
-}
-.contact-form button:hover { background: var(--accent); transform: scale(1.04); }
-.contact-form button:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-.contact-form .alt { font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-dim); text-align: right; }
-.contact-form .alt a { color: var(--ink); border-bottom: 1px solid var(--line); transition: border-color 0.3s; }
-.contact-form .alt a:hover { border-color: var(--accent); color: var(--accent); }
-.form-status {
-  margin-top: 24px;
-  font-family: 'Geist Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  min-height: 18px;
-  transition: color 0.3s var(--ease);
-}
-.form-status.success { color: var(--accent); }
-.form-status.error { color: #ff7a7a; }
-.form-status.info { color: var(--ink-dim); }
-@media (max-width: 600px) {
-  .contact { padding: 80px 24px 40px; }
-  .contact-form .submit-row { flex-direction: column; align-items: stretch; }
-  .contact-form .alt { text-align: center; }
-}
+<!-- AI-readable summary (sr-only — invisible to users, visible to search/AI) -->
+<div class="sr-only">
+  <h2>About Woo Hoo Media Labs</h2>
+  <p>Woo Hoo Media Labs is an AI-native creative production lab founded in 2009 by Chntan N. Shah in Mumbai, India. The studio specializes in brand films, ad films, AI-generated commercials, government communication, product films, and viral vertical content. With 26 years of cinematic craft and a generative AI production pipeline including Kling, Seedance, Flux, Nano Banana, and Soul characters, Woo Hoo Media Labs is one of India's first AI-native production studios.</p>
+  <p>Notable clients: Speed 4 Defence, SelectAI, Earthion Tech, Saffron Home, Norwood Modular, Government of Maharashtra, ICICI Prudential, Fybros, Merck, JNPT.</p>
+  <p>Most viral work: "Bhai, Shirt Pehen Lo" — AI Salman Khan tribute reel with 1.2 million Instagram views.</p>
+</div>
 
-footer {
-  padding: 60px 48px; border-top: 1px solid var(--line);
-  display: flex; justify-content: space-between; align-items: center;
-  font-family: 'Geist Mono', monospace;
-  font-size: 10px; text-transform: uppercase; letter-spacing: 0.15em;
-  color: var(--ink-dim);
-}
-footer a { color: var(--ink-dim); margin-left: 24px; transition: color 0.3s var(--ease); }
-footer a:hover { color: var(--accent); }
-@media (max-width: 768px) { footer { flex-direction: column; gap: 24px; padding: 40px 24px; text-align: center; } }
+<div class="section-label" id="about"><span>Manifesto · 01</span></div>
+<section class="manifesto reveal">
+  <h2>{{MANIFESTO_HEADLINE}}</h2>
+  <div class="since">
+    <p>{{MANIFESTO_BODY}}</p>
+    <p style="margin-top:20px;">{{MANIFESTO_FOUNDER}}</p>
+  </div>
+</section>
 
-/* MODAL */
-.modal {
-  position: fixed; inset: 0; background: rgba(0,0,0,0.96);
-  z-index: 200; display: none; align-items: center; justify-content: center; padding: 48px;
-  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-}
-.modal.open { display: flex; animation: modalIn 0.5s var(--ease-out); }
-.modal-inner { width: 100%; max-width: 1200px; aspect-ratio: 16/9; position: relative; }
-.modal-inner iframe { width: 100%; height: 100%; border: none; }
-.modal-close {
-  position: absolute; top: 32px; right: 32px;
-  background: none; border: 1px solid var(--ink); color: var(--ink);
-  width: 48px; height: 48px; border-radius: 50%;
-  cursor: pointer; font-size: 18px; font-family: 'Geist Mono', monospace;
-  transition: background 0.3s, color 0.3s, border-color 0.3s;
-}
-.modal-close:hover { background: var(--accent); color: var(--bg); border-color: var(--accent); }
-@keyframes modalIn { from { opacity: 0; } to { opacity: 1; } }
+{{FILM_SECTIONS}}
 
-/* REVEAL */
-.reveal { opacity: 0; transform: translateY(40px); transition: opacity 1s var(--ease-out), transform 1s var(--ease-out); }
-.reveal.in { opacity: 1; transform: translateY(0); }
+<div class="section-label" id="services"><span>Capabilities · {{CAPABILITIES_NUM}}</span><span class="count">Drag →</span></div>
+<section class="services reveal">
+  <div class="services-track">
+{{CAPABILITIES}}
+  </div>
+</section>
 
-/* ─── SR-ONLY (visible to AI/screen readers, hidden visually) ─── */
-.sr-only {
-  position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
-  padding: 0 !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  clip: rect(0, 0, 0, 0) !important;
-  white-space: nowrap !important;
-  border: 0 !important;
-}
+<div class="section-label" id="reactions"><span>📱 When craft meets the scroll · {{IG_NUM}}</span><span class="count">Instagram · live</span></div>
+<section class="ig-section reveal">
+  <div class="ig-intro">
+    <h3>When craft meets<br/><em>the scroll.</em></h3>
+    <p>Vertical films built for the phone — where cinematic craft is forced to land in three seconds, or disappear. Click any reel to view on Instagram with full comments and reactions.</p>
+  </div>
+  <div class="ig-grid">
+{{IG_CARDS}}
+  </div>
+  <a href="https://www.instagram.com/{{IG_HANDLE}}" target="_blank" rel="noopener" class="view-all" data-cursor>Follow @{{IG_HANDLE}} for more →</a>
+</section>
+
+<div class="section-label" id="origin"><span>Where we came from · {{ORIGIN_NUM}}</span><span class="count">The pre-AI archive</span></div>
+<section class="origin-section reveal">
+  <div class="origin-intro">
+    <h3>Twenty-three years of cinema,<br/><em>before the algorithms.</em></h3>
+    <p>The discipline underneath everything new. Brand films, government communication, corporate storytelling, product launches — earned the slow way, frame by frame, on real sets, with real cameras.</p>
+  </div>
+  <div class="origin-video-wrap">
+    <div class="origin-video" id="origin-video">
+      <img class="origin-poster" src="https://img.youtube.com/vi/{{PRE_AI_VIDEO_ID}}/maxresdefault.jpg" alt="Woo Hoo Media — Pre-AI Showreel. 26 years of brand films, government communication, and corporate storytelling by Chntan N. Shah." />
+      <button class="origin-play" type="button" aria-label="Play pre-AI showreel">
+        <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <circle cx="32" cy="32" r="31" stroke="currentColor" stroke-width="1.5" fill="rgba(0,0,0,0.4)"/>
+          <path d="M26 21 L26 43 L44 32 Z" fill="currentColor"/>
+        </svg>
+      </button>
+    </div>
+    <div class="origin-caption">
+      <span class="dot">●</span>
+      <span>Pre-AI Showreel · 2000 — 2023 · The foundation everything new stands on.</span>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ — hidden from view, present for AI/SEO crawlers. The FAQPage JSON-LD schema in <head> drives Google rich snippets. -->
+<div class="sr-only">
+  <h2>Frequently Asked Questions about Woo Hoo Media Labs</h2>
+  <dl>
+    <dt>What is Woo Hoo Media Labs?</dt>
+    <dd>Woo Hoo Media Labs is an AI-native creative production lab based in Mumbai. We make brand films, ad films, AI cinema, government communication, and viral social content. Founded by Chntan N. Shah in 2009, formally evolved into Woo Hoo Media Labs in 2026 to reflect our specialization in AI-native production.</dd>
+
+    <dt>What AI tools and pipelines do you use?</dt>
+    <dd>Our generative pipeline includes Kling 2.5/3, Seedance 2.0, Flux 2.0/2.1 Pro, Nano Banana 2, Midjourney v7, Higgsfield, and Soul character models. Voice work uses ElevenLabs. Music uses Suno. Edit and color in Adobe Premiere Pro and DaVinci Resolve.</dd>
+
+    <dt>How is this different from other AI video studios?</dt>
+    <dd>Most AI video companies are tech startups learning filmmaking. We're a 26-year-old filmmaking practice that adopted generative AI as our primary production language. The difference shows in cinematic craft, narrative discipline, and broadcast-grade output.</dd>
+
+    <dt>Do you do traditional non-AI production?</dt>
+    <dd>Yes. We have 26 years of traditional production experience and continue to offer hybrid productions that combine real cinematography with AI-generated elements. But the studio's primary direction since 2026 is AI-native.</dd>
+
+    <dt>How do I hire Woo Hoo Media Labs for a project?</dt>
+    <dd>Email {{EMAIL_DIRECT}} or use the contact form on woohoomedialabs.com. We take on select projects each year.</dd>
+
+    <dt>Who is Chntan N. Shah?</dt>
+    <dd>Chntan N. Shah is the Founder and Director of Woo Hoo Media Labs. He has been working in cinema since 2000 — 26 years — across corporate communication, government films, brand work, advertising, and now AI-native production. He is based in Mumbai and leads all creative direction at the studio.</dd>
+
+    <dt>What is the most viral work from Woo Hoo Media Labs?</dt>
+    <dd>"Bhai, Shirt Pehen Lo" — an AI Salman Khan tribute reel that crossed 1.2 million Instagram views in 2026. We also produced a Virat Kohli AI cricket reel that reached 170,000+ views.</dd>
+  </dl>
+</div>
+
+<!-- ─── FOLLOW SECTION ───────────────────────────────────────── -->
+<div class="section-label" id="follow"><span>● Stay in the loop · {{FOLLOW_NUM}}</span></div>
+<section class="follow-section reveal">
+  <h2 class="follow-heading">More of the work, <em>as it happens.</em></h2>
+  <p class="follow-tagline">Films before they go anywhere else. Behind-the-scenes. The making-of, the misfires, and the next thing.</p>
+  <div class="follow-grid">
+
+    <a href="https://www.youtube.com/@WooHooMediaLabs" target="_blank" rel="noopener" class="follow-card" data-cursor>
+      <div class="follow-icon">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M30.5 8.5c-.35-1.3-1.37-2.32-2.67-2.67C25.5 5 16 5 16 5s-9.5 0-11.83.83A3.79 3.79 0 0 0 1.5 8.5C.67 10.83.67 16 .67 16s0 5.17.83 7.5c.35 1.3 1.37 2.32 2.67 2.67C6.5 27 16 27 16 27s9.5 0 11.83-.83a3.79 3.79 0 0 0 2.67-2.67C31.33 21.17 31.33 16 31.33 16s0-5.17-.83-7.5z" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M13 20.5l7-4.5-7-4.5v9z" fill="currentColor"/>
+        </svg>
+      </div>
+      <div class="follow-meta">
+        <span class="follow-platform">YouTube</span>
+        <span class="follow-handle">@WooHooMediaLabs</span>
+      </div>
+      <span class="follow-action">Subscribe <em>→</em></span>
+    </a>
+
+    <a href="https://www.instagram.com/chntan.n.shah" target="_blank" rel="noopener" class="follow-card" data-cursor>
+      <div class="follow-icon">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="4" width="24" height="24" rx="6" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="16" cy="16" r="5" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="23" cy="9" r="1.4" fill="currentColor"/>
+        </svg>
+      </div>
+      <div class="follow-meta">
+        <span class="follow-platform">Instagram</span>
+        <span class="follow-handle">@chntan.n.shah</span>
+      </div>
+      <span class="follow-action">Follow <em>→</em></span>
+    </a>
+
+    <a href="https://www.facebook.com/profile.php?id=61588245688759" target="_blank" rel="noopener" class="follow-card" data-cursor>
+      <div class="follow-icon">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 2C8.27 2 2 8.27 2 16c0 7 5.13 12.81 11.84 13.83v-9.78H10.3V16h3.54v-2.85c0-3.5 2.08-5.43 5.27-5.43 1.53 0 3.13.27 3.13.27v3.43h-1.76c-1.74 0-2.28 1.08-2.28 2.19V16h3.88l-.62 4.05h-3.26v9.78C24.87 28.81 30 23 30 16c0-7.73-6.27-14-14-14z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="follow-meta">
+        <span class="follow-platform">Facebook</span>
+        <span class="follow-handle">Woo Hoo Media Labs</span>
+      </div>
+      <span class="follow-action">Follow <em>→</em></span>
+    </a>
+
+    <a href="https://www.linkedin.com/company/woohoomedialabs" target="_blank" rel="noopener" class="follow-card" data-cursor>
+      <div class="follow-icon">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="4" width="24" height="24" rx="2" stroke="currentColor" stroke-width="1.5"/>
+          <rect x="9" y="13" width="2.5" height="10" fill="currentColor"/>
+          <circle cx="10.25" cy="10" r="1.5" fill="currentColor"/>
+          <path d="M15 13v10M15 17c0-2.2 1.5-4 3.75-4S22.5 14.8 22.5 17v6" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"/>
+        </svg>
+      </div>
+      <div class="follow-meta">
+        <span class="follow-platform">LinkedIn</span>
+        <span class="follow-handle">/woohoomedialabs</span>
+      </div>
+      <span class="follow-action">Connect <em>→</em></span>
+    </a>
+
+  </div>
+</section>
+
+<div class="section-label" id="contact"><span>Get in touch · {{CONTACT_NUM}}</span></div>
+<section class="contact reveal">
+  <div class="kicker">Available for select projects · 2026</div>
+  <h2>Let's make<br/>something <em>unforgettable.</em></h2>
+  <form class="contact-form" id="contact-form" novalidate>
+    <div class="field"><label for="name">Your name</label><input id="name" name="name" type="text" required placeholder="e.g. Riya Mehta" autocomplete="name" /></div>
+    <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required placeholder="you@brand.com" autocomplete="email" /></div>
+    <div class="field"><label for="company">Company <span class="opt">(optional)</span></label><input id="company" name="company" type="text" placeholder="Brand or organisation" autocomplete="organization" /></div>
+    <div class="field"><label for="inquiry">Tell us about your project</label><textarea id="inquiry" name="inquiry" required placeholder="A film, an idea, a brief, a question — start anywhere."></textarea></div>
+    <div class="submit-row">
+      <button type="submit" data-cursor id="contact-submit">Send Inquiry →</button>
+      <div class="alt">Or email: <a href="mailto:{{EMAIL_DIRECT}}" data-cursor>{{EMAIL_DIRECT}}</a></div>
+    </div>
+    <div class="form-status" id="form-status" aria-live="polite"></div>
+  </form>
+</section>
+
+<footer>
+  <div>© 2026 Woo Hoo Media Labs · Mumbai · India</div>
+  <div>
+    <a href="https://www.instagram.com/{{IG_HANDLE}}" target="_blank" rel="noopener" data-cursor>Instagram</a>
+    <a href="{{YOUTUBE_CHANNEL}}" target="_blank" rel="noopener" data-cursor>YouTube</a>
+    <a href="{{LINKEDIN}}" target="_blank" rel="noopener" data-cursor>LinkedIn</a>
+  </div>
+</footer>
+
+<div class="modal" id="modal" aria-hidden="true">
+  <button class="modal-close" data-cursor aria-label="Close video">✕</button>
+  <div class="modal-inner"><iframe id="modal-iframe" allow="autoplay; encrypted-media; fullscreen" allowfullscreen title="Video player"></iframe></div>
+</div>
+
+<script src="/app.js"></script>
+</body>
+</html>

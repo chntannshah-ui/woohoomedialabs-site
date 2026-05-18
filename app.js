@@ -1,38 +1,37 @@
-// ─── VIGNETTE SPOTLIGHT CURSOR ──────────────────────────────
-// The page has a soft radial vignette that follows the mouse,
-// like a flashlight in a dark cinema. A small marigold dot appears
-// when hovering interactive elements.
-(function setupVignette() {
+// ─── APERTURE CURSOR ────────────────────────────────────────
+// Camera iris that follows the mouse. Opens wide on interactive elements,
+// closes to a small dot on the rest of the page.
+(function setupAperture() {
   if (window.matchMedia('(max-width: 768px)').matches) return;
-  const root = document.documentElement;
-  const hotDot = document.getElementById('hot-dot');
+  const aperture = document.getElementById('aperture');
+  if (!aperture) return;
+
   let mx = 0, my = 0, dx = 0, dy = 0;
-  let interactive = false;
 
   document.addEventListener('mousemove', (e) => {
     mx = e.clientX; my = e.clientY;
-    if (hotDot) {
-      hotDot.style.left = mx + 'px';
-      hotDot.style.top = my + 'px';
-    }
   });
 
-  // Smooth vignette tracking (slight lerp for buttery feel)
+  // Smooth lerp so the iris feels weighty, like a real lens
   function tick() {
-    dx += (mx - dx) * 0.18;
-    dy += (my - dy) * 0.18;
-    root.style.setProperty('--mx', dx + 'px');
-    root.style.setProperty('--my', dy + 'px');
+    dx += (mx - dx) * 0.22;
+    dy += (my - dy) * 0.22;
+    aperture.style.left = dx + 'px';
+    aperture.style.top = dy + 'px';
     requestAnimationFrame(tick);
   }
   tick();
 
-  // Marigold dot on hover targets
+  // Open on interactive targets
   const interactiveSel = '[data-cursor], button, a, input, textarea, .film-card, summary, details';
   document.querySelectorAll(interactiveSel).forEach(el => {
-    el.addEventListener('mouseenter', () => hotDot && hotDot.classList.add('active'));
-    el.addEventListener('mouseleave', () => hotDot && hotDot.classList.remove('active'));
+    el.addEventListener('mouseenter', () => aperture.classList.add('open'));
+    el.addEventListener('mouseleave', () => aperture.classList.remove('open'));
   });
+
+  // Hide when mouse leaves the window, restore when it returns
+  document.addEventListener('mouseleave', () => { aperture.style.opacity = '0'; });
+  document.addEventListener('mouseenter', () => { aperture.style.opacity = '1'; });
 })();
 
 // ─── MOBILE MENU ────────────────────────────────────────────

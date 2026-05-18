@@ -15,47 +15,45 @@ body {
   background: var(--bg); color: var(--ink);
   font-family: 'Geist', -apple-system, sans-serif;
   font-weight: 400; -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-}
-a { color: inherit; text-decoration: none; }
-
-/* CURSOR — Vignette Spotlight */
-/* The whole page gets a faint radial darkening that follows the mouse,
-   like holding a lantern in a dark cinema. On interactive elements,
-   a small marigold dot also appears. */
-.vignette {
-  position: fixed; inset: 0;
-  pointer-events: none; z-index: 9998;
-  background: radial-gradient(
-    circle 420px at var(--mx, 50%) var(--my, 50%),
-    transparent 0%,
-    rgba(10, 10, 10, 0.0) 30%,
-    rgba(10, 10, 10, 0.45) 80%,
-    rgba(10, 10, 10, 0.7) 100%
-  );
-  mix-blend-mode: multiply;
-  transition: opacity 0.6s var(--ease);
-  opacity: 1;
-}
-.hot-dot {
-  position: fixed; left: 0; top: 0;
-  width: 10px; height: 10px;
-  border-radius: 50%;
-  background: var(--accent);
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%) scale(0);
-  transition: transform 0.25s var(--ease-out), opacity 0.3s var(--ease);
-  opacity: 0;
-  box-shadow: 0 0 24px rgba(255, 176, 0, 0.5);
-}
-.hot-dot.active {
-  transform: translate(-50%, -50%) scale(1);
-  opacity: 1;
+  overflow-x: hidden; cursor: none;
 }
 @media (max-width: 768px) {
   body { cursor: auto; }
-  .vignette, .hot-dot { display: none; }
+}
+a { color: inherit; text-decoration: none; }
+
+/* CURSOR — Camera Iris Aperture */
+/* Hides the native cursor and replaces it with a camera-lens iris.
+   Stationary: small closed iris (14px) with a center dot.
+   On interactive elements: opens to a wide aperture (60px) — like the lens
+   pulling focus onto whatever you're hovering. */
+.aperture {
+  position: fixed; left: 0; top: 0;
+  width: 18px; height: 18px;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.35s var(--ease), height 0.35s var(--ease);
+  mix-blend-mode: difference;
+}
+.aperture svg {
+  width: 100%; height: 100%;
+  display: block;
+  transition: transform 0.6s var(--ease);
+  color: #fafafa;
+}
+.aperture.open { width: 56px; height: 56px; }
+.aperture.open svg { transform: rotate(40deg); }
+.aperture .iris-blade { transition: transform 0.5s var(--ease); transform-origin: 32px 32px; }
+.aperture.open .iris-blade { transform: scale(0.55); }
+.aperture .iris-dot {
+  transition: r 0.4s var(--ease), fill-opacity 0.3s var(--ease);
+}
+.aperture.open .iris-dot { r: 0; fill-opacity: 0; }
+
+@media (max-width: 768px) {
+  body { cursor: auto; }
+  .aperture { display: none; }
 }
 
 /* NAV */
@@ -85,7 +83,7 @@ nav {
   display: none;
   background: none; border: none;
   width: 40px; height: 40px;
-  cursor: pointer;
+  cursor: none;
   flex-direction: column; justify-content: center; align-items: center;
   gap: 6px; padding: 0;
 }
@@ -130,7 +128,7 @@ nav {
   width: 48px; height: 48px;
   background: none; border: 1px solid var(--line);
   color: var(--ink);
-  font-size: 18px; cursor: pointer;
+  font-size: 18px; cursor: none;
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   transition: background 0.3s, color 0.3s, border-color 0.3s, transform 0.4s var(--ease);
@@ -284,7 +282,7 @@ nav {
 @media (max-width: 768px) { .film-section { padding: 0 24px; } .section-tagline { margin-bottom: 28px; } }
 
 .film-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.film-grid .film-card { aspect-ratio: 16/9; position: relative; overflow: hidden; cursor: pointer; background: var(--bg-2); }
+.film-grid .film-card { aspect-ratio: 16/9; position: relative; overflow: hidden; cursor: none; background: var(--bg-2); }
 @media (max-width: 1100px) { .film-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 700px) { .film-grid { grid-template-columns: 1fr; gap: 12px; } }
 
@@ -382,7 +380,7 @@ nav {
 .origin-video {
   position: relative; aspect-ratio: 16/9;
   background: var(--bg-2); border: 1px solid var(--line); overflow: hidden;
-  cursor: pointer;
+  cursor: none;
 }
 .origin-poster {
   position: absolute; inset: 0; width: 100%; height: 100%;
@@ -394,7 +392,7 @@ nav {
   position: absolute; inset: 0; margin: auto;
   width: 96px; height: 96px;
   background: none; border: none;
-  color: #fff; cursor: pointer;
+  color: #fff; cursor: none;
   display: flex; align-items: center; justify-content: center;
   transition: transform 0.3s var(--ease);
 }
@@ -524,7 +522,7 @@ nav {
   background: transparent; border: none; outline: none;
   font-family: 'Fraunces', serif; color: var(--ink);
   font-size: clamp(18px, 2.4vw, 28px); font-weight: 300; letter-spacing: -0.01em;
-  resize: vertical; cursor: text; padding: 0;
+  resize: vertical; cursor: none; padding: 0;
 }
 .contact-form input::placeholder, .contact-form textarea::placeholder { color: var(--ink-dim); opacity: 0.4; font-style: italic; }
 .contact-form textarea { min-height: 80px; line-height: 1.4; font-family: 'Fraunces', serif; }
@@ -534,7 +532,7 @@ nav {
   font-family: 'Geist Mono', monospace;
   font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
   padding: 18px 32px; border-radius: 999px;
-  cursor: pointer; transition: background 0.3s var(--ease), transform 0.4s var(--ease);
+  cursor: none; transition: background 0.3s var(--ease), transform 0.4s var(--ease);
 }
 .contact-form button:hover { background: var(--accent); transform: scale(1.04); }
 .contact-form .alt { font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-dim); text-align: right; }
@@ -570,7 +568,7 @@ footer a:hover { color: var(--accent); }
   position: absolute; top: 32px; right: 32px;
   background: none; border: 1px solid var(--ink); color: var(--ink);
   width: 48px; height: 48px; border-radius: 50%;
-  cursor: pointer; font-size: 18px; font-family: 'Geist Mono', monospace;
+  cursor: none; font-size: 18px; font-family: 'Geist Mono', monospace;
   transition: background 0.3s, color 0.3s, border-color 0.3s;
 }
 .modal-close:hover { background: var(--accent); color: var(--bg); border-color: var(--accent); }

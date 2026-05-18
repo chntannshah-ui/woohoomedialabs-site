@@ -35,7 +35,6 @@ HERO = {
         ("26 Years", "in Cinema"),
         ("200+", "Clients Served"),
         ("1000+", "Films Released"),
-        ("Millions", "of Views"),
     ],
 }
 
@@ -46,12 +45,12 @@ MANIFESTO = {
 }
 
 CAPABILITIES = [
-    {"num": "01 / Brand",       "title": "Brand <em>films.</em>",        "body": "Anthems, manifestos, founder stories. Built to move the room.",                "image": "cap-01.jpg"},
-    {"num": "02 / Advertising", "title": "Ad <em>films.</em>",           "body": "30, 60, 90 second cinematic commercials for TV and digital.",                 "image": "cap-02.jpg"},
-    {"num": "03 / AI",          "title": "AI-native <em>cinema.</em>",   "body": "Every frame imagined first, then made. The camera multiplied a thousand times.", "image": "cap-03.jpg"},
-    {"num": "04 / Government",  "title": "Public <em>narrative.</em>",   "body": "Government and defence communication, with the gravity it deserves.",         "image": "cap-04.jpg"},
-    {"num": "05 / Product",     "title": "Product <em>films.</em>",      "body": "Hero films, demo reels, launch cinema — for products people actually buy.",   "image": "cap-05.jpg"},
-    {"num": "06 / Series",      "title": "Episodic <em>formats.</em>",   "body": "Social-first series engineered for retention, virality, and recall.",         "image": "cap-06.jpg"},
+    {"num": "01 / Brand",       "title": "Brand <em>films.</em>",        "body": "Anthems, manifestos, founder stories. Built to move the room."},
+    {"num": "02 / Advertising", "title": "Ad <em>films.</em>",           "body": "30, 60, 90 second cinematic commercials for TV and digital."},
+    {"num": "03 / AI",          "title": "AI-native <em>cinema.</em>",   "body": "Every frame imagined first, then made. The camera multiplied a thousand times."},
+    {"num": "04 / Government",  "title": "Public <em>narrative.</em>",   "body": "Government and defence communication, with the gravity it deserves."},
+    {"num": "05 / Product",     "title": "Product <em>films.</em>",      "body": "Hero films, demo reels, launch cinema — for products people actually buy."},
+    {"num": "06 / Series",      "title": "Episodic <em>formats.</em>",   "body": "Social-first series engineered for retention, virality, and recall."},
 ]
 
 # Instagram reels — these are manually managed since IG has no playlist API
@@ -114,10 +113,10 @@ def render_playlist_section(p, num):
     cards = "\n".join(render_film_card(v) for v in videos)
     view_all = ""
     if total > 6:
-        view_all = f'    <a href="{p["url"]}" target="_blank" rel="noopener" class="view-all" data-cursor>View all {total} films on YouTube →</a>'
+        view_all = f'    <a href="{p["url"]}" target="_blank" rel="noopener" class="view-all" data-cursor>View all on YouTube →</a>'
     elif total > 0:
         view_all = f'    <a href="{p["url"]}" target="_blank" rel="noopener" class="view-all" data-cursor>Open playlist on YouTube →</a>'
-    return f'''<div class="section-label" id="section-{num:02d}"><span>{p["icon"]} {p["name"]} · {num:02d}</span><span class="count">{total} film{"s" if total != 1 else ""}</span></div>
+    return f'''<div class="section-label" id="section-{num:02d}"><span>{p["icon"]} {p["name"]} · {num:02d}</span></div>
 <section class="film-section reveal">
   <p class="section-tagline">{p["tagline"]}</p>
   <div class="film-grid">
@@ -150,9 +149,8 @@ def render_ig_card(reel):
     </a>'''
 
 
-def render_capability(cap):
-    return f'''    <div class="service" data-cursor>
-      <div class="service-img" style="background-image: url('/{cap["image"]}');" aria-hidden="true"></div>
+def render_capability(cap, idx):
+    return f'''    <div class="service" data-cursor data-shade="{idx % 3}">
       <div class="service-content">
         <div class="num">{cap["num"]}</div>
         <h3>{cap["title"]}</h3>
@@ -210,7 +208,7 @@ def build():
     ig_cards_html = "\n".join(render_ig_card(r) for r in IG_REELS)
 
     # Render capabilities
-    caps_html = "\n".join(render_capability(c) for c in CAPABILITIES)
+    caps_html = "\n".join(render_capability(c, i) for i, c in enumerate(CAPABILITIES))
 
     # Hero metrics
     hero_metrics_html = "".join(

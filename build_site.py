@@ -24,7 +24,7 @@ SITE = {
     "email_direct": "chntan.n.shah@gmail.com",
     "instagram_handle": "chntan.n.shah",
     "youtube_channel": "https://www.youtube.com/@WooHooMediaLabs",
-    "linkedin": "https://www.linkedin.com/company/woohoomedialabs",
+    "linkedin": "https://www.linkedin.com/in/chntan/",
 }
 
 HERO = {

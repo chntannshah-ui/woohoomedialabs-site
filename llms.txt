@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="theme-color" content="#0a0a0a" />
-<meta name="build" content="2026-05-18T17:07:21.658478Z" />
+<meta name="build" content="2026-05-18T22:26:56.765748Z" />
 
 <!-- PRIMARY META -->
 <title>Woo Hoo Media Labs — AI-Native Creative Production Lab | Mumbai</title>
@@ -83,7 +83,7 @@
     { "@type": "Place", "name": "Worldwide" }
   ],
   "sameAs": [
-    "https://www.youtube.com/@WooHooMediaIndia",
+    "https://www.youtube.com/@WooHooMediaLabs",
     "https://www.instagram.com/chntan.n.shah",
     "https://www.linkedin.com/company/woohoomedialabs"
   ],
@@ -124,7 +124,7 @@
   "sameAs": [
     "https://www.instagram.com/chntan.n.shah",
     "https://www.linkedin.com/company/woohoomedialabs",
-    "https://www.youtube.com/@WooHooMediaIndia"
+    "https://www.youtube.com/@WooHooMediaLabs"
   ]
 }
 </script>
@@ -750,7 +750,75 @@
   </dl>
 </div>
 
-<div class="section-label" id="contact"><span>Get in touch · 11</span></div>
+<!-- ─── FOLLOW SECTION ───────────────────────────────────────── -->
+<div class="section-label" id="follow"><span>● Stay in the loop · 11</span></div>
+<section class="follow-section reveal">
+  <h2 class="follow-heading">More of the work, <em>as it happens.</em></h2>
+  <p class="follow-tagline">Films before they go anywhere else. Behind-the-scenes. The making-of, the misfires, and the next thing.</p>
+  <div class="follow-grid">
+
+    <a href="https://www.youtube.com/@WooHooMediaLabs" target="_blank" rel="noopener" class="follow-card" data-cursor>
+      <div class="follow-icon">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M30.5 8.5c-.35-1.3-1.37-2.32-2.67-2.67C25.5 5 16 5 16 5s-9.5 0-11.83.83A3.79 3.79 0 0 0 1.5 8.5C.67 10.83.67 16 .67 16s0 5.17.83 7.5c.35 1.3 1.37 2.32 2.67 2.67C6.5 27 16 27 16 27s9.5 0 11.83-.83a3.79 3.79 0 0 0 2.67-2.67C31.33 21.17 31.33 16 31.33 16s0-5.17-.83-7.5z" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M13 20.5l7-4.5-7-4.5v9z" fill="currentColor"/>
+        </svg>
+      </div>
+      <div class="follow-meta">
+        <span class="follow-platform">YouTube</span>
+        <span class="follow-handle">@WooHooMediaLabs</span>
+      </div>
+      <span class="follow-action">Subscribe <em>→</em></span>
+    </a>
+
+    <a href="https://www.instagram.com/chntan.n.shah" target="_blank" rel="noopener" class="follow-card" data-cursor>
+      <div class="follow-icon">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="4" width="24" height="24" rx="6" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="16" cy="16" r="5" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="23" cy="9" r="1.4" fill="currentColor"/>
+        </svg>
+      </div>
+      <div class="follow-meta">
+        <span class="follow-platform">Instagram</span>
+        <span class="follow-handle">@chntan.n.shah</span>
+      </div>
+      <span class="follow-action">Follow <em>→</em></span>
+    </a>
+
+    <a href="https://www.facebook.com/profile.php?id=61588245688759" target="_blank" rel="noopener" class="follow-card" data-cursor>
+      <div class="follow-icon">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 2C8.27 2 2 8.27 2 16c0 7 5.13 12.81 11.84 13.83v-9.78H10.3V16h3.54v-2.85c0-3.5 2.08-5.43 5.27-5.43 1.53 0 3.13.27 3.13.27v3.43h-1.76c-1.74 0-2.28 1.08-2.28 2.19V16h3.88l-.62 4.05h-3.26v9.78C24.87 28.81 30 23 30 16c0-7.73-6.27-14-14-14z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="follow-meta">
+        <span class="follow-platform">Facebook</span>
+        <span class="follow-handle">Woo Hoo Media Labs</span>
+      </div>
+      <span class="follow-action">Follow <em>→</em></span>
+    </a>
+
+    <a href="https://www.linkedin.com/company/woohoomedialabs" target="_blank" rel="noopener" class="follow-card" data-cursor>
+      <div class="follow-icon">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="4" width="24" height="24" rx="2" stroke="currentColor" stroke-width="1.5"/>
+          <rect x="9" y="13" width="2.5" height="10" fill="currentColor"/>
+          <circle cx="10.25" cy="10" r="1.5" fill="currentColor"/>
+          <path d="M15 13v10M15 17c0-2.2 1.5-4 3.75-4S22.5 14.8 22.5 17v6" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"/>
+        </svg>
+      </div>
+      <div class="follow-meta">
+        <span class="follow-platform">LinkedIn</span>
+        <span class="follow-handle">/woohoomedialabs</span>
+      </div>
+      <span class="follow-action">Connect <em>→</em></span>
+    </a>
+
+  </div>
+</section>
+
+<div class="section-label" id="contact"><span>Get in touch · 12</span></div>
 <section class="contact reveal">
   <div class="kicker">Available for select projects · 2026</div>
   <h2>Let's make<br/>something <em>unforgettable.</em></h2>
@@ -771,7 +839,7 @@
   <div>© 2026 Woo Hoo Media Labs · Mumbai · India</div>
   <div>
     <a href="https://www.instagram.com/chntan.n.shah" target="_blank" rel="noopener" data-cursor>Instagram</a>
-    <a href="https://www.youtube.com/@WooHooMediaIndia" target="_blank" rel="noopener" data-cursor>YouTube</a>
+    <a href="https://www.youtube.com/@WooHooMediaLabs" target="_blank" rel="noopener" data-cursor>YouTube</a>
     <a href="https://www.linkedin.com/company/woohoomedialabs" target="_blank" rel="noopener" data-cursor>LinkedIn</a>
   </div>
 </footer>

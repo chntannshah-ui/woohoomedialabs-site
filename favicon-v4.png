@@ -23,7 +23,7 @@ SITE = {
     "email_primary": "hello@woohoomedialabs.com",
     "email_direct": "chntan.n.shah@gmail.com",
     "instagram_handle": "chntan.n.shah",
-    "youtube_channel": "https://www.youtube.com/@WooHooMediaIndia",
+    "youtube_channel": "https://www.youtube.com/@WooHooMediaLabs",
     "linkedin": "https://www.linkedin.com/company/woohoomedialabs",
 }
 
@@ -242,7 +242,8 @@ def build():
         .replace("{{IG_CARDS}}", ig_cards_html)
         .replace("{{ORIGIN_NUM}}", f"{next_num + 2:02d}")
         .replace("{{PRE_AI_VIDEO_ID}}", PRE_AI_VIDEO_ID)
-        .replace("{{CONTACT_NUM}}", f"{next_num + 3:02d}")
+        .replace("{{FOLLOW_NUM}}", f"{next_num + 3:02d}")
+        .replace("{{CONTACT_NUM}}", f"{next_num + 4:02d}")
         .replace("{{VIDEO_SCHEMAS}}", video_schemas)
         .replace("{{BUILD_TIME}}", datetime.utcnow().isoformat() + "Z")
     )

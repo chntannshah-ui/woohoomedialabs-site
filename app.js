@@ -97,10 +97,27 @@
 })();
 
 // ─── REVEAL ON SCROLL ───────────────────────────────────────
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
-}, { threshold: 0.08 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+// Sections fade in as they enter the viewport. Includes a safety net:
+// after 2.5s, any section that hasn't been revealed gets revealed anyway,
+// so content can never be permanently invisible if the observer misfires.
+(function setupReveal() {
+  const items = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.05, rootMargin: '0px 0px -50px 0px' });
+  items.forEach(el => observer.observe(el));
+
+  // Safety: force-reveal any laggards after 2.5 seconds — better visible
+  // than invisible if Safari/low-power mode skips animations.
+  setTimeout(() => {
+    document.querySelectorAll('.reveal:not(.in)').forEach(el => el.classList.add('in'));
+  }, 2500);
+})();
 
 // ─── VIDEO MODAL (for film grid clicks) ─────────────────────
 const modal = document.getElementById('modal');

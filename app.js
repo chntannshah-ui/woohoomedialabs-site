@@ -1,37 +1,70 @@
-// ─── APERTURE CURSOR ────────────────────────────────────────
-// Camera iris that follows the mouse. Opens wide on interactive elements,
-// closes to a small dot on the rest of the page.
-(function setupAperture() {
+// ─── VIGNETTE SPOTLIGHT CURSOR ──────────────────────────────
+// Soft marigold-tinted glow follows the mouse — barely visible, just a feeling.
+// On interactive elements, a small marigold dot appears for precision feedback.
+(function setupVignette() {
   if (window.matchMedia('(max-width: 768px)').matches) return;
-  const aperture = document.getElementById('aperture');
-  if (!aperture) return;
-
-  let mx = 0, my = 0, dx = 0, dy = 0;
+  const root = document.documentElement;
+  const hotDot = document.getElementById('hot-dot');
+  let mx = window.innerWidth / 2, my = window.innerHeight / 2;
+  let dx = mx, dy = my;
 
   document.addEventListener('mousemove', (e) => {
     mx = e.clientX; my = e.clientY;
+    if (hotDot) {
+      hotDot.style.left = mx + 'px';
+      hotDot.style.top = my + 'px';
+    }
   });
 
-  // Smooth lerp so the iris feels weighty, like a real lens
   function tick() {
-    dx += (mx - dx) * 0.22;
-    dy += (my - dy) * 0.22;
-    aperture.style.left = dx + 'px';
-    aperture.style.top = dy + 'px';
+    dx += (mx - dx) * 0.16;
+    dy += (my - dy) * 0.16;
+    root.style.setProperty('--mx', dx + 'px');
+    root.style.setProperty('--my', dy + 'px');
     requestAnimationFrame(tick);
   }
   tick();
 
-  // Open on interactive targets
   const interactiveSel = '[data-cursor], button, a, input, textarea, .film-card, summary, details';
   document.querySelectorAll(interactiveSel).forEach(el => {
-    el.addEventListener('mouseenter', () => aperture.classList.add('open'));
-    el.addEventListener('mouseleave', () => aperture.classList.remove('open'));
+    el.addEventListener('mouseenter', () => hotDot && hotDot.classList.add('active'));
+    el.addEventListener('mouseleave', () => hotDot && hotDot.classList.remove('active'));
   });
+})();
 
-  // Hide when mouse leaves the window, restore when it returns
-  document.addEventListener('mouseleave', () => { aperture.style.opacity = '0'; });
-  document.addEventListener('mouseenter', () => { aperture.style.opacity = '1'; });
+// ─── HERO VIDEO PLAY GUARANTEE ──────────────────────────────
+// Some browsers (Safari, low-power mode) block autoplay even with muted+playsinline.
+// We attempt to play explicitly, retry on errors, and fall back to user-initiated start.
+(function ensureHeroPlay() {
+  const video = document.querySelector('.hero-video');
+  if (!video) return;
+
+  function tryPlay() {
+    const p = video.play();
+    if (p && typeof p.then === 'function') {
+      p.catch(() => {
+        // Autoplay blocked — wait for first user gesture, then try again
+        const onGesture = () => {
+          video.play().catch(() => {});
+          document.removeEventListener('click', onGesture);
+          document.removeEventListener('scroll', onGesture);
+          document.removeEventListener('touchstart', onGesture);
+        };
+        document.addEventListener('click', onGesture, { once: true });
+        document.addEventListener('scroll', onGesture, { once: true });
+        document.addEventListener('touchstart', onGesture, { once: true });
+      });
+    }
+  }
+
+  // Try immediately when metadata loads, and again on full load
+  if (video.readyState >= 2) tryPlay();
+  video.addEventListener('loadedmetadata', tryPlay);
+  video.addEventListener('canplay', tryPlay);
+  // Resume on visibility return
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden && video.paused) tryPlay();
+  });
 })();
 
 // ─── MOBILE MENU ────────────────────────────────────────────

@@ -15,45 +15,44 @@ body {
   background: var(--bg); color: var(--ink);
   font-family: 'Geist', -apple-system, sans-serif;
   font-weight: 400; -webkit-font-smoothing: antialiased;
-  overflow-x: hidden; cursor: none;
-}
-@media (max-width: 768px) {
-  body { cursor: auto; }
+  overflow-x: hidden;
 }
 a { color: inherit; text-decoration: none; }
 
-/* CURSOR — Camera Iris Aperture */
-/* Hides the native cursor and replaces it with a camera-lens iris.
-   Stationary: small closed iris (14px) with a center dot.
-   On interactive elements: opens to a wide aperture (60px) — like the lens
-   pulling focus onto whatever you're hovering. */
-.aperture {
+/* CURSOR — Vignette Spotlight (low intensity) */
+/* A gentle radial highlight follows the mouse — subtle, not darkening the page.
+   The native cursor stays visible. On interactive elements, a small marigold dot appears. */
+.vignette {
+  position: fixed; inset: 0;
+  pointer-events: none; z-index: 9998;
+  background: radial-gradient(
+    circle 380px at var(--mx, 50%) var(--my, 50%),
+    rgba(255, 176, 0, 0.045) 0%,
+    rgba(255, 176, 0, 0.02) 40%,
+    transparent 75%
+  );
+  mix-blend-mode: screen;
+  transition: opacity 0.4s var(--ease);
+  opacity: 1;
+}
+.hot-dot {
   position: fixed; left: 0; top: 0;
-  width: 18px; height: 18px;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
   pointer-events: none;
   z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: width 0.35s var(--ease), height 0.35s var(--ease);
-  mix-blend-mode: difference;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.25s var(--ease-out), opacity 0.3s var(--ease);
+  opacity: 0;
+  box-shadow: 0 0 18px rgba(255, 176, 0, 0.55);
 }
-.aperture svg {
-  width: 100%; height: 100%;
-  display: block;
-  transition: transform 0.6s var(--ease);
-  color: #fafafa;
+.hot-dot.active {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
 }
-.aperture.open { width: 56px; height: 56px; }
-.aperture.open svg { transform: rotate(40deg); }
-.aperture .iris-blade { transition: transform 0.5s var(--ease); transform-origin: 32px 32px; }
-.aperture.open .iris-blade { transform: scale(0.55); }
-.aperture .iris-dot {
-  transition: r 0.4s var(--ease), fill-opacity 0.3s var(--ease);
-}
-.aperture.open .iris-dot { r: 0; fill-opacity: 0; }
-
 @media (max-width: 768px) {
-  body { cursor: auto; }
-  .aperture { display: none; }
+  .vignette, .hot-dot, .aperture { display: none !important; }
 }
 
 /* NAV */
@@ -83,7 +82,7 @@ nav {
   display: none;
   background: none; border: none;
   width: 40px; height: 40px;
-  cursor: none;
+  cursor: pointer;
   flex-direction: column; justify-content: center; align-items: center;
   gap: 6px; padding: 0;
 }
@@ -111,16 +110,30 @@ nav {
     position: fixed; inset: 0;
     background: var(--bg);
     z-index: 150;
+    /* Multiple safety nets to prevent any flash before JS attaches */
     display: flex; flex-direction: column;
     justify-content: center; align-items: flex-start;
     padding: 80px 28px;
-    opacity: 0; visibility: hidden;
+    opacity: 0;
+    visibility: hidden;
     pointer-events: none;
-    transition: opacity 0.5s var(--ease), visibility 0.5s;
+    transform: translateY(-100%);
+    clip-path: inset(100% 0 0 0);
+    transition: opacity 0.45s var(--ease), visibility 0.45s, transform 0.45s var(--ease), clip-path 0.45s var(--ease);
   }
   .menu-overlay.open {
-    opacity: 1; visibility: visible;
+    opacity: 1;
+    visibility: visible;
     pointer-events: auto;
+    transform: translateY(0);
+    clip-path: inset(0 0 0 0);
+  }
+}
+@media (min-width: 769px) {
+  /* Belt + suspenders — never show on desktop no matter what */
+  .menu-overlay,
+  .menu-overlay * {
+    display: none !important;
   }
 }
 .menu-close {
@@ -128,7 +141,7 @@ nav {
   width: 48px; height: 48px;
   background: none; border: 1px solid var(--line);
   color: var(--ink);
-  font-size: 18px; cursor: none;
+  font-size: 18px; cursor: pointer;
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   transition: background 0.3s, color 0.3s, border-color 0.3s, transform 0.4s var(--ease);
@@ -282,7 +295,7 @@ nav {
 @media (max-width: 768px) { .film-section { padding: 0 24px; } .section-tagline { margin-bottom: 28px; } }
 
 .film-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.film-grid .film-card { aspect-ratio: 16/9; position: relative; overflow: hidden; cursor: none; background: var(--bg-2); }
+.film-grid .film-card { aspect-ratio: 16/9; position: relative; overflow: hidden; cursor: pointer; background: var(--bg-2); }
 @media (max-width: 1100px) { .film-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 700px) { .film-grid { grid-template-columns: 1fr; gap: 12px; } }
 
@@ -331,36 +344,72 @@ nav {
 }
 .services-track::-webkit-scrollbar { display: none; }
 .service {
-  flex: 0 0 340px; scroll-snap-align: start;
-  background: var(--bg-2); border: 1px solid var(--line); padding: 28px;
+  flex: 0 0 360px; scroll-snap-align: start;
+  position: relative;
+  border: 1px solid var(--line);
+  overflow: hidden;
+  background: var(--bg-2);
+  transition: border-color 0.4s var(--ease), transform 0.5s var(--ease);
+  min-height: 460px;
+  display: flex;
+}
+.service:hover { border-color: var(--accent); transform: translateY(-6px); }
+.service-img {
+  position: absolute; inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: grayscale(0.5) contrast(1.05) brightness(0.55);
+  transition: filter 0.8s var(--ease), transform 1.2s var(--ease-out);
+  z-index: 1;
+}
+.service:hover .service-img {
+  filter: grayscale(0) contrast(1.1) brightness(0.7);
+  transform: scale(1.05);
+}
+.service::before {
+  content: "";
+  position: absolute; inset: 0; z-index: 2;
+  background: linear-gradient(180deg,
+    rgba(10,10,10,0.2) 0%,
+    rgba(10,10,10,0.45) 50%,
+    rgba(10,10,10,0.92) 100%
+  );
+  pointer-events: none;
+  transition: opacity 0.4s var(--ease);
+}
+.service-content {
+  position: relative; z-index: 3;
+  padding: 28px;
   display: flex; flex-direction: column; justify-content: space-between;
-  transition: border-color 0.4s var(--ease), background 0.4s var(--ease);
-  min-height: 420px;
+  width: 100%;
 }
-.service:hover { border-color: var(--accent); background: #141414; }
-.service-top {
-  display: flex; justify-content: space-between; align-items: flex-start;
+.service .num {
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px; letter-spacing: 0.15em;
+  color: var(--ink);
+  opacity: 0.85;
+  transition: color 0.3s var(--ease);
 }
-.service .num { font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--ink-dim); }
-.service:hover .num { color: var(--accent); }
-.service .glyph {
-  width: 60px; height: 60px;
-  color: var(--ink-dim);
-  transition: color 0.4s var(--ease), transform 0.6s var(--ease);
-}
-.service .glyph svg { width: 100%; height: 100%; }
-.service:hover .glyph { color: var(--accent); transform: rotate(4deg); }
+.service:hover .num { color: var(--accent); opacity: 1; }
 .service h3 {
   font-family: 'Fraunces', serif;
   font-size: 36px; font-weight: 300; line-height: 1; letter-spacing: -0.02em;
+  color: var(--ink);
   margin-top: auto;
 }
-.service h3 em { font-style: italic; color: var(--ink-dim); }
-.service p { margin-top: 16px; font-size: 14px; color: var(--ink-dim); line-height: 1.5; }
+.service h3 em { font-style: italic; color: rgba(250, 250, 250, 0.65); }
+.service p {
+  margin-top: 16px;
+  font-size: 14px;
+  color: rgba(250, 250, 250, 0.78);
+  line-height: 1.5;
+  max-width: 280px;
+}
 @media (max-width: 768px) {
   .services { padding: 0 24px; }
   .services-track { margin: 0 -24px; padding: 0 24px 16px; }
-  .service { flex: 0 0 260px; min-height: 320px; }
+  .service { flex: 0 0 280px; min-height: 380px; }
   .service h3 { font-size: 28px; }
 }
 
@@ -380,7 +429,7 @@ nav {
 .origin-video {
   position: relative; aspect-ratio: 16/9;
   background: var(--bg-2); border: 1px solid var(--line); overflow: hidden;
-  cursor: none;
+  cursor: pointer;
 }
 .origin-poster {
   position: absolute; inset: 0; width: 100%; height: 100%;
@@ -392,7 +441,7 @@ nav {
   position: absolute; inset: 0; margin: auto;
   width: 96px; height: 96px;
   background: none; border: none;
-  color: #fff; cursor: none;
+  color: #fff; cursor: pointer;
   display: flex; align-items: center; justify-content: center;
   transition: transform 0.3s var(--ease);
 }
@@ -522,7 +571,7 @@ nav {
   background: transparent; border: none; outline: none;
   font-family: 'Fraunces', serif; color: var(--ink);
   font-size: clamp(18px, 2.4vw, 28px); font-weight: 300; letter-spacing: -0.01em;
-  resize: vertical; cursor: none; padding: 0;
+  resize: vertical; cursor: text; padding: 0;
 }
 .contact-form input::placeholder, .contact-form textarea::placeholder { color: var(--ink-dim); opacity: 0.4; font-style: italic; }
 .contact-form textarea { min-height: 80px; line-height: 1.4; font-family: 'Fraunces', serif; }
@@ -532,7 +581,7 @@ nav {
   font-family: 'Geist Mono', monospace;
   font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
   padding: 18px 32px; border-radius: 999px;
-  cursor: none; transition: background 0.3s var(--ease), transform 0.4s var(--ease);
+  cursor: pointer; transition: background 0.3s var(--ease), transform 0.4s var(--ease);
 }
 .contact-form button:hover { background: var(--accent); transform: scale(1.04); }
 .contact-form .alt { font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-dim); text-align: right; }
@@ -568,7 +617,7 @@ footer a:hover { color: var(--accent); }
   position: absolute; top: 32px; right: 32px;
   background: none; border: 1px solid var(--ink); color: var(--ink);
   width: 48px; height: 48px; border-radius: 50%;
-  cursor: none; font-size: 18px; font-family: 'Geist Mono', monospace;
+  cursor: pointer; font-size: 18px; font-family: 'Geist Mono', monospace;
   transition: background 0.3s, color 0.3s, border-color 0.3s;
 }
 .modal-close:hover { background: var(--accent); color: var(--bg); border-color: var(--accent); }

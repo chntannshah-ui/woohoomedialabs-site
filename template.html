@@ -23,8 +23,9 @@
 <meta http-equiv="content-language" content="en-IN" />
 
 <!-- ICONS / PWA -->
-<link rel="icon" type="image/png" href="/favicon.png" />
-<link rel="apple-touch-icon" href="/logo-mark.png" />
+<link rel="icon" type="image/png" sizes="64x64" href="/favicon.png?v=2" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=2" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" />
 <link rel="manifest" href="/site.webmanifest" />
 
 <!-- AI / LLM HINTS -->
@@ -314,15 +315,16 @@
 <section class="contact reveal">
   <div class="kicker">Available for select projects · 2026</div>
   <h2>Let's make<br/>something <em>unforgettable.</em></h2>
-  <form class="contact-form" onsubmit="handleSubmit(event)">
-    <div class="field"><label for="name">Your name</label><input id="name" type="text" required placeholder="e.g. Riya Mehta" autocomplete="name" /></div>
-    <div class="field"><label for="email">Email</label><input id="email" type="email" required placeholder="you@brand.com" autocomplete="email" /></div>
-    <div class="field"><label for="company">Company <span class="opt">(optional)</span></label><input id="company" type="text" placeholder="Brand or organisation" autocomplete="organization" /></div>
-    <div class="field"><label for="inquiry">Tell us about your project</label><textarea id="inquiry" required placeholder="A film, an idea, a brief, a question — start anywhere."></textarea></div>
+  <form class="contact-form" id="contact-form" novalidate>
+    <div class="field"><label for="name">Your name</label><input id="name" name="name" type="text" required placeholder="e.g. Riya Mehta" autocomplete="name" /></div>
+    <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required placeholder="you@brand.com" autocomplete="email" /></div>
+    <div class="field"><label for="company">Company <span class="opt">(optional)</span></label><input id="company" name="company" type="text" placeholder="Brand or organisation" autocomplete="organization" /></div>
+    <div class="field"><label for="inquiry">Tell us about your project</label><textarea id="inquiry" name="inquiry" required placeholder="A film, an idea, a brief, a question — start anywhere."></textarea></div>
     <div class="submit-row">
-      <button type="submit" data-cursor>Send Inquiry →</button>
-      <div class="alt">Direct: <a href="mailto:{{EMAIL_DIRECT}}" data-cursor>{{EMAIL_DIRECT}}</a></div>
+      <button type="submit" data-cursor id="contact-submit">Send Inquiry →</button>
+      <div class="alt">Or email: <a href="mailto:{{EMAIL_DIRECT}}" data-cursor>{{EMAIL_DIRECT}}</a></div>
     </div>
+    <div class="form-status" id="form-status" aria-live="polite"></div>
   </form>
 </section>
 

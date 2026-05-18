@@ -19,25 +19,27 @@ body {
 }
 a { color: inherit; text-decoration: none; }
 
-/* CURSOR — Vignette Spotlight (low intensity) */
-/* A gentle radial highlight follows the mouse — subtle, not darkening the page.
-   The native cursor stays visible. On interactive elements, a small marigold dot appears. */
+/* CURSOR — Vignette Spotlight (medium intensity, darkening) */
+/* The page has a soft radial darkening at the edges — like holding a small
+   light source in a dim cinema. The area near the cursor stays normal,
+   edges fade slightly dark. ~50% the intensity of the original heavy version. */
 .vignette {
   position: fixed; inset: 0;
   pointer-events: none; z-index: 9998;
   background: radial-gradient(
-    circle 380px at var(--mx, 50%) var(--my, 50%),
-    rgba(255, 176, 0, 0.045) 0%,
-    rgba(255, 176, 0, 0.02) 40%,
-    transparent 75%
+    circle 480px at var(--mx, 50%) var(--my, 50%),
+    transparent 0%,
+    rgba(10, 10, 10, 0.0) 35%,
+    rgba(10, 10, 10, 0.22) 80%,
+    rgba(10, 10, 10, 0.38) 100%
   );
-  mix-blend-mode: screen;
+  mix-blend-mode: multiply;
   transition: opacity 0.4s var(--ease);
   opacity: 1;
 }
 .hot-dot {
   position: fixed; left: 0; top: 0;
-  width: 8px; height: 8px;
+  width: 10px; height: 10px;
   border-radius: 50%;
   background: var(--accent);
   pointer-events: none;
@@ -45,7 +47,7 @@ a { color: inherit; text-decoration: none; }
   transform: translate(-50%, -50%) scale(0);
   transition: transform 0.25s var(--ease-out), opacity 0.3s var(--ease);
   opacity: 0;
-  box-shadow: 0 0 18px rgba(255, 176, 0, 0.55);
+  box-shadow: 0 0 20px rgba(255, 176, 0, 0.55);
 }
 .hot-dot.active {
   transform: translate(-50%, -50%) scale(1);
@@ -584,9 +586,22 @@ nav {
   cursor: pointer; transition: background 0.3s var(--ease), transform 0.4s var(--ease);
 }
 .contact-form button:hover { background: var(--accent); transform: scale(1.04); }
+.contact-form button:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 .contact-form .alt { font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-dim); text-align: right; }
 .contact-form .alt a { color: var(--ink); border-bottom: 1px solid var(--line); transition: border-color 0.3s; }
 .contact-form .alt a:hover { border-color: var(--accent); color: var(--accent); }
+.form-status {
+  margin-top: 24px;
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  min-height: 18px;
+  transition: color 0.3s var(--ease);
+}
+.form-status.success { color: var(--accent); }
+.form-status.error { color: #ff7a7a; }
+.form-status.info { color: var(--ink-dim); }
 @media (max-width: 600px) {
   .contact { padding: 80px 24px 40px; }
   .contact-form .submit-row { flex-direction: column; align-items: stretch; }

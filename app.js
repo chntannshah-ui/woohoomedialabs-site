@@ -144,13 +144,78 @@ document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeVideo
 })();
 
 // ─── CONTACT FORM ───────────────────────────────────────────
-function handleSubmit(e) {
-  e.preventDefault();
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const company = document.getElementById('company').value;
-  const inquiry = document.getElementById('inquiry').value;
-  const subject = encodeURIComponent(`Inquiry from ${name}${company ? ' / ' + company : ''}`);
-  const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nCompany: ${company || '—'}\n\n${inquiry}`);
-  window.location.href = `mailto:chntan.n.shah@gmail.com?subject=${subject}&body=${body}`;
-}
+// Submits via Formspree (if FORMSPREE_ID is set in window) — otherwise opens
+// the user's mail client with the inquiry pre-filled. Shows success/error states.
+(function setupContactForm() {
+  const form = document.getElementById('contact-form');
+  if (!form) return;
+  const status = document.getElementById('form-status');
+  const button = document.getElementById('contact-submit');
+
+  function setStatus(msg, kind) {
+    if (!status) return;
+    status.textContent = msg;
+    status.className = 'form-status ' + (kind || '');
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = {
+      name:    form.querySelector('#name').value.trim(),
+      email:   form.querySelector('#email').value.trim(),
+      company: form.querySelector('#company').value.trim(),
+      inquiry: form.querySelector('#inquiry').value.trim(),
+    };
+
+    if (!data.name || !data.email || !data.inquiry) {
+      setStatus('Please fill in name, email, and your inquiry.', 'error');
+      return;
+    }
+
+    button.disabled = true;
+    const originalText = button.textContent;
+    button.textContent = 'Sending...';
+    setStatus('', '');
+
+    // Try Formspree if configured
+    const FORMSPREE_ID = window.FORMSPREE_ID || '';
+    if (FORMSPREE_ID) {
+      try {
+        const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: data.name,
+            email: data.email,
+            company: data.company || '—',
+            message: data.inquiry,
+            _subject: `Inquiry from ${data.name}${data.company ? ' / ' + data.company : ''}`
+          })
+        });
+        if (res.ok) {
+          form.reset();
+          setStatus('Thank you. Your inquiry is in. We\'ll be in touch shortly.', 'success');
+          button.textContent = 'Sent ✓';
+          setTimeout(() => { button.textContent = originalText; button.disabled = false; }, 4000);
+          return;
+        }
+        throw new Error('Form submission failed');
+      } catch (err) {
+        // Fall through to mailto
+      }
+    }
+
+    // Fallback: open mail client with body pre-filled
+    const subject = encodeURIComponent(`Inquiry from ${data.name}${data.company ? ' / ' + data.company : ''}`);
+    const body = encodeURIComponent(
+      `Name: ${data.name}\n` +
+      `Email: ${data.email}\n` +
+      `Company: ${data.company || '—'}\n\n` +
+      data.inquiry
+    );
+    window.location.href = `mailto:chntan.n.shah@gmail.com?subject=${subject}&body=${body}`;
+    setStatus('Opening your mail client. If nothing happens, please email chntan.n.shah@gmail.com directly.', 'info');
+    button.disabled = false;
+    button.textContent = originalText;
+  });
+})();

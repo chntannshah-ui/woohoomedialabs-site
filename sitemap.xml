@@ -4,13 +4,20 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://woohoomedialabs.com/</loc>
-    <lastmod>2026-05-17</lastmod>
+    <lastmod>2026-05-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://woohoomedialabs.com/og-cover.jpg</image:loc>
       <image:title>Woo Hoo Media Labs — Cinema for the age of intelligence</image:title>
     </image:image>
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/bYj4DB2bhIs/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>Woo Hoo Media Labs — Studio Showcase Film</video:title>
+      <video:description>Studio showcase film from Woo Hoo Media Labs — an AI-native creative production lab in Mumbai. Directed by Chntan N. Shah.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/bYj4DB2bhIs</video:player_loc>
+      <video:content_loc>https://www.youtube.com/watch?v=bYj4DB2bhIs</video:content_loc>
+    </video:video>
     <video:video>
       <video:thumbnail_loc>https://img.youtube.com/vi/drr5t95E-FA/maxresdefault.jpg</video:thumbnail_loc>
       <video:title>I Made a 78-Second AI Film with 11 Characters · India's Longest AI Narrative Brand Film</video:title>
@@ -20,17 +27,10 @@
     </video:video>
     <video:video>
       <video:thumbnail_loc>https://img.youtube.com/vi/av6Xxoa6HfQ/maxresdefault.jpg</video:thumbnail_loc>
-      <video:title>Speed 4 Defence · Built for the Battlefield ð®ð³</video:title>
-      <video:description>Speed 4 Defence · Built for the Battlefield ð®ð³ — produced by Woo Hoo Media Labs (AI Films)</video:description>
+      <video:title>Speed 4 Defence · Built for the Battlefield 🇮🇳</video:title>
+      <video:description>Speed 4 Defence · Built for the Battlefield 🇮🇳 — produced by Woo Hoo Media Labs (AI Films)</video:description>
       <video:player_loc>https://www.youtube.com/embed/av6Xxoa6HfQ</video:player_loc>
       <video:content_loc>https://www.youtube.com/watch?v=av6Xxoa6HfQ</video:content_loc>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://img.youtube.com/vi/Acy82jZ1pCw/maxresdefault.jpg</video:thumbnail_loc>
-      <video:title>The Shrinking Bill · 100% AI-Made Indian Ad Film for Norwood CRIZA BLDC Fans</video:title>
-      <video:description>The Shrinking Bill · 100% AI-Made Indian Ad Film for Norwood CRIZA BLDC Fans — produced by Woo Hoo Media Labs (AI Films)</video:description>
-      <video:player_loc>https://www.youtube.com/embed/Acy82jZ1pCw</video:player_loc>
-      <video:content_loc>https://www.youtube.com/watch?v=Acy82jZ1pCw</video:content_loc>
     </video:video>
     <video:video>
       <video:thumbnail_loc>https://img.youtube.com/vi/CWrRiAltF_g/maxresdefault.jpg</video:thumbnail_loc>
@@ -47,11 +47,11 @@
       <video:content_loc>https://www.youtube.com/watch?v=tA725EQJpro</video:content_loc>
     </video:video>
     <video:video>
-      <video:thumbnail_loc>https://img.youtube.com/vi/yx20uvhRnKA/maxresdefault.jpg</video:thumbnail_loc>
-      <video:title>Fybros Raze · Product Features Film</video:title>
-      <video:description>Fybros Raze · Product Features Film — produced by Woo Hoo Media Labs (Product Films)</video:description>
-      <video:player_loc>https://www.youtube.com/embed/yx20uvhRnKA</video:player_loc>
-      <video:content_loc>https://www.youtube.com/watch?v=yx20uvhRnKA</video:content_loc>
+      <video:thumbnail_loc>https://img.youtube.com/vi/iVDph7XanrY/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>PRATIKAR I — India's First Autonomous Drone Interceptor · Aerotronics India</video:title>
+      <video:description>PRATIKAR I — India's First Autonomous Drone Interceptor · Aerotronics India — produced by Woo Hoo Media Labs (Corporate Communication)</video:description>
+      <video:player_loc>https://www.youtube.com/embed/iVDph7XanrY</video:player_loc>
+      <video:content_loc>https://www.youtube.com/watch?v=iVDph7XanrY</video:content_loc>
     </video:video>
     <video:video>
       <video:thumbnail_loc>https://img.youtube.com/vi/m-jzHKss0cU/maxresdefault.jpg</video:thumbnail_loc>
@@ -59,20 +59,6 @@
       <video:description>Blend Colors · Corporate Brand Film — produced by Woo Hoo Media Labs (Corporate Communication)</video:description>
       <video:player_loc>https://www.youtube.com/embed/m-jzHKss0cU</video:player_loc>
       <video:content_loc>https://www.youtube.com/watch?v=m-jzHKss0cU</video:content_loc>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://img.youtube.com/vi/8lFsUZoLxQM/maxresdefault.jpg</video:thumbnail_loc>
-      <video:title>ICICI Prudential Life · Keyman Insurance Explainer</video:title>
-      <video:description>ICICI Prudential Life · Keyman Insurance Explainer — produced by Woo Hoo Media Labs (Corporate Communication)</video:description>
-      <video:player_loc>https://www.youtube.com/embed/8lFsUZoLxQM</video:player_loc>
-      <video:content_loc>https://www.youtube.com/watch?v=8lFsUZoLxQM</video:content_loc>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://img.youtube.com/vi/7Tbbstq75C8/maxresdefault.jpg</video:thumbnail_loc>
-      <video:title>Vibrant Experiences · Brand Film</video:title>
-      <video:description>Vibrant Experiences · Brand Film — produced by Woo Hoo Media Labs (Corporate Communication)</video:description>
-      <video:player_loc>https://www.youtube.com/embed/7Tbbstq75C8</video:player_loc>
-      <video:content_loc>https://www.youtube.com/watch?v=7Tbbstq75C8</video:content_loc>
     </video:video>
     <video:video>
       <video:thumbnail_loc>https://img.youtube.com/vi/oJBxjkzgF30/maxresdefault.jpg</video:thumbnail_loc>
@@ -89,13 +75,6 @@
       <video:content_loc>https://www.youtube.com/watch?v=HGfV0d4gVSk</video:content_loc>
     </video:video>
     <video:video>
-      <video:thumbnail_loc>https://img.youtube.com/vi/k3-JKtdzjEA/maxresdefault.jpg</video:thumbnail_loc>
-      <video:title>Aaple Sarkar Portal · Government Services Explainer</video:title>
-      <video:description>Aaple Sarkar Portal · Government Services Explainer — produced by Woo Hoo Media Labs (Government Films)</video:description>
-      <video:player_loc>https://www.youtube.com/embed/k3-JKtdzjEA</video:player_loc>
-      <video:content_loc>https://www.youtube.com/watch?v=k3-JKtdzjEA</video:content_loc>
-    </video:video>
-    <video:video>
       <video:thumbnail_loc>https://img.youtube.com/vi/u1BMsq5Bb00/maxresdefault.jpg</video:thumbnail_loc>
       <video:title>Bone &amp; Muscle Health Naturally · UNS NutraTalk</video:title>
       <video:description>Bone &amp; Muscle Health Naturally · UNS NutraTalk — produced by Woo Hoo Media Labs (Healthcare & Lifestyle)</video:description>
@@ -110,11 +89,11 @@
       <video:content_loc>https://www.youtube.com/watch?v=HcA3GsFm8po</video:content_loc>
     </video:video>
     <video:video>
-      <video:thumbnail_loc>https://img.youtube.com/vi/aS5DzhLjwoM/maxresdefault.jpg</video:thumbnail_loc>
-      <video:title>Why Are You Always Tired? Fatigue Causes &amp; Solutions · UNS NutraTalk</video:title>
-      <video:description>Why Are You Always Tired? Fatigue Causes &amp; Solutions · UNS NutraTalk — produced by Woo Hoo Media Labs (Healthcare & Lifestyle)</video:description>
-      <video:player_loc>https://www.youtube.com/embed/aS5DzhLjwoM</video:player_loc>
-      <video:content_loc>https://www.youtube.com/watch?v=aS5DzhLjwoM</video:content_loc>
+      <video:thumbnail_loc>https://img.youtube.com/vi/bYj4DB2bhIs/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>Chntan N. Shah — 25 Years Behind the Camera · Showcase Film</video:title>
+      <video:description>Chntan N. Shah — 25 Years Behind the Camera · Showcase Film — produced by Woo Hoo Media Labs (Signature & Special Projects)</video:description>
+      <video:player_loc>https://www.youtube.com/embed/bYj4DB2bhIs</video:player_loc>
+      <video:content_loc>https://www.youtube.com/watch?v=bYj4DB2bhIs</video:content_loc>
     </video:video>
     <video:video>
       <video:thumbnail_loc>https://img.youtube.com/vi/O1fE36Dj3yY/maxresdefault.jpg</video:thumbnail_loc>
@@ -122,13 +101,6 @@
       <video:description>Shri Mahesh Chandra Shah · 75th Birthday Biography Tribute Film — produced by Woo Hoo Media Labs (Signature & Special Projects)</video:description>
       <video:player_loc>https://www.youtube.com/embed/O1fE36Dj3yY</video:player_loc>
       <video:content_loc>https://www.youtube.com/watch?v=O1fE36Dj3yY</video:content_loc>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://img.youtube.com/vi/J4cuHyAPQWc/maxresdefault.jpg</video:thumbnail_loc>
-      <video:title>Norwood Diwali Film 2019 · Woo Hoo Media</video:title>
-      <video:description>Norwood Diwali Film 2019 · Woo Hoo Media — produced by Woo Hoo Media Labs (Signature & Special Projects)</video:description>
-      <video:player_loc>https://www.youtube.com/embed/J4cuHyAPQWc</video:player_loc>
-      <video:content_loc>https://www.youtube.com/watch?v=J4cuHyAPQWc</video:content_loc>
     </video:video>
   </url>
 </urlset>

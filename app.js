@@ -160,6 +160,33 @@ document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeVideo
   wrap.addEventListener('click', play);
 })();
 
+// ─── SHOWCASE FILM — CLICK TO PLAY ──────────────────────────
+// Hero piece. Same pattern as Pre-AI Showreel but uses data-yt-id so the
+// embed video can be swapped without touching JS.
+(function setupShowcaseVideo() {
+  document.querySelectorAll('.showcase-player[data-yt-id]').forEach(wrap => {
+    const ytId = wrap.dataset.ytId;
+    if (!ytId) return;
+    const poster = wrap.querySelector('.showcase-poster');
+    const playWrap = wrap.querySelector('.showcase-play-wrap');
+    const caption = wrap.querySelector('.showcase-caption');
+    let loaded = false;
+    wrap.addEventListener('click', () => {
+      if (loaded) return;
+      loaded = true;
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0&modestbranding=1`;
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      iframe.allowFullscreen = true;
+      iframe.frameBorder = '0';
+      wrap.appendChild(iframe);
+      if (poster) poster.style.display = 'none';
+      if (playWrap) playWrap.style.display = 'none';
+      if (caption) caption.style.display = 'none';
+    });
+  });
+})();
+
 // ─── CONTACT FORM ───────────────────────────────────────────
 // Submits via Formspree (if FORMSPREE_ID is set in window) — otherwise opens
 // the user's mail client with the inquiry pre-filled. Shows success/error states.

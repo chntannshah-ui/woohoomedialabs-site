@@ -314,10 +314,9 @@ nav {
 .film-card { transition: transform 0.4s var(--ease); }
 .film-thumb {
   position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
-  transition: transform 1.2s var(--ease-out), filter 0.6s var(--ease);
-  filter: grayscale(1) contrast(1.05) brightness(0.92);
+  transition: transform 1.2s var(--ease-out);
 }
-.film-card:hover .film-thumb { transform: scale(1.05); filter: grayscale(0) contrast(1.05) brightness(1); }
+.film-card:hover .film-thumb { transform: scale(1.05); }
 .film-meta {
   position: absolute; bottom: 0; left: 0; right: 0; padding: 20px;
   background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
@@ -409,6 +408,98 @@ nav {
 }
 
 /* PRE-AI SHOWREEL */
+/* SHOWCASE FILM (HERO PIECE — section 02) */
+.showcase-section {
+  padding: 0 48px 100px;
+  max-width: 1800px;
+  margin: 0 auto;
+}
+.showcase-intro {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+  align-items: end; padding: 0 0 56px;
+}
+.showcase-intro h3 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(44px, 6.2vw, 92px);
+  font-weight: 300; line-height: 0.98; letter-spacing: -0.035em;
+}
+.showcase-intro h3 em { font-style: italic; color: var(--ink-dim); }
+.showcase-tagline {
+  font-size: 16px; line-height: 1.55; color: var(--ink-dim);
+  max-width: 540px;
+}
+.showcase-frame {
+  position: relative;
+  max-width: 1500px; margin: 0 auto;
+  padding: 14px;
+  background: linear-gradient(135deg, rgba(255,176,0,0.18) 0%, rgba(255,176,0,0) 50%);
+  border: 1px solid var(--line);
+}
+.showcase-player {
+  position: relative; aspect-ratio: 16/9;
+  background: var(--bg-2); overflow: hidden;
+  cursor: pointer;
+}
+.showcase-poster {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover;
+  transition: filter 0.8s var(--ease), transform 1.2s var(--ease-out);
+  filter: brightness(0.72) contrast(1.05);
+}
+.showcase-player:hover .showcase-poster { filter: brightness(0.55) contrast(1.1); transform: scale(1.03); }
+.showcase-play-wrap {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  pointer-events: none;
+}
+.showcase-play {
+  pointer-events: auto;
+  width: 128px; height: 128px;
+  background: none; border: none;
+  color: #fff; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.4s var(--ease), color 0.3s var(--ease);
+  filter: drop-shadow(0 4px 24px rgba(0,0,0,0.5));
+}
+.showcase-player:hover .showcase-play {
+  transform: scale(1.12);
+  color: var(--accent);
+}
+.showcase-play svg { width: 100%; height: 100%; }
+.showcase-player iframe {
+  position: absolute; inset: 0; width: 100%; height: 100%; border: 0; z-index: 5;
+}
+.showcase-caption {
+  position: absolute; bottom: 24px; left: 28px; z-index: 3;
+  pointer-events: none;
+  opacity: 0; transform: translateY(8px);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+}
+.showcase-player:hover .showcase-caption {
+  opacity: 1; transform: translateY(0);
+}
+.showcase-mono {
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+  color: rgba(250,250,250,0.85);
+  background: rgba(10,10,10,0.55);
+  padding: 8px 12px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.showcase-mono::first-letter { color: var(--accent); }
+@media (max-width: 768px) {
+  .showcase-section { padding: 0 24px 60px; }
+  .showcase-intro { grid-template-columns: 1fr; gap: 20px; padding-bottom: 32px; }
+  .showcase-intro h3 { font-size: 38px; }
+  .showcase-tagline { font-size: 14px; }
+  .showcase-frame { padding: 8px; }
+  .showcase-play { width: 80px; height: 80px; }
+  .showcase-caption { bottom: 12px; left: 12px; }
+  .showcase-mono { font-size: 9px; padding: 6px 10px; }
+}
+
+/* ORIGIN SECTION */
 .origin-section { padding: 0 48px 0; max-width: 1800px; margin: 0 auto; }
 .origin-intro {
   display: grid; grid-template-columns: 1fr 1fr; gap: 48px;

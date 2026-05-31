@@ -44,15 +44,22 @@ def parse_playlist(html: str) -> list[dict]:
     videos = []
     seen = set()
 
+    def decode_title(title: str) -> str:
+        """Fix YouTube's JSON-escaped unicode (\\uXXXX, \\u0026, etc)."""
+        try:
+            # JSON-style unicode escapes are what YouTube embeds
+            return json.loads(f'"{title}"')
+        except Exception:
+            try:
+                return title.encode().decode("unicode_escape", errors="ignore")
+            except Exception:
+                return title
+
     def add(vid: str, title: str):
         if vid in seen or vid in EXCLUDE_VIDEO_IDS:
             return
         seen.add(vid)
-        try:
-            title = title.encode().decode("unicode_escape", errors="ignore")
-        except Exception:
-            pass
-        videos.append({"id": vid, "title": title.strip()})
+        videos.append({"id": vid, "title": decode_title(title).strip()})
 
     # Pattern A — playlistVideoRenderer (large playlists)
     for m in re.finditer(

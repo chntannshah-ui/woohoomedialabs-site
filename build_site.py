@@ -80,6 +80,7 @@ IG_REELS = [
 ]
 
 PRE_AI_VIDEO_ID = "F-spjRJSgus"
+SHOWCASE_VIDEO_ID = "bYj4DB2bhIs"   # 2:30 hero showcase film, sits as section 02
 
 TESTIMONIALS_ENABLED = False  # Off — testimonials section hidden until real ones arrive
 
@@ -189,23 +190,36 @@ def build():
     data = json.loads(Path("playlists.json").read_text())
     playlists = data["playlists"]
 
-    # Render film sections (start at section 02)
+    # Render film sections (start at section 03 — showcase film takes 02)
     section_blocks = []
     for i, p in enumerate(playlists):
-        section_blocks.append(render_playlist_section(p, i + 2))
+        section_blocks.append(render_playlist_section(p, i + 3))
     sections_html = "\n\n".join(section_blocks)
 
-    next_num = len(playlists) + 2  # capabilities number
+    next_num = len(playlists) + 3  # capabilities number
 
     # Generate VideoObject schemas — top 2 videos from each playlist (12 total)
+    # The showcase film leads — it's the hero piece.
     video_schemas_list = []
+    showcase_schema = f'''<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Woo Hoo Media Labs — Studio Showcase Film",
+  "description": "Studio showcase film from Woo Hoo Media Labs — an AI-native creative production lab in Mumbai. Directed by Chntan N. Shah. Twenty-six years of cinema, reimagined for the age of intelligence.",
+  "thumbnailUrl": "https://img.youtube.com/vi/{SHOWCASE_VIDEO_ID}/maxresdefault.jpg",
+  "uploadDate": "2026-05-01",
+  "contentUrl": "https://www.youtube.com/watch?v={SHOWCASE_VIDEO_ID}",
+  "embedUrl": "https://www.youtube.com/embed/{SHOWCASE_VIDEO_ID}",
+  "director": {{ "@type": "Person", "name": "Chntan N. Shah" }},
+  "publisher": {{ "@type": "Organization", "name": "Woo Hoo Media Labs" }}
+}}
+</script>'''
+    video_schemas_list.append(showcase_schema)
     for p in playlists:
         for v in p.get("videos", [])[:2]:
             video_schemas_list.append(render_video_schema(v, p["name"]))
     video_schemas = "\n".join(video_schemas_list)
-
-    # Render IG cards
-    ig_cards_html = "\n".join(render_ig_card(r) for r in IG_REELS)
 
     # Render capabilities
     caps_html = "\n".join(render_capability(c, i) for i, c in enumerate(CAPABILITIES))
@@ -238,12 +252,11 @@ def build():
         .replace("{{FILM_SECTIONS}}", sections_html)
         .replace("{{CAPABILITIES_NUM}}", f"{next_num:02d}")
         .replace("{{CAPABILITIES}}", caps_html)
-        .replace("{{IG_NUM}}", f"{next_num + 1:02d}")
-        .replace("{{IG_CARDS}}", ig_cards_html)
-        .replace("{{ORIGIN_NUM}}", f"{next_num + 2:02d}")
+        .replace("{{ORIGIN_NUM}}", f"{next_num + 1:02d}")
         .replace("{{PRE_AI_VIDEO_ID}}", PRE_AI_VIDEO_ID)
-        .replace("{{FOLLOW_NUM}}", f"{next_num + 3:02d}")
-        .replace("{{CONTACT_NUM}}", f"{next_num + 4:02d}")
+        .replace("{{SHOWCASE_VIDEO_ID}}", SHOWCASE_VIDEO_ID)
+        .replace("{{FOLLOW_NUM}}", f"{next_num + 2:02d}")
+        .replace("{{CONTACT_NUM}}", f"{next_num + 3:02d}")
         .replace("{{VIDEO_SCHEMAS}}", video_schemas)
         .replace("{{BUILD_TIME}}", datetime.utcnow().isoformat() + "Z")
     )
@@ -252,7 +265,59 @@ def build():
     print(f"✓ Built index.html ({len(page):,} chars)")
     print(f"  {len(playlists)} playlist sections")
     print(f"  {sum(len(p.get('videos', [])[:6]) for p in playlists)} film cards visible (top 6 each)")
-    print(f"  {len(IG_REELS)} Instagram reels")
+
+    # Regenerate sitemap.xml with showcase + current playlist titles
+    write_sitemap(playlists)
+    print(f"✓ Updated sitemap.xml")
+
+
+def write_sitemap(playlists):
+    """Build a fresh sitemap.xml with showcase film + top 2 per playlist."""
+    today = datetime.utcnow().strftime("%Y-%m-%d")
+    video_entries = []
+
+    # Showcase first (top priority)
+    video_entries.append(f"""    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/{SHOWCASE_VIDEO_ID}/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>Woo Hoo Media Labs — Studio Showcase Film</video:title>
+      <video:description>Studio showcase film from Woo Hoo Media Labs — an AI-native creative production lab in Mumbai. Directed by Chntan N. Shah.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/{SHOWCASE_VIDEO_ID}</video:player_loc>
+      <video:content_loc>https://www.youtube.com/watch?v={SHOWCASE_VIDEO_ID}</video:content_loc>
+    </video:video>""")
+
+    # Then top 2 from each playlist
+    for p in playlists:
+        for v in p.get("videos", [])[:2]:
+            vid = v["id"]
+            title = clean_title(v.get("title", "Untitled")).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+            video_entries.append(f"""    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/{vid}/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>{title}</video:title>
+      <video:description>{title} — produced by Woo Hoo Media Labs ({p['name']})</video:description>
+      <video:player_loc>https://www.youtube.com/embed/{vid}</video:player_loc>
+      <video:content_loc>https://www.youtube.com/watch?v={vid}</video:content_loc>
+    </video:video>""")
+
+    videos_xml = "\n".join(video_entries)
+
+    sitemap = f'''<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://woohoomedialabs.com/</loc>
+    <lastmod>{today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://woohoomedialabs.com/og-cover.jpg</image:loc>
+      <image:title>Woo Hoo Media Labs — Cinema for the age of intelligence</image:title>
+    </image:image>
+{videos_xml}
+  </url>
+</urlset>
+'''
+    Path("sitemap.xml").write_text(sitemap)
 
 
 if __name__ == "__main__":

@@ -1,13 +1,26 @@
 {
   "name": "Woo Hoo Media Labs",
   "short_name": "Woo Hoo Labs",
-  "description": "AI-Native Creative Production Lab · Mumbai",
+  "description": "AI-Native Creative Production Lab \u00b7 Mumbai",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0a0a0a",
   "theme_color": "#0a0a0a",
   "icons": [
-    { "src": "/favicon.png", "sizes": "64x64", "type": "image/png" },
-    { "src": "/logo-mark.png", "sizes": "256x256", "type": "image/png" }
+    {
+      "src": "/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo-mark.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }
   ]
 }

@@ -1054,3 +1054,14 @@ body.intro-lock { overflow: hidden; }
   filter: none !important; transition: none !important; animation: none !important;
   flex: 0 0 auto; width: 100%; display: flex; align-items: center; justify-content: center;
 }
+
+
+/* ─── v26: hide YouTube's top title/share bar over the autoplay showcase ─── */
+.showcase-player { position: relative; }
+.showcase-player .yt-mask-top {
+  position: absolute; top: 0; left: 0; right: 0; height: 64px; z-index: 4;
+  pointer-events: none; background: linear-gradient(180deg, rgba(10,10,10,0.0) 0%, rgba(10,10,10,0) 100%);
+}
+/* the mask is transparent but sits above the iframe to swallow hover-reveal of the title bar */
+.showcase-player .yt-mask-top { pointer-events: auto; background: transparent; }
+.showcase-player:fullscreen .yt-mask-top { height: 0; }

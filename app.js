@@ -123,7 +123,7 @@
 const modal = document.getElementById('modal');
 const iframe = document.getElementById('modal-iframe');
 function openVideo(id) {
-  iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`;
+  iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&iv_load_policy=3&playsinline=1`;
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
@@ -149,7 +149,7 @@ document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeVideo
   const poster = wrap.querySelector('.origin-poster');
   function play() {
     const iframe = document.createElement('iframe');
-    iframe.src = 'https://www.youtube.com/embed/F-spjRJSgus?autoplay=1&rel=0&modestbranding=1';
+    iframe.src = 'https://www.youtube-nocookie.com/embed/F-spjRJSgus?autoplay=1&rel=0&modestbranding=1&iv_load_policy=3&playsinline=1';
     iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
     iframe.allowFullscreen = true;
     iframe.frameBorder = '0';
@@ -190,7 +190,9 @@ document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeVideo
       if (iframe) return;
       iframe = document.createElement('iframe');
       const org = location.protocol.indexOf('http') === 0 ? '&origin=' + encodeURIComponent(location.origin) : '';
-      iframe.src = 'https://www.youtube-nocookie.com/embed/' + ytId + '?autoplay=1&mute=1&playsinline=1&rel=0&loop=1&playlist=' + ytId + '&enablejsapi=1' + org;
+      iframe.src = 'https://www.youtube-nocookie.com/embed/' + ytId +
+        '?autoplay=1&mute=1&playsinline=1&controls=0&rel=0&loop=1&playlist=' + ytId +
+        '&modestbranding=1&iv_load_policy=3&disablekb=1&fs=0&enablejsapi=1' + org;
       iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen';
       iframe.allowFullscreen = true;
       iframe.frameBorder = '0';

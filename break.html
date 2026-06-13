@@ -23,76 +23,44 @@
   .ui { position: fixed; z-index: 5; }
   .ui a, .ui button { cursor: pointer; }
 
-  /* ── brand corner: big logo + back button ── */
-  .brand { top: 30px; left: 36px; display: flex; flex-direction: column; gap: 12px; align-items: center; }
-  .brand img { height: 64px; width: auto; display: block; }
+  /* ═══════════════ LAYOUT SYSTEM — clean rebuild ═══════════════ */
+  /* Only five UI pieces remain: brand (logo+back), title, hint, gyan, ticker */
+
+  /* brand: logo over back button, top-left (desktop) */
+  .brand { top: 28px; left: 28px; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+  .brand img { height: 50px; width: auto; display: block; }
   .backbtn {
-    display: inline-flex; align-items: center; gap: 10px;
-    font-family: 'Space Grotesk', sans-serif; font-size: 9.5px; letter-spacing: 0.18em; text-transform: uppercase;
-    color: rgba(245,240,232,0.85); text-decoration: none; border: 1px solid rgba(245,240,232,0.35);
-    border-radius: 999px; padding: 9px 16px; transition: all .3s;
+    display: inline-flex; align-items: center; gap: 9px;
+    font-family: 'Space Grotesk', sans-serif; font-size: 9.5px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: rgba(245,240,232,0.85); text-decoration: none; border: 1px solid rgba(245,240,232,0.32);
+    border-radius: 999px; padding: 9px 15px; transition: all .3s; white-space: nowrap;
   }
   .backbtn:hover { background: #f5f0e8; color: #0a0a0a; border-color: #f5f0e8; }
 
-  /* ── title ── */
-  .title { top: 34px; right: 36px; text-align: right; max-width: 56vw; }
-  .title .t1 { font-family: 'Bungee', sans-serif; font-weight: 400; font-size: clamp(30px, 4.6vw, 58px); line-height: 1.04; letter-spacing: 0.02em; }
-  .title .t2 { font-family: 'Unbounded', sans-serif; font-weight: 500; font-size: clamp(10px, 1vw, 13px); letter-spacing: 0.44em; text-transform: uppercase; color: rgba(245,240,232,0.6); margin-top: 14px; }
+  /* title: top-right, right-aligned (desktop) */
+  .title { top: 30px; right: 28px; text-align: right; max-width: 60vw; }
+  .title .t1 { font-family: 'Bungee', sans-serif; font-weight: 400; font-size: clamp(28px, 4.4vw, 56px); line-height: 1.02; letter-spacing: 0.02em; }
+  .title .t2 { font-family: 'Unbounded', sans-serif; font-weight: 500; font-size: clamp(9px, 0.95vw, 12px); letter-spacing: 0.4em; text-transform: uppercase; color: rgba(245,240,232,0.6); margin-top: 12px; }
 
-  /* ── mood console ── */
-  .moods { bottom: 36px; left: 36px; max-width: min(620px, calc(100vw - 72px)); }
-  .moods .lbl { font-size: 11px; letter-spacing: 0.34em; text-transform: uppercase; color: rgba(245,240,232,0.5); margin-bottom: 14px; }
-  .moods .row { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 10px; }
-  .pill {
-    font-family: 'Space Grotesk', sans-serif; text-align: left;
-    color: rgba(245,240,232,0.8); background: rgba(5,5,5,0.45); border: 1.5px solid rgba(245,240,232,0.25);
-    border-radius: 14px; padding: 13px 14px; transition: all .3s; backdrop-filter: blur(4px);
-  }
-  .pill .num { display: block; font-size: 9px; letter-spacing: 0.26em; color: rgba(245,240,232,0.45); margin-bottom: 5px; }
-  .pill .nm { display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; line-height: 1.25; }
-  .pill .tag { display: block; font-size: 8.5px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(245,240,232,0.35); margin-top: 5px; }
-  .pill:hover:not(.soon) { border-color: #f5f0e8; color: #fff; transform: translateY(-2px); }
-  .pill.on { background: #f5f0e8; border-color: #f5f0e8; }
-  .pill.on .nm { color: #0a0a0a; }
-  .pill.on .num, .pill.on .tag { color: rgba(10,10,10,0.55); }
-  .pill.soon { opacity: 0.45; cursor: default; }
-  .stopbtn {
-    margin-top: 12px; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase;
-    color: rgba(245,240,232,0.6); background: none; border: 1.5px solid rgba(245,240,232,0.25);
-    border-radius: 999px; padding: 11px 20px; transition: all .3s;
-  }
-  .stopbtn:hover { border-color: #f5f0e8; color: #f5f0e8; }
-
-  /* ── now playing ribbon ── */
-  .nowplay { top: 50%; right: 30px; left: auto; transform: translateY(-50%); writing-mode: vertical-rl; font-size: 10px; letter-spacing: 0.42em; text-transform: uppercase; color: rgba(245,240,232,0.35); pointer-events: none; transition: opacity .6s; opacity: 0; }
-  .nowplay.on { opacity: 1; }
-
-  /* ── hint ── */
-  .hint { bottom: 40px; left: 50%; transform: translateX(-50%); font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(245,240,232,0.6); animation: hp 2.6s ease-in-out infinite; white-space: nowrap; pointer-events: none; transition: opacity .5s; }
+  /* hint: centered, just above the ticker */
+  .hint { bottom: 66px; left: 50%; transform: translateX(-50%); font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(245,240,232,0.6); animation: hp 2.6s ease-in-out infinite; white-space: nowrap; pointer-events: none; transition: opacity .5s; }
   @keyframes hp { 0%,100% { opacity: .35; } 50% { opacity: .95; } }
 
-  /* ── social icons ── */
-  .socials { bottom: 36px; right: 36px; display: flex; gap: 12px; }
-  .socials a {
-    width: 46px; height: 46px; border-radius: 50%;
-    border: 1.5px solid rgba(245,240,232,0.3); display: flex; align-items: center; justify-content: center;
-    color: #f5f0e8; transition: all .3s; background: rgba(5,5,5,0.4); backdrop-filter: blur(4px);
-  }
-  .socials a svg { width: 20px; height: 20px; }
-  .socials a:hover { background: #f5f0e8; color: #0a0a0a; border-color: #f5f0e8; }
-
+  /* ═══ MOBILE (≤760px) — single coherent block, no competing overrides ═══ */
   @media (max-width: 760px) {
-    .brand { top: 18px; left: 18px; gap: 10px; }
-    .brand img { height: 40px; }
-    .backbtn { padding: 11px 16px; font-size: 9.5px; }
-    .title { top: 22px; right: 18px; max-width: 52vw; }
-    .title .t2 { letter-spacing: 0.26em; }
-    .moods { bottom: 96px; left: 18px; max-width: calc(100vw - 36px); }
-    .moods .row { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 8px; }
-    .hint { bottom: 18px; }
-    .socials { bottom: 36px; right: 18px; flex-direction: column; }
-    .socials a { width: 42px; height: 42px; }
-    .nowplay { display: none; }
+    /* brand: hide the logo image on phones — the PIXEL SPA wordmark is the brand.
+       Keep only the back button, pinned top-right, alone on its row. */
+    .brand { top: 14px; left: auto; right: 14px; flex-direction: row; align-items: center; justify-content: flex-end; gap: 0; }
+    .brand img { display: none; }
+    .backbtn { padding: 8px 12px; font-size: 8px; letter-spacing: 0.1em; }
+
+    /* title: centered, well BELOW the button row so they never touch */
+    .title { top: 78px; left: 50%; right: auto; transform: translateX(-50%); text-align: center; max-width: 94vw; width: 94vw; }
+    .title .t1 { font-size: clamp(26px, 8.5vw, 38px); }
+    .title .t2 { font-size: 8px; letter-spacing: 0.28em; margin-top: 7px; }
+
+    /* hint just above ticker, wraps cleanly */
+    .hint { bottom: 58px; font-size: 9px; letter-spacing: 0.2em; text-align: center; max-width: 86vw; white-space: normal; line-height: 1.5; }
   }
   /* ── gyan field: floating code wisdom ── */
   .gyan { position: fixed; inset: 0; z-index: 4; pointer-events: none; }
@@ -125,21 +93,17 @@
   .tk-like svg { width: 14px; height: 14px; }
   .tk-like:hover { border-color: #f5f0e8; color: #fff; }
   .tk-like.liked svg { fill: #f5f0e8; }
-  .tk-slot { flex: 1 1 auto; overflow: hidden; height: 48px; position: relative; }
-  .tk-item {
-    position: absolute; inset: 0; display: flex; align-items: center;
-    font-size: 12px; color: rgba(245,240,232,0.75); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-    opacity: 0; transform: translateY(100%);
+  .tk-slot { flex: 1 1 auto; overflow: hidden; height: 48px; position: relative; display: flex; align-items: center; }
+  .tk-line {
+    display: flex; align-items: baseline; gap: 8px;
+    font-family: 'Space Grotesk', ui-monospace, monospace;
+    font-size: 12px; color: rgba(245,240,232,0.82); white-space: nowrap; overflow: hidden;
   }
-  .tk-item b { color: #f5f0e8; font-weight: 600; margin-right: 8px; }
-  .tk-item.on { animation: tkSnap 0.55s cubic-bezier(0.18, 1.5, 0.35, 1) both; }
-  .tk-item.off { transition: transform .3s, opacity .3s; transform: translateY(-100%); opacity: 0; }
-  @keyframes tkSnap {
-    0% { transform: translateY(95%); opacity: 0.4; }
-    55% { transform: translateY(-7%); opacity: 1; }
-    80% { transform: translateY(3%); }
-    100% { transform: translateY(0); opacity: 1; }
-  }
+  .tk-prompt { color: #FFB000; flex: 0 0 auto; }
+  .tk-name { color: #f5f0e8; font-weight: 600; flex: 0 0 auto; }
+  .tk-type { color: rgba(245,240,232,0.82); overflow: hidden; text-overflow: ellipsis; }
+  .tk-caret { color: #FFB000; flex: 0 0 auto; animation: tkBlink 1s steps(1) infinite; }
+  @keyframes tkBlink { 50% { opacity: 0; } }
   .tk-add {
     flex: 0 0 auto; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
     color: #0a0a0a; background: rgba(255,176,0,0.92); border: none;
@@ -167,57 +131,24 @@
   .nb-send:hover { background: #fff; }
   .nb-hint { font-size: 9px; color: rgba(245,240,232,0.4); letter-spacing: 0.05em; }
 
-  /* lift bottom UI above the ticker */
-  .moods { bottom: 104px; }
-  .hint { bottom: 62px; }
-  .socials { bottom: 104px; }
-  @media (max-width: 760px) {
-    .moods { bottom: 158px; }
-    .hint { bottom: 60px; }
-    .socials { bottom: 158px; }
-  }
-
-  /* glass buttons */
-  .backbtn, .pill, .stopbtn, .socials a {
+  /* glass treatment on the back button */
+  .backbtn {
     background: rgba(245,240,232,0.06);
     backdrop-filter: blur(14px) saturate(1.4);
     -webkit-backdrop-filter: blur(14px) saturate(1.4);
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.18), 0 6px 22px rgba(0,0,0,0.35);
   }
-  .pill.on { background: rgba(245,240,232,0.92); }
-  .backbtn:hover, .socials a:hover { background: rgba(245,240,232,0.92); }
+  .backbtn:hover { background: rgba(245,240,232,0.92); }
 
-  @media (prefers-reduced-motion: reduce) { .hint { animation: none; } }
+  @media (prefers-reduced-motion: reduce) { .hint { animation: none; } .tk-caret { animation: none; } }
 
-
-  /* ═══ v23 PIXEL SPA — mobile overhaul ═══ */
+  /* mobile: compact ticker + tighter gyan bounds */
   @media (max-width: 760px) {
-    /* title: smaller, centered, never clipped */
-    .title { left: 50%; top: 22px; transform: translateX(-50%); text-align: center; width: 92vw; }
-    .title .t1 { font-size: clamp(26px, 9vw, 40px); line-height: 1.02; }
-    .title .t2 { font-size: 9px; letter-spacing: 0.32em; margin-top: 9px; }
-
-    /* brand corner: logo + small back button on ONE row, top-left */
-    .brand { top: 16px; left: 14px; right: 14px; flex-direction: row; align-items: center; justify-content: space-between; gap: 10px; }
-    .brand img { height: 30px !important; width: auto; }
-    .backbtn { padding: 9px 13px; font-size: 9px; letter-spacing: 0.12em; white-space: nowrap; }
-
-    /* the whole mood rack + socials are hidden on mobile — default track autoplays */
-    .moods { display: none !important; }
-    .socials { display: none !important; }
-    .nowplay { display: none !important; }
-
-    /* hint sits just above the ticker, centered */
-    .hint { bottom: 64px !important; left: 50%; transform: translateX(-50%); font-size: 9.5px; text-align: center; width: 86vw; }
-
-    /* gyan: tighter bounds so nothing runs off-screen */
     .gy { font-size: 10.5px; max-width: 74vw; }
-
-    /* ticker stays, a touch more compact */
     .ticker { height: 46px; gap: 10px; padding: 0 12px; }
     .tk-like { padding: 6px 11px; font-size: 10px; }
     .tk-add { padding: 8px 13px; font-size: 9px; }
-    .tk-item { font-size: 11px; }
+    .tk-line { font-size: 11px; }
     .notebox { right: 12px; bottom: 56px; }
   }
 
@@ -231,7 +162,7 @@
 <style>
   #wh-loader { position: fixed; inset: 0; z-index: 99999; background: #050505; display: flex; align-items: center; justify-content: center; transition: opacity .5s ease; }
   #wh-loader.gone { opacity: 0; pointer-events: none; }
-  .wh-load-line { font-family: 'Space Grotesk', ui-monospace, monospace; font-size: clamp(13px, 2.4vw, 17px); letter-spacing: 0.04em; color: rgba(245,240,232,0.92); white-space: nowrap; }
+  .wh-load-line { font-family: 'Space Grotesk', ui-monospace, monospace; font-size: clamp(12px, 3.4vw, 17px); letter-spacing: 0.04em; color: rgba(245,240,232,0.92); white-space: nowrap; }
   .wh-prompt { color: #FFB000; }
   #wh-load-type { color: rgba(245,240,232,0.82); }
   .wh-caret { color: #FFB000; animation: whBlink 1s steps(1) infinite; }
@@ -240,7 +171,7 @@
 <script>
   (function () {
     var el = document.getElementById('wh-load-type');
-    var full = 'pixelSpa.enter({ mood: "default", stretch: true })';
+    var full = 'pixelSpa.enter({ stretch: true })';
     var i = 0;
     (function type() {
       if (!el) return;
@@ -267,39 +198,7 @@
   <div class="t2">Where your cursor goes to stretch.</div>
 </div>
 
-<div class="ui nowplay" id="nowplay">Now playing</div>
-
-<div class="ui moods">
-  <div class="lbl">Choose your mood</div>
-  <div class="row">
-    <button class="pill" data-track="0"><span class="num">MOOD 01</span><span class="nm">Midnight Compile</span></button>
-    <button class="pill" data-track="1"><span class="num">MOOD 02</span><span class="nm">Render Therapy</span></button>
-    <button class="pill" data-track="2"><span class="num">MOOD 03</span><span class="nm">Citrus Sirens</span></button>
-    <button class="pill" data-track="3"><span class="num">MOOD 04</span><span class="nm">Monsoon Sitar</span></button>
-    <button class="pill" data-track="4"><span class="num">MOOD 05</span><span class="nm">Frosted Vinyl</span></button>
-    <button class="pill soon" disabled><span class="num">MOOD 06</span><span class="nm">404 Calm Found</span><span class="tag">Coding Soon</span></button>
-    <button class="pill soon" disabled><span class="num">MOOD 07</span><span class="nm">Infinite Loop</span><span class="tag">Coding Soon</span></button>
-    <button class="pill soon" disabled><span class="num">MOOD 08</span><span class="nm">Pixel Monsoon</span><span class="tag">Coding Soon</span></button>
-  </div>
-  <button class="stopbtn" id="stopbtn">◼ &nbsp;Silence</button>
-</div>
-
 <div class="ui hint" id="hint">Move · Press &amp; hold to charge</div>
-
-<div class="ui socials">
-  <a href="https://www.youtube.com/@WooHooMediaLabs" target="_blank" rel="noopener" aria-label="YouTube">
-    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M30.5 8.5c-.35-1.3-1.37-2.32-2.67-2.67C25.5 5 16 5 16 5s-9.5 0-11.83.83A3.79 3.79 0 0 0 1.5 8.5C.67 10.83.67 16 .67 16s0 5.17.83 7.5c.35 1.3 1.37 2.32 2.67 2.67C6.5 27 16 27 16 27s9.5 0 11.83-.83a3.79 3.79 0 0 0 2.67-2.67C31.33 21.17 31.33 16 31.33 16s0-5.17-.83-7.5z" stroke="currentColor" stroke-width="1.5"/><path d="M13 20.5l7-4.5-7-4.5v9z" fill="currentColor"/></svg>
-  </a>
-  <a href="https://www.instagram.com/chntan.n.shah" target="_blank" rel="noopener" aria-label="Instagram">
-    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="4" width="24" height="24" rx="6" stroke="currentColor" stroke-width="1.5"/><circle cx="16" cy="16" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="23" cy="9" r="1.4" fill="currentColor"/></svg>
-  </a>
-  <a href="https://www.facebook.com/profile.php?id=61588245688759" target="_blank" rel="noopener" aria-label="Facebook">
-    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 2C8.27 2 2 8.27 2 16c0 7 5.13 12.81 11.84 13.83v-9.78H10.3V16h3.54v-2.85c0-3.5 2.08-5.43 5.27-5.43 1.53 0 3.13.27 3.13.27v3.43h-1.76c-1.74 0-2.28 1.08-2.28 2.19V16h3.88l-.62 4.05h-3.26v9.78C24.87 28.81 30 23 30 16c0-7.73-6.27-14-14-14z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
-  </a>
-  <a href="https://www.linkedin.com/in/chntan/" target="_blank" rel="noopener" aria-label="LinkedIn">
-    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="4" width="24" height="24" rx="2" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="13" width="2.5" height="10" fill="currentColor"/><circle cx="10.25" cy="10" r="1.5" fill="currentColor"/><path d="M15 13v10M15 17c0-2.2 1.5-4 3.75-4S22.5 14.8 22.5 17v6" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"/></svg>
-  </a>
-</div>
 
 <div class="gyan" id="gyan" aria-hidden="false">
   <span class="gy" style="left:15vw; top:20vh; --fd:11s; --dx:10px; --dy:-14px" data-gy>fact_07 → 90 seconds of the right track can flip a bad mood. science signed off.</span>
@@ -447,10 +346,9 @@
   C.geo.attributes.aAlpha.needsUpdate = true;
 
   /* ── audio: autoplay + gesture fallback + hold-to-charge ── */
-  const els = [0,1,2,3,4].map(i => document.getElementById('trk' + i));
-  const NAMES = ['Midnight Compile', 'Render Therapy', 'Citrus Sirens', 'Monsoon Sitar', 'Frosted Vinyl'];
-  let ACx = null, gain = null, filt = null, sources = [null, null, null, null, null], active = -1;
-  const nowplay = document.getElementById('nowplay');
+  /* ── audio: ONE default track, autoplay + gesture fallback + hold-to-charge ── */
+  const trk = document.getElementById('trk0');
+  let ACx = null, gain = null, filt = null, src = null, active = -1;
   function ensureAudio() {
     if (ACx) return;
     ACx = new (window.AudioContext || window.webkitAudioContext)();
@@ -458,46 +356,28 @@
     gain = ACx.createGain(); gain.gain.value = 0.55;
     filt.connect(gain); gain.connect(ACx.destination);
   }
-  function routeThrough(i) {
+  function routeThrough() {
     ensureAudio();
-    if (!sources[i]) { try { sources[i] = ACx.createMediaElementSource(els[i]); sources[i].connect(filt); } catch (e) {} }
+    if (!src) { try { src = ACx.createMediaElementSource(trk); src.connect(filt); } catch (e) {} }
   }
-  function markUI(i) {
-    document.querySelectorAll('.pill[data-track]').forEach(p => p.classList.toggle('on', p.dataset.track == i));
-    if (i >= 0) { nowplay.textContent = 'Now playing \u2014 ' + NAMES[i]; nowplay.classList.add('on'); }
-    else nowplay.classList.remove('on');
+  function playTrack(viaGesture) {
+    if (viaGesture) { routeThrough(); if (ACx) ACx.resume(); }
+    const p = trk.play();
+    if (p && p.then) p.then(() => { active = 0; if (viaGesture) routeThrough(); }).catch(() => armGesture());
+    else active = 0;
   }
-  function playTrack(i, viaGesture) {
-    if (viaGesture) { routeThrough(i); if (ACx) ACx.resume(); }
-    els.forEach((el, j) => { if (j !== i) el.pause(); });
-    const p = els[i].play();
-    if (p && p.then) {
-      p.then(() => { active = i; markUI(i); if (viaGesture) routeThrough(i); })
-       .catch(() => { armGesture(i); });
-    } else { active = i; markUI(i); }
-  }
-  function stopAll() { els.forEach(el => el.pause()); active = -1; markUI(-1); }
 
   /* autoplay attempt; if blocked, first touch/click anywhere starts the mood */
   let armed = false;
-  function armGesture(i) {
+  function armGesture() {
     if (armed) return; armed = true;
-    hint.textContent = 'Tap anywhere to start the mood';
-    const go = () => {
-      hint.textContent = 'Move \u00b7 Press & hold to charge';
-      if (active === -1) playTrack(i, true);
-    };
+    hint.textContent = 'Tap anywhere to start';
+    const go = () => { hint.textContent = 'Move \u00b7 Press & hold to charge'; if (active === -1) playTrack(true); };
     document.addEventListener('pointerdown', go, { once: true });
   }
-  /* mobile-safe: expose a one-shot starter the canvas pointer can call */
-  function armTrack() { if (active === -1) playTrack(0, true); }
+  function armTrack() { if (active === -1) playTrack(true); }
   window.__armTrack = armTrack;
-  playTrack(0, false);
-
-  document.querySelectorAll('.pill[data-track]').forEach(p => {
-    p.addEventListener('click', () => playTrack(+p.dataset.track, true));
-  });
-  document.getElementById('stopbtn').addEventListener('click', stopAll);
+  playTrack(false);
 
   /* ── input + UI-aware cursor ── */
   let px = W / 2, py = H / 2, cx = W / 2, cyp = H / 2, vx = 0, vy = 0;
@@ -551,7 +431,7 @@
       const at = ACx.currentTime;
       gain.gain.setTargetAtTime(0.5 + 0.5 * hold, at, 0.07);
       filt.frequency.setTargetAtTime(700 + hold * hold * 7200, at, 0.06);
-      els[active].playbackRate = 1 + 0.05 * hold;
+      trk.playbackRate = 1 + 0.05 * hold;
     }
 
     const wx = toWX(cx), wy = toWY(cyp);
@@ -575,7 +455,8 @@
 
     const yaw = Math.max(-0.85, Math.min(0.85, vx * 0.045)) + Math.sin(t * 0.9) * 0.1 * drift;
     const pitch = Math.max(-0.6, Math.min(0.6, vy * 0.04)) - 0.28;
-    const s = (Math.min(W, H) / 30) * (isMobile ? 0.8 : 1) * (1 + hold * 0.45) * (0.4 + 0.6 * uiFade);
+    const baseDiv = isMobile ? 78 : 30;            /* much smaller arrow on phones */
+    const s = (Math.min(W, H) / baseDiv) * (1 + hold * 0.45) * (0.4 + 0.6 * uiFade);
     const cyaw = Math.cos(yaw), syaw = Math.sin(yaw), cp = Math.cos(pitch), sp = Math.sin(pitch);
     for (let i = 0; i < CN; i++) {
       const L = local[i];
@@ -585,7 +466,7 @@
       C.pos[i * 3] = wx + x1 * s;
       C.pos[i * 3 + 1] = wy - y2 * s;
       C.pos[i * 3 + 2] = 140 + z2 * s;
-      C.size[i] = s * 1.05;
+      C.size[i] = s * (isMobile ? 0.82 : 1.05);
       C.alpha[i] = uiFade;
     }
     C.geo.attributes.position.needsUpdate = true;
@@ -647,8 +528,9 @@
     for (let i = order.length - 1; i > 0; i--) { const j = (Math.random() * (i + 1)) | 0; [order[i], order[j]] = [order[j], order[i]]; }
     let oi = -1, cur = null;
     function place(el) {
-      const left = 6 + Math.random() * 54;             /* 6–60vw */
-      const top = 18 + Math.random() * 42;             /* 18–60vh */
+      const mob = (window.innerWidth || 1024) < 760;
+      const left = mob ? (6 + Math.random() * 14) : (6 + Math.random() * 54);   /* mobile keeps text off the right edge */
+      const top  = mob ? (26 + Math.random() * 34) : (18 + Math.random() * 42);
       el.style.left = left + 'vw';
       el.style.top = top + 'vh';
     }
@@ -662,7 +544,9 @@
     setInterval(cycle, 5600);
   })();
 
-  /* ── notes ticker + hearts ── */
+  /* ── notes ticker + hearts (server-backed, survives redeploys) ──
+     Source of truth: /api/notes + /api/likes (Upstash Redis via Vercel).
+     If the backend isn't wired yet, it degrades to localStorage so nothing breaks. */
   (function () {
     const SEEDS = [
       ['Aarav', 'this cursor is my new pet'],
@@ -672,63 +556,123 @@
       ['Dev', 'came for 2 minutes, stayed for 20'],
       ['Sana', 'the digits fall and so does my stress']
     ];
-    let notes = SEEDS.slice();
-    try {
-      const mine = JSON.parse(localStorage.getItem('wh_mm_notes') || '[]');
-      notes = notes.concat(mine);
-    } catch (e) {}
     const slot = document.getElementById('tk-slot');
-    let cur = null, idx = -1;
-    function show(i) {
-      const [nm, tx] = notes[i % notes.length];
-      const el = document.createElement('div');
-      el.className = 'tk-item';
-      const bb = document.createElement('b'); bb.textContent = nm + ' \u2014';
-      el.appendChild(bb); el.appendChild(document.createTextNode(tx));
-      slot.appendChild(el);
-      requestAnimationFrame(() => el.classList.add('on'));
-      if (cur) { const old = cur; old.classList.add('off'); setTimeout(() => old.remove(), 380); }
-      cur = el;
-    }
-    function next() { idx = (idx + 1) % notes.length; show(idx); }
-    next();
-    setInterval(next, 3600);
-
-    /* hearts via public counter, local fallback */
     const likeBtn = document.getElementById('tk-like');
     const countEl = document.getElementById('tk-count');
-    const NS = 'woohoomedialabs', KEY = 'moodmachine-hearts';
+
+    let notes = SEEDS.slice();
+    let serverNotes = false;
+
+    // local fallback helpers
+    function localNotes() { try { return JSON.parse(localStorage.getItem('wh_mm_notes') || '[]'); } catch (e) { return []; } }
+    function saveLocalNote(n) { try { const a = localNotes(); a.unshift(n); localStorage.setItem('wh_mm_notes', JSON.stringify(a.slice(0, 50))); } catch (e) {} }
+
+    // start with seeds + any local notes so the ticker is never empty
+    notes = localNotes().concat(SEEDS);
+
+    /* terminal-style ticker: each note types out like the boot loader, holds, clears, next */
+    slot.innerHTML = '<div class="tk-line"><span class="tk-prompt">&gt;</span>'
+      + '<span class="tk-name" id="tk-name"></span>'
+      + '<span class="tk-type" id="tk-type"></span>'
+      + '<span class="tk-caret">_</span></div>';
+    const nameEl = document.getElementById('tk-name');
+    const typeEl = document.getElementById('tk-type');
+    const REDUCE_TK = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let idx = -1, tkTimer = null;
+    function clearTimers() { if (tkTimer) { clearTimeout(tkTimer); tkTimer = null; } }
+    function typeNote(i) {
+      if (!notes.length) return;
+      const [nm, tx] = notes[i % notes.length];
+      nameEl.textContent = nm + ' ~';
+      const full = ' ' + tx;
+      if (REDUCE_TK) {                 /* respect reduce-motion: show instantly, just hold */
+        typeEl.textContent = full;
+        tkTimer = setTimeout(next, 4200);
+        return;
+      }
+      let c = 0;
+      typeEl.textContent = '';
+      (function step() {
+        if (c <= full.length) {
+          typeEl.textContent = full.slice(0, c);
+          c++;
+          tkTimer = setTimeout(step, 34 + Math.random() * 40);   /* same cadence as the loader */
+        } else {
+          tkTimer = setTimeout(erase, 2600);                     /* hold the finished line */
+        }
+      })();
+      function erase() {
+        let e = full.length;
+        (function back() {
+          if (e >= 0) {
+            typeEl.textContent = full.slice(0, e);
+            e -= 2;                                              /* erase a touch faster than typing */
+            tkTimer = setTimeout(back, 16);
+          } else {
+            tkTimer = setTimeout(next, 260);
+          }
+        })();
+      }
+    }
+    function next() { clearTimers(); idx = (idx + 1) % notes.length; typeNote(idx); }
+    next();
+
+    // pull the real, shared comments (newest first); seeds only fill in if server is empty/down
+    fetch('/api/notes').then(r => r.json()).then(d => {
+      if (d && Array.isArray(d.notes)) {
+        serverNotes = true;
+        notes = d.notes.length ? d.notes.concat(SEEDS) : SEEDS.slice();
+        idx = -1;            // restart cycle from the freshest server notes
+      }
+    }).catch(() => {});
+
+    // ── hearts: shared counter that only grows ──
     let count = parseInt(localStorage.getItem('wh_mm_hearts_seen') || '0', 10) || 0;
+    let serverLikes = false;
     countEl.textContent = count > 0 ? count : '\u2665';
-    fetch('https://api.counterapi.dev/v1/' + NS + '/' + KEY)
-      .then(r => r.json()).then(d => { if (d && typeof d.count === 'number') { count = d.count; countEl.textContent = count; localStorage.setItem('wh_mm_hearts_seen', count); } })
-      .catch(() => {});
+    fetch('/api/likes').then(r => r.json()).then(d => {
+      if (d && typeof d.count === 'number') {
+        serverLikes = true; count = d.count; countEl.textContent = count;
+        localStorage.setItem('wh_mm_hearts_seen', count);
+      }
+    }).catch(() => {});
+
+    let liking = false;
     likeBtn.addEventListener('click', () => {
       count++; countEl.textContent = count; likeBtn.classList.add('liked');
       localStorage.setItem('wh_mm_hearts_seen', count);
-      fetch('https://api.counterapi.dev/v1/' + NS + '/' + KEY + '/up').catch(() => {});
+      if (liking) return; liking = true;
+      fetch('/api/likes', { method: 'POST' })
+        .then(r => r.json())
+        .then(d => { if (d && typeof d.count === 'number') { count = d.count; countEl.textContent = count; localStorage.setItem('wh_mm_hearts_seen', count); } })
+        .catch(() => {})
+        .finally(() => { liking = false; });
     });
 
-    /* note popover */
+    // ── note popover ──
     const box = document.getElementById('notebox');
     document.getElementById('tk-add').addEventListener('click', () => box.classList.toggle('open'));
     document.getElementById('nb-send').addEventListener('click', () => {
-      const nm = (document.getElementById('nb-name').value || 'someone').trim().slice(0, 24);
+      const nm = (document.getElementById('nb-name').value || 'someone').trim().slice(0, 24) || 'someone';
       const tx = (document.getElementById('nb-note').value || '').trim().slice(0, 90);
       if (!tx) return;
-      notes.push([nm, tx]);
-      try {
-        const mine = JSON.parse(localStorage.getItem('wh_mm_notes') || '[]');
-        mine.push([nm, tx]);
-        localStorage.setItem('wh_mm_notes', JSON.stringify(mine.slice(-20)));
-      } catch (e) {}
+      const entry = [nm, tx];
+      // show instantly at the front
+      notes.unshift(entry); idx = -1; next();
+      // persist to the shared store; fall back to localStorage if backend is absent
+      fetch('/api/notes', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: nm, note: tx })
+      }).then(r => r.json()).then(d => {
+        if (!d || d.ok !== true) saveLocalNote(entry);
+      }).catch(() => saveLocalNote(entry));
+      // also email Chntan a copy (optional, unchanged)
       fetch('https://formsubmit.co/ajax/chntan.n.shah@gmail.com', {
         method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ name: nm, note: tx, _subject: 'Mood Machine note', _captcha: 'false', _template: 'table' })
+        body: JSON.stringify({ name: nm, note: tx, _subject: 'Pixel Spa note', _captcha: 'false', _template: 'table' })
       }).catch(() => {});
       document.getElementById('nb-note').value = '';
       box.classList.remove('open');
-      idx = notes.length - 2; next();
     });
   })();
 

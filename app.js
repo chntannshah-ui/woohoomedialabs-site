@@ -314,6 +314,7 @@ document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeVideo
   if (!rot) return;
   const slit = rot.parentElement;
   const words = [...rot.querySelectorAll('.hs-word')];
+  if (!words.length) return;
   words.forEach(w => w.classList.remove('is-on', 'is-off'));
   /* build vertical reel: words stacked + clone of first for seamless loop */
   const reel = document.createElement('div');
@@ -321,24 +322,36 @@ document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeVideo
   words.forEach(w => reel.appendChild(w));
   reel.appendChild(words[0].cloneNode(true));
   rot.innerHTML = ''; rot.appendChild(reel);
-  rot.style.height = '100%';
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  let pos = 0;
-  function slitH() { return slit.clientHeight || slit.getBoundingClientRect().height || 0; }
-  function reseat() {
+
+  const REDUCE = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let pos = 0, H = 0;
+  /* explicit pixel heights — never rely on the % chain (Safari/iOS resolves it to 0) */
+  function measure() {
+    const h = slit.clientHeight || slit.getBoundingClientRect().height || 0;
+    if (!h) return;
+    H = h;
+    rot.style.height = H + 'px';
+    reel.style.height = (H * (words.length + 1)) + 'px';
+    for (const w of reel.children) w.style.height = H + 'px';
     reel.style.transition = 'none';
-    reel.style.transform = 'translateY(' + (-pos * slitH()) + 'px)';
+    reel.style.transform = 'translateY(' + (-pos * H) + 'px)';
   }
-  addEventListener('resize', reseat);
-  addEventListener('orientationchange', () => setTimeout(reseat, 120));
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => setTimeout(reseat, 60));
+  measure();
+  addEventListener('resize', measure);
+  addEventListener('orientationchange', () => setTimeout(measure, 150));
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => setTimeout(measure, 60));
+  /* mobile layout can settle late — re-measure a couple of times after first paint */
+  setTimeout(measure, 300);
+  setTimeout(measure, 1000);
+
   const EASE = 'cubic-bezier(0.85, 0, 0.1, 1)';
+  /* IMPORTANT: still cycles under reduce-motion (snaps instantly) so it is never static */
   setInterval(() => {
-    const Hh = slitH();
-    if (!Hh) return;                 /* not laid out yet — skip, try next tick */
+    if (!H) { measure(); if (!H) return; }
     pos++;
-    reel.style.transition = 'transform 0.5s ' + EASE;
-    reel.style.transform = 'translateY(' + (-pos * Hh) + 'px)';
+    reel.style.transition = REDUCE ? 'none' : ('transform 0.5s ' + EASE);
+    reel.style.transform = 'translateY(' + (-pos * H) + 'px)';
+    if (REDUCE && pos >= words.length) { pos = 0; reel.style.transform = 'translateY(0)'; }
   }, 2400);
   reel.addEventListener('transitionend', () => {
     if (pos >= words.length) {

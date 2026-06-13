@@ -440,7 +440,7 @@
     /* giant cursor retreats over UI so buttons are easy to hit */
     uiFade += ((overUI ? 0.1 : 1) - uiFade) * Math.min(1, dt * 9);
 
-    if ((holding || Math.abs(vx) > 1.5) && !interacted) { interacted = true; if (!armed) hint.style.opacity = 0; }
+    if ((holding || Math.abs(vx) > 1.5) && !interacted) { interacted = true; if (hint) hint.style.opacity = 0; }
 
     if (active >= 0) {
       if (webaudio && ACx) {

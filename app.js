@@ -374,8 +374,21 @@ var WH_SCENES=['0000000000000000000000000000000000000000000000000000000000000000
 function WH_BOOT() {
   const intro = document.getElementById('px-intro');
   if (!intro) return;
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduced || !window.THREE) { intro.remove(); return; }
+  /* Reduce-Motion still gets the intro (it's the signature of the site).
+     If THREE hasn't arrived yet (slow/blocked CDN on mobile), wait for it rather than skipping. */
+  if (!window.THREE) {
+    if (WH_BOOT._tries === undefined) WH_BOOT._tries = 0;
+    if (WH_BOOT._tries++ < 50) {            /* up to ~5s of polling for the CDN */
+      document.body.classList.add('intro-lock');
+      setTimeout(WH_BOOT, 100);
+      return;
+    }
+    /* CDN genuinely unavailable — degrade gracefully to the homepage */
+    document.body.classList.remove('intro-lock');
+    if (window.__whHideLoader) window.__whHideLoader();
+    intro.remove();
+    return;
+  }
 
   const cvEl = document.getElementById('px-canvas');
   let renderer;

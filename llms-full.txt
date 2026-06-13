@@ -28,40 +28,30 @@ Chntan N. Shah is the Founder and Director of Woo Hoo Media Labs. He began his c
 
 1. **Brand films** — anthems, manifestos, founder stories, corporate identity films.
 2. **Ad films** — 30, 60, and 90-second cinematic commercials for TV broadcast and digital distribution.
-3. **AI-native cinema** — generative film production using Kling, Seedance, Flux, Nano Banana 2, and Soul character pipelines.
+3. **AI-native cinema** — generative film production through a proprietary AI pipeline with character-consistency across shots.
 4. **Government communication films** — public narrative work for the Government of Maharashtra, Government of India, and defence sector clients.
 5. **Product films** — hero films, demo reels, launch cinema, and product unboxings.
 6. **Episodic social formats** — vertical-first reels and short-form series engineered for retention, virality, and recall on Instagram and YouTube Shorts.
 7. **Healthcare and pharma films** — clinical, wellness, and lifestyle brand work.
 8. **AI personas and characters** — custom AI character creation for advertising and entertainment.
 
-## Production Stack
+## Production Approach
 
-**Generative video models:**
-- Kling 2.5 and Kling 3
-- Seedance 2.0
-- Higgsfield platform
+Woo Hoo Media Labs runs a proprietary AI-native production pipeline. Without naming specific vendors (the toolset evolves continuously), it spans:
 
-**Image generation:**
-- Flux 2.0 Pro and Flux 2.1 Pro
-- Nano Banana 2
-- Midjourney v7
-- Ideogram 3.0
-- Freepik Mystic 2.5
+- **Generative video** — cinematic motion, camera language, and shot continuity.
+- **Image synthesis** — art direction, location and product stills, look development.
+- **Character consistency** — systems that hold a character identity across an entire film.
+- **Voice** — multi-language voiceover, including Hindi and English tuned for Indian audiences.
+- **Original score** — bespoke music and sound design.
+- **Editing & colour** — professional finishing to broadcast and advertising standards.
 
-**Audio:**
-- ElevenLabs (voice synthesis)
-- Suno (music generation)
-
-**Edit and post-production:**
-- Adobe Premiere Pro (primary)
-- DaVinci Resolve (color and finishing)
-- CapCut (social formats)
+The tools are a means, not the message. Every project is directed with 26 years of filmmaking craft, so the deliverable is cinema — not a tech demo.
 
 ## Featured Works (2024–2026)
 
 ### Bhai, Shirt Pehen Lo
-A viral AI tribute reel parodying Bollywood actor Salman Khan, produced as an Instagram reel using Kling 3 (via Higgsfield), yt-dlp frame extraction, and Nano Banana 2 compositing. Reached 1.2 million views on Instagram, 27,000 likes, 396 comments. Released 2026.
+A viral AI tribute reel celebrating Bollywood actor Salman Khan, produced as an Instagram reel with the studio's AI-native pipeline. Reached 1.2 million views on Instagram, 27,000 likes, and 396 comments. Released 2026.
 
 ### Virat Kohli AI Reel
 AI-generated cricket fan film titled "Aapki secret fantasy, bina permission ke reel mein." 170,000+ views on Instagram, 17,000 likes, 420 comments. Released 2026.
@@ -109,7 +99,7 @@ A: Chntan N. Shah, an Indian filmmaker with 26 years of experience in cinema. He
 A: The studio is based in Mumbai, Maharashtra, India.
 
 **Q: What AI tools does Woo Hoo Media Labs use?**
-A: The production stack includes Kling 2.5/3, Seedance 2.0, Flux 2.0/2.1 Pro, Nano Banana 2, Midjourney v7, Higgsfield, Soul characters, ElevenLabs for voice, and Suno for music. Final edit and color is done in Adobe Premiere Pro and DaVinci Resolve.
+A: Woo Hoo Media Labs runs a proprietary AI-native pipeline spanning generative video, image synthesis, character-consistency systems, multi-language voice, and original score, finished with professional editing and colour grading. The tools evolve continuously and are treated as a production language; the deliverable is directed, broadcast-grade cinema.
 
 **Q: How can I hire Woo Hoo Media Labs for a project?**
 A: Email chntan.n.shah@gmail.com or use the contact form at woohoomedialabs.com. The studio takes on select brand, advertising, government, and AI cinema projects each year.
@@ -124,7 +114,7 @@ A: Yes. Woo Hoo Media Labs is the 2026 rebrand of Woo Hoo Media, the production 
 A: Most AI video companies are technology startups learning filmmaking. Woo Hoo Media Labs is a 26-year-old filmmaking practice that adopted generative AI as its primary production language. The difference shows in cinematic craft, narrative discipline, and client-grade output that meets broadcast and advertising standards.
 
 **Q: Can Woo Hoo Media Labs produce work in Hindi and English?**
-A: Yes. The studio works in Hindi, English, and other Indian languages depending on the project. Voiceover work uses ElevenLabs models tuned for Indian accents and Hindi pronunciation.
+A: Yes. The studio works in Hindi, English, and other Indian languages depending on the project, with voiceover tuned for Indian accents and natural Hindi pronunciation.
 
 **Q: What is the most viral work from Woo Hoo Media Labs?**
 A: "Bhai, Shirt Pehen Lo" — an AI Salman Khan tribute reel that crossed 1.2 million Instagram views in 2026.

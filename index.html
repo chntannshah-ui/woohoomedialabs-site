@@ -256,6 +256,8 @@
 <!-- FONTS -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Geist:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <!-- PRELOAD HERO POSTER -->
@@ -289,6 +291,38 @@
 -->
 </head>
 <body>
+
+<div id="wh-loader" aria-hidden="true">
+  <div class="wh-load-line"><span class="wh-prompt">&gt;</span> <span id="wh-load-type"></span><span class="wh-caret">_</span></div>
+</div>
+<style>
+  #wh-loader { position: fixed; inset: 0; z-index: 99999; background: #050505; display: flex; align-items: center; justify-content: center; transition: opacity .5s ease; }
+  #wh-loader.gone { opacity: 0; pointer-events: none; }
+  .wh-load-line { font-family: 'Space Grotesk', ui-monospace, monospace; font-size: clamp(13px, 2.4vw, 17px); letter-spacing: 0.04em; color: rgba(245,240,232,0.92); white-space: nowrap; }
+  .wh-prompt { color: #FFB000; }
+  #wh-load-type { color: rgba(245,240,232,0.82); }
+  .wh-caret { color: #FFB000; animation: whBlink 1s steps(1) infinite; }
+  @keyframes whBlink { 50% { opacity: 0; } }
+</style>
+<script>
+  (function () {
+    var el = document.getElementById('wh-load-type');
+    var full = 'woohoo.boot({ lab: "AI-native", city: "Mumbai" })';
+    var i = 0;
+    (function type() {
+      if (!el) return;
+      if (i <= full.length) { el.textContent = full.slice(0, i); i++; setTimeout(type, 26 + Math.random() * 34); }
+    })();
+    function hide() {
+      var l = document.getElementById('wh-loader');
+      if (l && !l.classList.contains('gone')) { l.classList.add('gone'); setTimeout(function () { l.remove(); }, 550); }
+    }
+    /* lift the moment the intro engine paints, or hard-cap so it never lingers */
+    window.__whHideLoader = hide;
+    window.addEventListener('load', function () { setTimeout(hide, 260); });
+    setTimeout(hide, 2600);
+  })();
+</script>
 
 <div class="px-intro" id="px-intro" aria-hidden="true">
  <canvas id="px-canvas"></canvas>
@@ -338,7 +372,7 @@
 <section class="hero hero-slit" aria-label="Woo Hoo Media Labs — AI-Native Creative Production Lab">
  <video class="hero-video"
  autoplay muted loop playsinline
- preload="metadata"
+ preload="none"
  poster="/hero-poster-v2.jpg"
  aria-hidden="true">
  <source src="/hero-reel-v2.mp4" type="video/mp4">
@@ -795,7 +829,7 @@
  <div class="modal-inner"><iframe id="modal-iframe" allow="autoplay; encrypted-media; fullscreen" allowfullscreen title="Video player"></iframe></div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.149.0/three.min.js"></script>
-<script src="/app.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.149.0/three.min.js"></script>
+<script defer src="/app.js"></script>
 </body>
 </html>

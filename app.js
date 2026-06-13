@@ -323,14 +323,19 @@ document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeVideo
   rot.innerHTML = ''; rot.appendChild(reel);
   rot.style.height = '100%';
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  let pos = 0, Hh = slit.clientHeight;
-  addEventListener('resize', () => {
-    Hh = slit.clientHeight;
+  let pos = 0;
+  function slitH() { return slit.clientHeight || slit.getBoundingClientRect().height || 0; }
+  function reseat() {
     reel.style.transition = 'none';
-    reel.style.transform = 'translateY(' + (-pos * Hh) + 'px)';
-  });
-  const EASE = 'cubic-bezier(0.85, 0, 0.1, 1)'; /* fast pull, hard mechanical stick */
+    reel.style.transform = 'translateY(' + (-pos * slitH()) + 'px)';
+  }
+  addEventListener('resize', reseat);
+  addEventListener('orientationchange', () => setTimeout(reseat, 120));
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => setTimeout(reseat, 60));
+  const EASE = 'cubic-bezier(0.85, 0, 0.1, 1)';
   setInterval(() => {
+    const Hh = slitH();
+    if (!Hh) return;                 /* not laid out yet — skip, try next tick */
     pos++;
     reel.style.transition = 'transform 0.5s ' + EASE;
     reel.style.transform = 'translateY(' + (-pos * Hh) + 'px)';
@@ -361,7 +366,7 @@ function WH_BOOT() {
   let renderer;
   try {
     renderer = new THREE.WebGLRenderer({ canvas: cvEl, antialias: false, alpha: false, powerPreference: 'high-performance' });
-  } catch (e) { intro.remove(); return; }
+  } catch (e) { document.body.classList.remove('intro-lock'); intro.remove(); return; }
 
   let W = intro.clientWidth, H = intro.clientHeight;
   const DPR = Math.min(1.75, window.devicePixelRatio || 1);
@@ -485,33 +490,8 @@ function WH_BOOT() {
     hint.textContent = 'Scroll to travel · Click to enter';
   }
 
-  function fallSFX() {
-    try {
-      const A = new (window.AudioContext || window.webkitAudioContext)();
-      const g = A.createGain(); g.gain.value = 0.16; g.connect(A.destination);
-      for (let i = 0; i < 52; i++) {
-        const t = A.currentTime + Math.random() * 1.15;
-        const o = A.createOscillator(); o.type = 'square';
-        const f = 1300 + Math.random() * 2900;
-        o.frequency.setValueAtTime(f, t);
-        o.frequency.exponentialRampToValueAtTime(f * 0.35, t + 0.1);
-        const e = A.createGain();
-        e.gain.setValueAtTime(0.0001, t);
-        e.gain.exponentialRampToValueAtTime(0.35 + Math.random() * 0.4, t + 0.006);
-        e.gain.exponentialRampToValueAtTime(0.0001, t + 0.09 + Math.random() * 0.09);
-        o.connect(e); e.connect(g); o.start(t); o.stop(t + 0.22);
-      }
-      const dur = 1.25, buf = A.createBuffer(1, A.sampleRate * dur, A.sampleRate);
-      const d = buf.getChannelData(0);
-      for (let i = 0; i < d.length; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / d.length, 2.2) * 0.22;
-      const s = A.createBufferSource(); s.buffer = buf;
-      const hp = A.createBiquadFilter(); hp.type = 'highpass'; hp.frequency.value = 2400;
-      s.connect(hp); hp.connect(g); s.start();
-    } catch (e) {}
-  }
   function beginFall() {
     if (mode === 'fall' || dead) return;
-    fallSFX();
     mode = 'fall'; morphStart = performance.now();
     [A, B].forEach(c => {
       c.vel = new Float32Array(NPTS * 2);
@@ -524,7 +504,9 @@ function WH_BOOT() {
   }
   function finish() {
     if (dead) return; dead = true;
+    if (window.__whHideLoader) window.__whHideLoader();
     document.body.classList.remove('intro-lock');
+    try { var hv = document.querySelector('.hero-video'); if (hv) { hv.preload = 'auto'; hv.load(); hv.play().catch(function(){}); } } catch (e) {}
     intro.classList.add('gone');
     setTimeout(() => {
       [A, B].forEach(c => { c.geo.dispose(); c.mat.dispose(); });
@@ -572,7 +554,7 @@ function WH_BOOT() {
   }, 85);
 
   let prev = performance.now();
-  function frame(now) {
+  function frame(now) { frameSeen = true; if (window.__whHideLoader) window.__whHideLoader();
     if (dead) return;
     const dt = Math.min(0.05, (now - prev) / 1000); prev = now;
     const t = (now - t0) / 1000;
@@ -660,6 +642,8 @@ function WH_BOOT() {
     requestAnimationFrame(frame);
   }
 
+  function _markFrame(){ frameSeen = true; if (window.__whHideLoader) window.__whHideLoader(); }
+
   addEventListener('resize', () => {
     W = intro.clientWidth; H = intro.clientHeight;
     renderer.setSize(W, H, false);
@@ -671,10 +655,16 @@ function WH_BOOT() {
     A.mat.uniforms.uScale.value = H * DPR / 2; B.mat.uniforms.uScale.value = H * DPR / 2;
   });
 
-  let started = false;
+  let started = false, frameSeen = false;
   function startLoop() { if (started || dead) return; started = true; prev = performance.now(); t0 = prev; requestAnimationFrame(frame); }
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(startLoop);
-  setTimeout(startLoop, 1000);
+  /* start immediately — never wait on fonts (mobile Safari often stalls fonts.ready) */
+  startLoop();
+  /* re-rasterize glyph atlas once fonts land, so glyphs sharpen without blocking boot */
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => {
+    try { if (typeof rasterizeAtlas === 'function') { rasterizeAtlas(); tex.needsUpdate = true; } } catch (e) {}
+  });
+  /* watchdog: if no frame paints within 3s (GL init wedged), skip the intro entirely */
+  setTimeout(() => { if (!frameSeen && !dead) finish(); }, 3000);
 }
 
 WH_BOOT();

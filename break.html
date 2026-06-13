@@ -188,9 +188,73 @@
   .backbtn:hover, .socials a:hover { background: rgba(245,240,232,0.92); }
 
   @media (prefers-reduced-motion: reduce) { .hint { animation: none; } }
-</style>
+
+
+  /* ═══ v23 PIXEL SPA — mobile overhaul ═══ */
+  @media (max-width: 760px) {
+    /* title: smaller, centered, never clipped */
+    .title { left: 50%; top: 22px; transform: translateX(-50%); text-align: center; width: 92vw; }
+    .title .t1 { font-size: clamp(26px, 9vw, 40px); line-height: 1.02; }
+    .title .t2 { font-size: 9px; letter-spacing: 0.32em; margin-top: 9px; }
+
+    /* brand corner: logo + small back button on ONE row, top-left */
+    .brand { top: 16px; left: 14px; right: 14px; flex-direction: row; align-items: center; justify-content: space-between; gap: 10px; }
+    .brand img { height: 30px !important; width: auto; }
+    .backbtn { padding: 9px 13px; font-size: 9px; letter-spacing: 0.12em; white-space: nowrap; }
+
+    /* the whole mood rack + socials are hidden on mobile — default track autoplays */
+    .moods { display: none !important; }
+    .socials { display: none !important; }
+    .nowplay { display: none !important; }
+
+    /* hint sits just above the ticker, centered */
+    .hint { bottom: 64px !important; left: 50%; transform: translateX(-50%); font-size: 9.5px; text-align: center; width: 86vw; }
+
+    /* gyan: tighter bounds so nothing runs off-screen */
+    .gy { font-size: 10.5px; max-width: 74vw; }
+
+    /* ticker stays, a touch more compact */
+    .ticker { height: 46px; gap: 10px; padding: 0 12px; }
+    .tk-like { padding: 6px 11px; font-size: 10px; }
+    .tk-add { padding: 8px 13px; font-size: 9px; }
+    .tk-item { font-size: 11px; }
+    .notebox { right: 12px; bottom: 56px; }
+  }
+
+  </style>
 </head>
 <body>
+
+<div id="wh-loader" aria-hidden="true">
+  <div class="wh-load-line"><span class="wh-prompt">&gt;</span> <span id="wh-load-type"></span><span class="wh-caret">_</span></div>
+</div>
+<style>
+  #wh-loader { position: fixed; inset: 0; z-index: 99999; background: #050505; display: flex; align-items: center; justify-content: center; transition: opacity .5s ease; }
+  #wh-loader.gone { opacity: 0; pointer-events: none; }
+  .wh-load-line { font-family: 'Space Grotesk', ui-monospace, monospace; font-size: clamp(13px, 2.4vw, 17px); letter-spacing: 0.04em; color: rgba(245,240,232,0.92); white-space: nowrap; }
+  .wh-prompt { color: #FFB000; }
+  #wh-load-type { color: rgba(245,240,232,0.82); }
+  .wh-caret { color: #FFB000; animation: whBlink 1s steps(1) infinite; }
+  @keyframes whBlink { 50% { opacity: 0; } }
+</style>
+<script>
+  (function () {
+    var el = document.getElementById('wh-load-type');
+    var full = 'pixelSpa.enter({ mood: "default", stretch: true })';
+    var i = 0;
+    (function type() {
+      if (!el) return;
+      if (i <= full.length) { el.textContent = full.slice(0, i); i++; setTimeout(type, 24 + Math.random() * 32); }
+    })();
+    function hide() {
+      var l = document.getElementById('wh-loader');
+      if (l && !l.classList.contains('gone')) { l.classList.add('gone'); setTimeout(function () { l.remove(); }, 550); }
+    }
+    window.__whHideLoader = hide;
+    window.addEventListener('load', function () { setTimeout(hide, 220); });
+    setTimeout(hide, 2400);
+  })();
+</script>
 <canvas id="stage" aria-label="Pixel Spa — interactive 3D code playground. Move your pointer. Press and hold to charge the mood."></canvas>
 
 <div class="ui brand">
@@ -267,7 +331,7 @@
 </div>
 
 <audio id="trk0" src="cement-halo.mp3" loop preload="auto"></audio>
-<audio id="trk1" src="synced-submural.mp3" loop preload="auto"></audio>
+<audio id="trk1" src="synced-submural.mp3" loop preload="none"></audio>
 <audio id="trk2" src="citrus-sirens.mp3" loop preload="none"></audio>
 <audio id="trk3" src="monsoon-sitar.mp3" loop preload="none"></audio>
 <audio id="trk4" src="frosted-vinyl.mp3" loop preload="none"></audio>
@@ -284,7 +348,8 @@
 
   const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let W = innerWidth, H = innerHeight;
-  const DPR = Math.min(1.75, window.devicePixelRatio || 1);
+  const isMobileEarly = (window.innerWidth || document.documentElement.clientWidth) < 760;
+  const DPR = Math.min(isMobileEarly ? 1.5 : 1.75, window.devicePixelRatio || 1);
   renderer.setPixelRatio(DPR);
   renderer.setSize(W, H, false);
   renderer.setClearColor(0x050505, 1);
@@ -349,7 +414,7 @@
   const isMobile = W < 760;
 
   /* ── FIELD ── */
-  const FN = isMobile ? 700 : 1500;
+  const FN = isMobile ? 450 : 1500;
   const F = makeCloud(FN);
   const fBase = new Float32Array(FN * 3), fPhase = new Float32Array(FN);
   for (let i = 0; i < FN; i++) {
@@ -369,7 +434,7 @@
     '1111111.....','11111111....','111111111...','1111111111..','11111111111.','111111111111',
     '1111111.....','111.111.....','11..111.....','1....111....','.....111....','......11....'
   ];
-  const CDEPTH = 3, local = [];
+  const CDEPTH = isMobile ? 2 : 3, local = [];
   ROWS.forEach((row, y) => { [...row].forEach((c, x) => { if (c === '1') for (let z = 0; z < CDEPTH; z++) local.push([x, y, z - (CDEPTH - 1) / 2]); }); });
   const CN = local.length;
   const C = makeCloud(CN);
@@ -424,6 +489,9 @@
     };
     document.addEventListener('pointerdown', go, { once: true });
   }
+  /* mobile-safe: expose a one-shot starter the canvas pointer can call */
+  function armTrack() { if (active === -1) playTrack(0, true); }
+  window.__armTrack = armTrack;
   playTrack(0, false);
 
   document.querySelectorAll('.pill[data-track]').forEach(p => {
@@ -435,21 +503,35 @@
   let px = W / 2, py = H / 2, cx = W / 2, cyp = H / 2, vx = 0, vy = 0;
   let holding = false, hold = 0, holdT = 0, uiFade = 1, overUI = false;
   let interacted = false;
-  function setPt(e) { const s = e.touches ? e.touches[0] : e; px = s.clientX; py = s.clientY; }
+  const PAD = 44;
+  function setPt(e) {
+    const s = e.touches ? e.touches[0] : e;
+    px = Math.max(PAD, Math.min(W - PAD, s.clientX));
+    py = Math.max(PAD, Math.min(H - PAD, s.clientY));
+  }
   addEventListener('pointermove', e => {
     setPt(e);
     overUI = !!(e.target.closest && e.target.closest('.ui'));
   });
-  cv.addEventListener('pointerdown', e => { setPt(e); holding = true; if (ACx) ACx.resume(); });
-  addEventListener('pointerup', () => holding = false);
-  cv.addEventListener('touchstart', e => { setPt(e); holding = true; e.preventDefault(); }, { passive: false });
-  cv.addEventListener('touchmove', e => { setPt(e); e.preventDefault(); }, { passive: false });
-  addEventListener('touchend', () => holding = false);
+  cv.style.touchAction = 'none';
+  cv.addEventListener('pointerdown', e => {
+    setPt(e); holding = true;
+    try { cv.setPointerCapture(e.pointerId); } catch (_) {}
+    if (ACx) ACx.resume();
+    if (typeof armTrack === 'function') armTrack();   /* first touch unlocks autoplay on mobile */
+    e.preventDefault();
+  }, { passive: false });
+  cv.addEventListener('pointermove', e => { setPt(e); if (holding) e.preventDefault(); }, { passive: false });
+  function endHold(e) { holding = false; try { cv.releasePointerCapture(e.pointerId); } catch (_) {} }
+  cv.addEventListener('pointerup', endHold);
+  cv.addEventListener('pointercancel', endHold);
 
   const toWX = x => x - W / 2, toWY = y => -(y - H / 2);
 
   let prev = performance.now();
+  let _shownOnce = false;
   function frame(now) {
+    if (!_shownOnce) { _shownOnce = true; if (window.__whHideLoader) window.__whHideLoader(); }
     const dt = Math.min(0.05, (now - prev) / 1000); prev = now;
     const t = now * 0.001;
 
@@ -493,7 +575,7 @@
 
     const yaw = Math.max(-0.85, Math.min(0.85, vx * 0.045)) + Math.sin(t * 0.9) * 0.1 * drift;
     const pitch = Math.max(-0.6, Math.min(0.6, vy * 0.04)) - 0.28;
-    const s = (Math.min(W, H) / 30) * (1 + hold * 0.45) * (0.4 + 0.6 * uiFade);
+    const s = (Math.min(W, H) / 30) * (isMobile ? 0.8 : 1) * (1 + hold * 0.45) * (0.4 + 0.6 * uiFade);
     const cyaw = Math.cos(yaw), syaw = Math.sin(yaw), cp = Math.cos(pitch), sp = Math.sin(pitch);
     for (let i = 0; i < CN; i++) {
       const L = local[i];

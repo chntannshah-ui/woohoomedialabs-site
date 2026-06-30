@@ -435,9 +435,6 @@ nav {
 .showcase-frame {
   position: relative;
   max-width: 1500px; margin: 0 auto;
-  padding: 14px;
-  background: linear-gradient(135deg, rgba(255,176,0,0.18) 0%, rgba(255,176,0,0) 50%);
-  border: 1px solid var(--line);
 }
 .showcase-player {
   position: relative; aspect-ratio: 16/9;

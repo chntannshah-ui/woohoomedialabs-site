@@ -23,16 +23,16 @@ Old files you can delete from the repo after deploy: `hero-reel-v2.mp4`.
 
 ---
 
-## ⚙️ YOUR 4 ACTIONS (≈15 minutes total)
+## ⚙️ YOUR 3 ACTIONS (≈12 minutes total)
 
 **1. GA4 — 3 min.** analytics.google.com → Create property "Woo Hoo Media Labs" → Web stream for woohoomedialabs.com → copy the `G-XXXXXXXXXX` Measurement ID → paste it into the SITE CONFIG block at the top of `index.html` (`window.WH_GA_ID`). Analytics starts on next deploy.
 
 **2. Formspree — 3 min.** formspree.io → sign up with chntan.n.shah@gmail.com → New Form → copy the 8-char form ID from the endpoint URL → paste into `window.FORMSPREE_ID` in the same config block. **Until this is set, form submissions only open the visitor's mail app — leads leak.** This is the highest-priority paste.
 
-**3. Vercel domain — 1 min.** Vercel dashboard → Project → Settings → Domains → set `woohoomedialabs.com` (no www) as **primary**, with www redirecting to it. This aligns the live URL with every canonical/OG/sitemap reference.
+**3. Vercel domain — ALREADY DONE.** This build uses www.woohoomedialabs.com as the primary URL everywhere (matching your existing Vercel setup). No dashboard change needed. Skip.
 
 **4. Search engines — 8 min.**
-   - search.google.com/search-console → add property `woohoomedialabs.com` (Domain type, DNS verify via Vercel) → Sitemaps → submit `sitemap.xml`
+   - search.google.com/search-console → add property `woohoomedialabs.com` (Domain type, DNS verify via Vercel) → Sitemaps → submit `https://www.woohoomedialabs.com/sitemap.xml` (full URL)
    - bing.com/webmasters → import from Search Console (one click)
    - business.google.com → create profile: "Woo Hoo Media Labs · Film Production Company · Mumbai" → link website + YouTube. This puts you in the Maps pack for "video production Mumbai."
 

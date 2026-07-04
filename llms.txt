@@ -4,7 +4,7 @@
 
 ## About
 
-- [About the studio](https://woohoomedialabs.com/#about): Founded 2009 in Mumbai by Chntan N. Shah. 200+ clients served. 1000+ films released. One of India's first AI-native production studios.
+- [About the studio](https://www.woohoomedialabs.com/#about): Founded 2009 in Mumbai by Chntan N. Shah. 200+ clients served. 1000+ films released. One of India's first AI-native production studios.
 - [Founder Chntan N. Shah](https://www.linkedin.com/in/chntan/): 26 years in cinema. Began in corporate and government communication filmmaking, then pivoted the studio to an AI-native production model.
 
 ## Services
@@ -21,7 +21,7 @@
 
 ## Film Library
 
-Every film has its own page with an embedded player at https://woohoomedialabs.com/work/ — 70 films across six categories:
+Every film has its own page with an embedded player at https://www.woohoomedialabs.com/work/ — 70 films across six categories:
 
 - Signature Films (4 films)
 - AI Films (11 films)
@@ -30,7 +30,7 @@ Every film has its own page with an embedded player at https://woohoomedialabs.c
 - Government Films (11 films)
 - Healthcare Films (14 films)
 
-- [Browse the complete film library](https://woohoomedialabs.com/work/): all 70 films, each on its own page.
+- [Browse the complete film library](https://www.woohoomedialabs.com/work/): all 70 films, each on its own page.
 
 ## Selected Work
 
@@ -79,5 +79,5 @@ Woo Hoo Media Labs runs a proprietary AI-native production pipeline spanning gen
 
 ## Optional
 
-- [Sitemap](https://woohoomedialabs.com/sitemap.xml)
-- [Full content for LLMs](https://woohoomedialabs.com/llms-full.txt)
+- [Sitemap](https://www.woohoomedialabs.com/sitemap.xml)
+- [Full content for LLMs](https://www.woohoomedialabs.com/llms-full.txt)

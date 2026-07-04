@@ -58,4 +58,4 @@ Allow: /
 User-agent: Diffbot
 Allow: /
 
-Sitemap: https://woohoomedialabs.com/sitemap.xml
+Sitemap: https://www.woohoomedialabs.com/sitemap.xml

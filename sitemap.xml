@@ -3,23 +3,23 @@
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://woohoomedialabs.com/</loc>
+    <loc>https://www.woohoomedialabs.com/</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://woohoomedialabs.com/og-cover.jpg</image:loc>
+      <image:loc>https://www.woohoomedialabs.com/og-cover.jpg</image:loc>
       <image:title>Woo Hoo Media Labs — Cinema for the age of intelligence</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/</loc>
+    <loc>https://www.woohoomedialabs.com/work/</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/meridian-mumbai-when-architecture-becomes-cinema.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/meridian-mumbai-when-architecture-becomes-cinema.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -32,7 +32,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/chntan-n-shah-25-years-behind-the-camera-showcase-film.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/chntan-n-shah-25-years-behind-the-camera-showcase-film.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -45,7 +45,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/shri-mahesh-chandra-shah-75th-birthday-biography-tribute-film-a-family-s.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/shri-mahesh-chandra-shah-75th-birthday-biography-tribute-film-a-family-s.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -58,7 +58,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/norwood-diwali-film-2019.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/norwood-diwali-film-2019.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -71,7 +71,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/i-made-a-78-second-ai-film-with-11-characters-india-s-longest-ai-narrati.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/i-made-a-78-second-ai-film-with-11-characters-india-s-longest-ai-narrati.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -84,7 +84,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/live-above-the-line-real-estate-project-teaser.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/live-above-the-line-real-estate-project-teaser.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -97,7 +97,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/the-shrinking-bill-100-ai-made-indian-ad-film-for-norwood-criza-bldc-fan.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/the-shrinking-bill-100-ai-made-indian-ad-film-for-norwood-criza-bldc-fan.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -110,7 +110,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/amble-take-the-long-way-the-shoes-that-walk-themselves.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/amble-take-the-long-way-the-shoes-that-walk-themselves.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -123,7 +123,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/mango-toffee-ai-product-film.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/mango-toffee-ai-product-film.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -136,7 +136,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/boss-burger-cinematic-food-commercial-ad-film.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/boss-burger-cinematic-food-commercial-ad-film.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -149,7 +149,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/speed-4-defence-built-for-the-battlefield-ai-native-brand-film.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/speed-4-defence-built-for-the-battlefield-ai-native-brand-film.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -162,7 +162,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/nine-yards-of-light-aabha-saree-couture-ai-fashion-film.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/nine-yards-of-light-aabha-saree-couture-ai-fashion-film.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -175,7 +175,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/the-switch-just-became-a-storyteller-norwood-modular-ai-tvc-20-sec.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/the-switch-just-became-a-storyteller-norwood-modular-ai-tvc-20-sec.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -188,7 +188,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/speed4-defence-assam-s-first-defence-manufacturing-hub-ai-powered-cinema.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/speed4-defence-assam-s-first-defence-manufacturing-hub-ai-powered-cinema.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -201,7 +201,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/samay-raina-is-back-india-s-got-latent-2-anime-edit.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/samay-raina-is-back-india-s-got-latent-2-anime-edit.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -214,7 +214,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/norwood-modular-product-reel-2024-switches-lighting-modular-range.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/norwood-modular-product-reel-2024-switches-lighting-modular-range.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -227,7 +227,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/norwood-urzo-launch-film-premium-modular-switches-range-reveal.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/norwood-urzo-launch-film-premium-modular-switches-range-reveal.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -240,7 +240,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/fybros-raze-product-features-film.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/fybros-raze-product-features-film.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -253,7 +253,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/four-x-by-fybros-premium-switches-launch-film.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/four-x-by-fybros-premium-switches-launch-film.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -266,7 +266,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/fybros-four-x-11-series-plates-premium-switches-product-film.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/fybros-four-x-11-series-plates-premium-switches-product-film.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -279,7 +279,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/kolors-product-range-lighting-switches-showcase-film.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/kolors-product-range-lighting-switches-showcase-film.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -292,7 +292,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/kolors-night-light-the-lighting-revolution.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/kolors-night-light-the-lighting-revolution.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -305,7 +305,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/fybros-glide-switches-with-night-lamp-product-film.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/fybros-glide-switches-with-night-lamp-product-film.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -318,7 +318,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/fybros-astra-modular-plates-premium-switches-product-film.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/fybros-astra-modular-plates-premium-switches-product-film.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -331,7 +331,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/fybros-prisca-flood-light-outdoor-lighting-product-film.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/fybros-prisca-flood-light-outdoor-lighting-product-film.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -344,7 +344,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/fybros-f-touch-switches-orion-regulator-smart-switches-product-film.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/fybros-f-touch-switches-orion-regulator-smart-switches-product-film.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -357,7 +357,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/fybros-ocean-regulator-2-product-film.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/fybros-ocean-regulator-2-product-film.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -370,7 +370,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/fybros-hybrid-lamps-product-film.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/fybros-hybrid-lamps-product-film.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -383,7 +383,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/fybros-grace-switches-product-film.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/fybros-grace-switches-product-film.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -396,7 +396,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/fybros-oro-regulator-product-film.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/fybros-oro-regulator-product-film.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -409,7 +409,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/pratikar-i-india-s-first-autonomous-drone-interceptor-aerotronics-india.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/pratikar-i-india-s-first-autonomous-drone-interceptor-aerotronics-india.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -422,7 +422,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/blend-colors-corporate-brand-film.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/blend-colors-corporate-brand-film.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -435,7 +435,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/kohinoor-ropes-industrial-corporate-brand-film.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/kohinoor-ropes-industrial-corporate-brand-film.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -448,7 +448,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/deploy-in-days-disappear-from-sight-underground-bunkers-speed-4-defence.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/deploy-in-days-disappear-from-sight-underground-bunkers-speed-4-defence.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -461,7 +461,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/saffron-home-premium-nuts-dried-fruits-brand-film.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/saffron-home-premium-nuts-dried-fruits-brand-film.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -474,7 +474,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/universal-nutriscience-corporate-brand-film-india-s-nutraceutical-story.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/universal-nutriscience-corporate-brand-film-india-s-nutraceutical-story.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -487,7 +487,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/vibrant-experiences-brand-film.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/vibrant-experiences-brand-film.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -500,7 +500,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/zinghr-the-next-new-cio-audience-av.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/zinghr-the-next-new-cio-audience-av.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -513,7 +513,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/solitario-lab-grown-diamonds-ft-vivek-oberoi-brand-film.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/solitario-lab-grown-diamonds-ft-vivek-oberoi-brand-film.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -526,7 +526,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/norwood-modular-brand-film-cinematic-story-of-modular-switches-lighting.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/norwood-modular-brand-film-cinematic-story-of-modular-switches-lighting.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -539,7 +539,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/jkt-group-corporate-brand-film.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/jkt-group-corporate-brand-film.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -552,7 +552,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/showreel-26-years-of-storytelling-now-ai-powered-chntan-n-shah.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/showreel-26-years-of-storytelling-now-ai-powered-chntan-n-shah.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -565,7 +565,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/icici-prudential-life-keyman-insurance-explainer.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/icici-prudential-life-keyman-insurance-explainer.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -578,7 +578,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/zinghr-the-power-of-one-enterprise-hr-tech-brand-film.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/zinghr-the-power-of-one-enterprise-hr-tech-brand-film.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -591,7 +591,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/zinghr-x-sbi-myhrms-enterprise-hr-tech-launch-film.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/zinghr-x-sbi-myhrms-enterprise-hr-tech-launch-film.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -604,7 +604,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/maratha-reservation-government-of-maharashtra-communication-film.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/maratha-reservation-government-of-maharashtra-communication-film.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -617,7 +617,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/aaple-sarkar-right-to-service-act-government-of-maharashtra-citizen-comm.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/aaple-sarkar-right-to-service-act-government-of-maharashtra-citizen-comm.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -630,7 +630,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/aaple-sarkar-portal-government-services-explainer-government-of-maharash.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/aaple-sarkar-portal-government-services-explainer-government-of-maharash.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -643,7 +643,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/maharashtra-s-ai-initiative-government-of-maharashtra-policy-communicati.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/maharashtra-s-ai-initiative-government-of-maharashtra-policy-communicati.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -656,7 +656,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/cm-devendra-fadnavis-introduction-film-for-oracle-event.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/cm-devendra-fadnavis-introduction-film-for-oracle-event.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -669,7 +669,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/farm-pond-on-demand-government-of-maharashtra-scheme-film.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/farm-pond-on-demand-government-of-maharashtra-scheme-film.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -682,7 +682,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/maharashtra-it-ites-policy-cm-devendra-fadnavis-investment-promotion-fil.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/maharashtra-it-ites-policy-cm-devendra-fadnavis-investment-promotion-fil.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -695,7 +695,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/jawaharlal-nehru-port-trust-sez-government-communication-film.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/jawaharlal-nehru-port-trust-sez-government-communication-film.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -708,7 +708,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/mumbai-2-0-cm-devendra-fadnavis-vision-film-government-of-maharashtra.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/mumbai-2-0-cm-devendra-fadnavis-vision-film-government-of-maharashtra.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -721,7 +721,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/mumbai-next-cm-devendra-fadnavis-government-of-maharashtra-vision-film.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/mumbai-next-cm-devendra-fadnavis-government-of-maharashtra-vision-film.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -734,7 +734,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/nagpur-next-cm-devendra-fadnavis-government-of-maharashtra-vision-film.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/nagpur-next-cm-devendra-fadnavis-government-of-maharashtra-vision-film.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -747,7 +747,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/bone-muscle-health-naturally-uns-nutratalk-health-education-film.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/bone-muscle-health-naturally-uns-nutratalk-health-education-film.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -760,7 +760,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/weak-immunity-here-s-what-you-re-missing.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/weak-immunity-here-s-what-you-re-missing.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -773,7 +773,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/why-are-you-always-tired-fatigue-causes-solutions-uns-nutratalk.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/why-are-you-always-tired-fatigue-causes-solutions-uns-nutratalk.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -786,7 +786,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/what-are-nutraceuticals-uns-nutratalk-category-explainer.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/what-are-nutraceuticals-uns-nutratalk-category-explainer.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -799,7 +799,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/recurrent-utis-causes-natural-solutions-uns-nutratalk.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/recurrent-utis-causes-natural-solutions-uns-nutratalk.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -812,7 +812,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/can-nutraceuticals-replace-pharma-uns-nutratalk.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/can-nutraceuticals-replace-pharma-uns-nutratalk.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -825,7 +825,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/let-s-talk-about-periods-women-s-health-education-uns-nutratalk.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/let-s-talk-about-periods-women-s-health-education-uns-nutratalk.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -838,7 +838,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/merck-neuro-move-yoga-series-for-neurological-wellness-series-intro.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/merck-neuro-move-yoga-series-for-neurological-wellness-series-intro.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -851,7 +851,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/viparit-karani-legs-up-the-wall-merck-neuro-move-yoga-series.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/viparit-karani-legs-up-the-wall-merck-neuro-move-yoga-series.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -864,7 +864,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/trikonasan-triangle-pose-merck-neuro-move-yoga-series.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/trikonasan-triangle-pose-merck-neuro-move-yoga-series.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -877,7 +877,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/markatasan-monkey-pose-merck-neuro-move-yoga-series.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/markatasan-monkey-pose-merck-neuro-move-yoga-series.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -890,7 +890,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/makarasana-crocodile-pose-merck-neuro-move-yoga-series.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/makarasana-crocodile-pose-merck-neuro-move-yoga-series.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -903,7 +903,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/kurmasan-tortoise-pose-merck-neuro-move-yoga-series.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/kurmasan-tortoise-pose-merck-neuro-move-yoga-series.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -916,7 +916,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://woohoomedialabs.com/work/ardha-matsyendrasan-half-spinal-twist-merck-neuro-move-yoga-series.html</loc>
+    <loc>https://www.woohoomedialabs.com/work/ardha-matsyendrasan-half-spinal-twist-merck-neuro-move-yoga-series.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

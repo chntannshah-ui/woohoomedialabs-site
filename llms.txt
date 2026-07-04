@@ -18,6 +18,20 @@
 - Healthcare and lifestyle brand films
 - Biography and milestone films
 
+
+## Film Library
+
+Every film has its own page with an embedded player at https://woohoomedialabs.com/work/ — 70 films across six categories:
+
+- Signature Films (4 films)
+- AI Films (11 films)
+- Product Films (15 films)
+- Corporate Communication (15 films)
+- Government Films (11 films)
+- Healthcare Films (14 films)
+
+- [Browse the complete film library](https://woohoomedialabs.com/work/): all 70 films, each on its own page.
+
 ## Selected Work
 
 - [AI Films playlist](https://www.youtube.com/playlist?list=PLAcjSzaUUVHkV3bR_j_R6dRuiUQp7I1DS): AI-generated narratives including India's longest AI narrative brand film (78 seconds, 11 characters).

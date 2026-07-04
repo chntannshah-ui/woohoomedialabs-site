@@ -1062,3 +1062,19 @@ body.intro-lock { overflow: hidden; }
 /* the mask is transparent but sits above the iframe to swallow hover-reveal of the title bar */
 .showcase-player .yt-mask-top { pointer-events: auto; background: transparent; }
 .showcase-player:fullscreen .yt-mask-top { height: 0; }
+
+
+/* ══ sprint additions: direct contact, sticky CTA, work library link ══ */
+.contact-direct{display:inline-block;margin-left:.6em;padding:.32em .95em;border:1px solid rgba(255,176,0,.45);border-radius:2em;color:#FFB000;text-decoration:none;font-size:.92em;letter-spacing:.02em;transition:background .25s,color .25s}
+.contact-direct:hover{background:#FFB000;color:#0a0a0a}
+.contact-direct.wa{border-color:rgba(255,255,255,.35);color:#fff}
+.contact-direct.wa:hover{background:#fff;color:#0a0a0a}
+.work-all-link{max-width:1200px;margin:.25rem auto 1.2rem;padding:0 5vw;font-family:'Space Grotesk',sans-serif;font-size:.95rem;letter-spacing:.03em}
+.work-all-link a{color:#FFB000;text-decoration:none;border-bottom:1px solid rgba(255,176,0,.35);padding-bottom:2px;transition:border-color .25s}
+.work-all-link a:hover{border-color:#FFB000}
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;align-items:center;justify-content:center;gap:.6rem;padding:.6rem .9rem calc(.6rem + env(safe-area-inset-bottom));background:rgba(10,10,10,.92);backdrop-filter:blur(10px);border-top:1px solid rgba(255,176,0,.25);transform:translateY(110%);transition:transform .35s ease}
+.sticky-cta.show{transform:translateY(0)}
+.sticky-cta-btn{flex:1;max-width:260px;text-align:center;background:#FFB000;color:#0a0a0a;font-family:'Space Grotesk',sans-serif;font-weight:600;letter-spacing:.02em;text-decoration:none;padding:.72em 1.1em;border-radius:2em}
+.sticky-cta-wa{color:#fff;text-decoration:none;font-family:'Space Grotesk',sans-serif;font-size:.9rem;border:1px solid rgba(255,255,255,.35);padding:.66em 1em;border-radius:2em}
+@media (min-width:769px){.sticky-cta{display:none !important}}
+@media (max-width:768px){.sticky-cta{display:flex}}

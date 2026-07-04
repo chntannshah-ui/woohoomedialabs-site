@@ -304,7 +304,7 @@ document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeVideo
       data.inquiry
     );
     window.location.href = `mailto:chntan.n.shah@gmail.com?subject=${subject}&body=${body}`;
-    setStatus('Opening your mail client. If nothing happens, please email chntan.n.shah@gmail.com directly.', 'info');
+    setStatus('Opening your mail client. If nothing happens, email chntan.n.shah@gmail.com or tap the WhatsApp button below.', 'info');
     button.disabled = false;
     button.textContent = originalText;
   });
@@ -371,9 +371,21 @@ var WH_SCENES=['0000000000000000000000000000000000000000000000000000000000000000
    scenes from the studio's own films drawn entirely in code characters →
    scroll zooms through world after world, looping → click: the code falls
    → the site appears. ─── */
-function WH_BOOT() {
+function WH_BOOT(force) {
   const intro = document.getElementById('px-intro');
   if (!intro) return;
+  /* signature intro plays once per session; ⟲ Boot Sequence replays it on demand */
+  if (!force) {
+    try {
+      if (sessionStorage.getItem('whboot') === '1') {
+        document.body.classList.remove('intro-lock');
+        if (window.__whHideLoader) window.__whHideLoader();
+        intro.remove();
+        return;
+      }
+      sessionStorage.setItem('whboot', '1');
+    } catch (e) {}
+  }
   /* Reduce-Motion still gets the intro (it's the signature of the site).
      If THREE hasn't arrived yet (slow/blocked CDN on mobile), wait for it rather than skipping. */
   if (!window.THREE) {
@@ -706,8 +718,31 @@ window.WH_REPLAY = function () {
     '<div class="px-hint" id="px-hint">Scroll to travel \u00b7 Click to enter</div>' +
     '<div class="px-skip" id="px-skip">Skip</div></div>');
   window.scrollTo(0, 0);
-  WH_BOOT();
+  WH_BOOT(true);
 };
 document.querySelectorAll('[data-boot]').forEach(el => {
   el.addEventListener('click', e => { e.preventDefault(); window.WH_REPLAY(); });
 });
+
+
+/* ── sticky mobile CTA: appears past the hero, hides while the contact section is on screen ── */
+(function () {
+  var bar = document.getElementById('sticky-cta');
+  if (!bar) return;
+  var contact = document.querySelector('.contact');
+  var contactVisible = false;
+  if ('IntersectionObserver' in window && contact) {
+    new IntersectionObserver(function (es) {
+      contactVisible = es[0].isIntersecting;
+      update();
+    }, { threshold: 0.05 }).observe(contact);
+  }
+  function update() {
+    var past = window.scrollY > window.innerHeight * 0.9;
+    var show = past && !contactVisible && !document.getElementById('px-intro');
+    bar.classList.toggle('show', show);
+    bar.setAttribute('aria-hidden', show ? 'false' : 'true');
+  }
+  addEventListener('scroll', update, { passive: true });
+  update();
+})();

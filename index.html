@@ -25,7 +25,7 @@
 <!-- ICONS / PWA -->
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
 <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
-<link rel="shortcut icon" href="/favicon.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
 
@@ -316,10 +316,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Geist:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Geist:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 
 <!-- PRELOAD HERO POSTER -->
 <link rel="preload" as="image" href="/hero-poster-v2.jpg" fetchpriority="high">
+<link rel="preload" as="script" href="/three.min.js">
 
 <link rel="stylesheet" href="/styles.css">
 
@@ -337,15 +338,22 @@
 <script defer src="/_vercel/speed-insights/script.js"></script>
 
 <!-- Google Analytics 4 — disabled until you add your Measurement ID -->
-<!-- To enable: replace G-XXXXXXXXXX below with your actual GA4 ID -->
 <!--
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
- window.dataLayer = window.dataLayer || [];
- function gtag(){dataLayer.push(arguments);}
- gtag('js', new Date());
- gtag('config', 'G-XXXXXXXXXX', { anonymize_ip: true });
-</script>
+<!-- ══════════ SITE CONFIG — the only two values you ever edit ══════════ -->
+  <script>
+    window.WH_GA_ID     = "G-Y7Z43CKEN7";  /* ⚙️ paste your GA4 Measurement ID, e.g. "G-AB12CD34EF" */
+    window.FORMSPREE_ID = "maqgakqe";  /* ⚙️ paste your Formspree form ID,   e.g. "mzzabcde"    */
+    if (window.WH_GA_ID) {
+      var s = document.createElement("script");
+      s.async = true; s.src = "https://www.googletagmanager.com/gtag/js?id=" + window.WH_GA_ID;
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+      gtag("config", window.WH_GA_ID, { anonymize_ip: true });
+    }
+  </script>
+
 -->
 </head>
 <body>
@@ -398,10 +406,10 @@
  </a>
  <ul class="nav-links">
  <li><a href="#showcase" data-cursor>Reel</a></li>
- <li><a href="#meridian" data-cursor>Real Estate Visualization</a></li>
+ <li><a href="#meridian" data-cursor>Real Estate</a></li>
  <li><a href="#about" data-cursor>Studio</a></li>
  <li><a href="#services" data-cursor>Services</a></li>
- <li><a href="#" class="nav-boot" data-boot data-cursor>⟲ Boot Sequence</a></li>
+ <li><a href="/work/" data-cursor>Work</a></li>
  <li><a href="#contact" data-cursor>Contact</a></li>
  </ul>
  <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
@@ -433,7 +441,8 @@
  preload="none"
  poster="/hero-poster-v2.jpg"
  aria-hidden="true">
- <source src="/hero-reel-v2.mp4" type="video/mp4">
+ <source src="/hero-reel-v3.webm" type="video/webm">
+ <source src="/hero-reel-v3.mp4" type="video/mp4">
  </video>
  <div class="hero-shade shade-top" aria-hidden="true"></div>
  <div class="hero-shade shade-bottom" aria-hidden="true"></div>
@@ -540,31 +549,32 @@
 </section>
 
 <div class="section-label" id="section-03"><span>AI Films · 03</span></div>
+<p class="work-all-link"><a href="/work/" data-cursor>Browse the full film library · 70+ films →</a></p>
 <section class="film-section reveal">
  <p class="section-tagline">Where craft meets generative intelligence.</p>
  <div class="film-grid" data-playlist-key="ai">
       <div class="film-card" data-cursor data-yt="drr5t95E-FA">
-        <img class="film-thumb" src="https://img.youtube.com/vi/drr5t95E-FA/maxresdefault.jpg" alt="I Made a 78-Second AI Film with 11 Characters · India&#x27;s Longest AI Narrative Brand Film" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/drr5t95E-FA/hqdefault.jpg'" />
+        <img class="film-thumb" src="https://i.ytimg.com/vi/drr5t95E-FA/hq720.jpg" alt="I Made a 78-Second AI Film with 11 Characters · India&#x27;s Longest AI Narrative Brand Film" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/drr5t95E-FA/hqdefault.jpg'" />
         <div class="film-meta"><h3>I Made a 78-Second AI Film with 11 Characters · India&#x27;s Longest AI Narrative Brand Film</h3><div class="play">Play ↗</div></div>
       </div>
       <div class="film-card" data-cursor data-yt="lYfwQswSuJw">
-        <img class="film-thumb" src="https://img.youtube.com/vi/lYfwQswSuJw/maxresdefault.jpg" alt="Live Above The Line · Real Estate Project Teaser" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/lYfwQswSuJw/hqdefault.jpg'" />
+        <img class="film-thumb" src="https://i.ytimg.com/vi/lYfwQswSuJw/hq720.jpg" alt="Live Above The Line · Real Estate Project Teaser" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/lYfwQswSuJw/hqdefault.jpg'" />
         <div class="film-meta"><h3>Live Above The Line · Real Estate Project Teaser</h3><div class="play">Play ↗</div></div>
       </div>
       <div class="film-card" data-cursor data-yt="Acy82jZ1pCw">
-        <img class="film-thumb" src="https://img.youtube.com/vi/Acy82jZ1pCw/maxresdefault.jpg" alt="The Shrinking Bill · 100% AI-Made Indian Ad Film for Norwood CRIZA BLDC Fans" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/Acy82jZ1pCw/hqdefault.jpg'" />
+        <img class="film-thumb" src="https://i.ytimg.com/vi/Acy82jZ1pCw/hq720.jpg" alt="The Shrinking Bill · 100% AI-Made Indian Ad Film for Norwood CRIZA BLDC Fans" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/Acy82jZ1pCw/hqdefault.jpg'" />
         <div class="film-meta"><h3>The Shrinking Bill · 100% AI-Made Indian Ad Film for Norwood CRIZA BLDC Fans</h3><div class="play">Play ↗</div></div>
       </div>
       <div class="film-card" data-cursor data-yt="XkKL54y9Jwc">
-        <img class="film-thumb" src="https://img.youtube.com/vi/XkKL54y9Jwc/maxresdefault.jpg" alt="AMBLE — Take the Long Way · The Shoes That Walk Themselves" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/XkKL54y9Jwc/hqdefault.jpg'" />
+        <img class="film-thumb" src="https://i.ytimg.com/vi/XkKL54y9Jwc/hq720.jpg" alt="AMBLE — Take the Long Way · The Shoes That Walk Themselves" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/XkKL54y9Jwc/hqdefault.jpg'" />
         <div class="film-meta"><h3>AMBLE — Take the Long Way · The Shoes That Walk Themselves</h3><div class="play">Play ↗</div></div>
       </div>
       <div class="film-card" data-cursor data-yt="I6LC5si8n7M">
-        <img class="film-thumb" src="https://img.youtube.com/vi/I6LC5si8n7M/maxresdefault.jpg" alt="Mango Toffee · AI Product Film · Woo Hoo Media LabsMango toffee" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/I6LC5si8n7M/hqdefault.jpg'" />
+        <img class="film-thumb" src="https://i.ytimg.com/vi/I6LC5si8n7M/hq720.jpg" alt="Mango Toffee · AI Product Film · Woo Hoo Media LabsMango toffee" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/I6LC5si8n7M/hqdefault.jpg'" />
         <div class="film-meta"><h3>Mango Toffee · AI Product Film · Woo Hoo Media LabsMango toffee</h3><div class="play">Play ↗</div></div>
       </div>
       <div class="film-card" data-cursor data-yt="av6Xxoa6HfQ">
-        <img class="film-thumb" src="https://img.youtube.com/vi/av6Xxoa6HfQ/maxresdefault.jpg" alt="Speed 4 Defence · Built for the Battlefield 🇮🇳 · AI-Native Brand Film" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/av6Xxoa6HfQ/hqdefault.jpg'" />
+        <img class="film-thumb" src="https://i.ytimg.com/vi/av6Xxoa6HfQ/hq720.jpg" alt="Speed 4 Defence · Built for the Battlefield 🇮🇳 · AI-Native Brand Film" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/av6Xxoa6HfQ/hqdefault.jpg'" />
         <div class="film-meta"><h3>Speed 4 Defence · Built for the Battlefield 🇮🇳 · AI-Native Brand Film</h3><div class="play">Play ↗</div></div>
       </div>
       </div>
@@ -576,27 +586,27 @@
  <p class="section-tagline">Hero films, demo reels, launch cinema — for products people actually buy.</p>
  <div class="film-grid" data-playlist-key="product">
       <div class="film-card" data-cursor data-yt="CWrRiAltF_g">
-        <img class="film-thumb" src="https://img.youtube.com/vi/CWrRiAltF_g/maxresdefault.jpg" alt="Norwood Modular Product Reel 2024 · Switches, Lighting &amp; Modular Range · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/CWrRiAltF_g/hqdefault.jpg'" />
+        <img class="film-thumb" src="https://i.ytimg.com/vi/CWrRiAltF_g/hq720.jpg" alt="Norwood Modular Product Reel 2024 · Switches, Lighting &amp; Modular Range · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/CWrRiAltF_g/hqdefault.jpg'" />
         <div class="film-meta"><h3>Norwood Modular Product Reel 2024 · Switches, Lighting &amp; Modular Range · Woo Hoo Media</h3><div class="play">Play ↗</div></div>
       </div>
       <div class="film-card" data-cursor data-yt="tA725EQJpro">
-        <img class="film-thumb" src="https://img.youtube.com/vi/tA725EQJpro/maxresdefault.jpg" alt="Norwood Urzo Launch Film · Premium Modular Switches Range Reveal · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/tA725EQJpro/hqdefault.jpg'" />
+        <img class="film-thumb" src="https://i.ytimg.com/vi/tA725EQJpro/hq720.jpg" alt="Norwood Urzo Launch Film · Premium Modular Switches Range Reveal · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/tA725EQJpro/hqdefault.jpg'" />
         <div class="film-meta"><h3>Norwood Urzo Launch Film · Premium Modular Switches Range Reveal · Woo Hoo Media</h3><div class="play">Play ↗</div></div>
       </div>
       <div class="film-card" data-cursor data-yt="yx20uvhRnKA">
-        <img class="film-thumb" src="https://img.youtube.com/vi/yx20uvhRnKA/maxresdefault.jpg" alt="Fybros Raze · Product Features Film · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/yx20uvhRnKA/hqdefault.jpg'" />
+        <img class="film-thumb" src="https://i.ytimg.com/vi/yx20uvhRnKA/hq720.jpg" alt="Fybros Raze · Product Features Film · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/yx20uvhRnKA/hqdefault.jpg'" />
         <div class="film-meta"><h3>Fybros Raze · Product Features Film · Woo Hoo Media</h3><div class="play">Play ↗</div></div>
       </div>
       <div class="film-card" data-cursor data-yt="Jq2oUamw7qM">
-        <img class="film-thumb" src="https://img.youtube.com/vi/Jq2oUamw7qM/maxresdefault.jpg" alt="Four-X by Fybros · Premium Switches Launch Film · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/Jq2oUamw7qM/hqdefault.jpg'" />
+        <img class="film-thumb" src="https://i.ytimg.com/vi/Jq2oUamw7qM/hq720.jpg" alt="Four-X by Fybros · Premium Switches Launch Film · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/Jq2oUamw7qM/hqdefault.jpg'" />
         <div class="film-meta"><h3>Four-X by Fybros · Premium Switches Launch Film · Woo Hoo Media</h3><div class="play">Play ↗</div></div>
       </div>
       <div class="film-card" data-cursor data-yt="rgeB-7QyyYc">
-        <img class="film-thumb" src="https://img.youtube.com/vi/rgeB-7QyyYc/maxresdefault.jpg" alt="Fybros Four-X · 11 Series Plates · Premium Switches Product Film · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/rgeB-7QyyYc/hqdefault.jpg'" />
+        <img class="film-thumb" src="https://i.ytimg.com/vi/rgeB-7QyyYc/hq720.jpg" alt="Fybros Four-X · 11 Series Plates · Premium Switches Product Film · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/rgeB-7QyyYc/hqdefault.jpg'" />
         <div class="film-meta"><h3>Fybros Four-X · 11 Series Plates · Premium Switches Product Film · Woo Hoo Media</h3><div class="play">Play ↗</div></div>
       </div>
       <div class="film-card" data-cursor data-yt="alxet4edL0A">
-        <img class="film-thumb" src="https://img.youtube.com/vi/alxet4edL0A/maxresdefault.jpg" alt="Kolors Product Range · Lighting &amp; Switches Showcase Film · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/alxet4edL0A/hqdefault.jpg'" />
+        <img class="film-thumb" src="https://i.ytimg.com/vi/alxet4edL0A/hq720.jpg" alt="Kolors Product Range · Lighting &amp; Switches Showcase Film · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/alxet4edL0A/hqdefault.jpg'" />
         <div class="film-meta"><h3>Kolors Product Range · Lighting &amp; Switches Showcase Film · Woo Hoo Media</h3><div class="play">Play ↗</div></div>
       </div>
       </div>
@@ -608,27 +618,27 @@
  <p class="section-tagline">Brand films, anthems, and enterprise storytelling — across fifty-three productions.</p>
  <div class="film-grid" data-playlist-key="corporate">
       <div class="film-card" data-cursor data-yt="iVDph7XanrY">
-        <img class="film-thumb" src="https://img.youtube.com/vi/iVDph7XanrY/maxresdefault.jpg" alt="PRATIKAR I — India&#x27;s First Autonomous Drone Interceptor · Aerotronics India · Woo Hoo Media Labs" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/iVDph7XanrY/hqdefault.jpg'" />
+        <img class="film-thumb" src="https://i.ytimg.com/vi/iVDph7XanrY/hq720.jpg" alt="PRATIKAR I — India&#x27;s First Autonomous Drone Interceptor · Aerotronics India · Woo Hoo Media Labs" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/iVDph7XanrY/hqdefault.jpg'" />
         <div class="film-meta"><h3>PRATIKAR I — India&#x27;s First Autonomous Drone Interceptor · Aerotronics India · Woo Hoo Media Labs</h3><div class="play">Play ↗</div></div>
       </div>
       <div class="film-card" data-cursor data-yt="m-jzHKss0cU">
-        <img class="film-thumb" src="https://img.youtube.com/vi/m-jzHKss0cU/maxresdefault.jpg" alt="Blend Colors · Corporate Brand Film · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/m-jzHKss0cU/hqdefault.jpg'" />
+        <img class="film-thumb" src="https://i.ytimg.com/vi/m-jzHKss0cU/hq720.jpg" alt="Blend Colors · Corporate Brand Film · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/m-jzHKss0cU/hqdefault.jpg'" />
         <div class="film-meta"><h3>Blend Colors · Corporate Brand Film · Woo Hoo Media</h3><div class="play">Play ↗</div></div>
       </div>
       <div class="film-card" data-cursor data-yt="bYE34e_F92Y">
-        <img class="film-thumb" src="https://img.youtube.com/vi/bYE34e_F92Y/maxresdefault.jpg" alt="Kohinoor Ropes · Industrial Corporate Brand Film · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/bYE34e_F92Y/hqdefault.jpg'" />
+        <img class="film-thumb" src="https://i.ytimg.com/vi/bYE34e_F92Y/hq720.jpg" alt="Kohinoor Ropes · Industrial Corporate Brand Film · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/bYE34e_F92Y/hqdefault.jpg'" />
         <div class="film-meta"><h3>Kohinoor Ropes · Industrial Corporate Brand Film · Woo Hoo Media</h3><div class="play">Play ↗</div></div>
       </div>
       <div class="film-card" data-cursor data-yt="hiymm8hlA8A">
-        <img class="film-thumb" src="https://img.youtube.com/vi/hiymm8hlA8A/maxresdefault.jpg" alt="Universal NutriScience · Corporate Brand Film · India&#x27;s Nutraceutical Story · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/hiymm8hlA8A/hqdefault.jpg'" />
+        <img class="film-thumb" src="https://i.ytimg.com/vi/hiymm8hlA8A/hq720.jpg" alt="Universal NutriScience · Corporate Brand Film · India&#x27;s Nutraceutical Story · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/hiymm8hlA8A/hqdefault.jpg'" />
         <div class="film-meta"><h3>Universal NutriScience · Corporate Brand Film · India&#x27;s Nutraceutical Story · Woo Hoo Media</h3><div class="play">Play ↗</div></div>
       </div>
       <div class="film-card" data-cursor data-yt="N5QeIaKxXX0">
-        <img class="film-thumb" src="https://img.youtube.com/vi/N5QeIaKxXX0/maxresdefault.jpg" alt="Saffron Home · Premium Nuts &amp; Dried Fruits Brand Film · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/N5QeIaKxXX0/hqdefault.jpg'" />
+        <img class="film-thumb" src="https://i.ytimg.com/vi/N5QeIaKxXX0/hq720.jpg" alt="Saffron Home · Premium Nuts &amp; Dried Fruits Brand Film · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/N5QeIaKxXX0/hqdefault.jpg'" />
         <div class="film-meta"><h3>Saffron Home · Premium Nuts &amp; Dried Fruits Brand Film · Woo Hoo Media</h3><div class="play">Play ↗</div></div>
       </div>
       <div class="film-card" data-cursor data-yt="7Tbbstq75C8">
-        <img class="film-thumb" src="https://img.youtube.com/vi/7Tbbstq75C8/maxresdefault.jpg" alt="Vibrant Experiences · Brand Film · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/7Tbbstq75C8/hqdefault.jpg'" />
+        <img class="film-thumb" src="https://i.ytimg.com/vi/7Tbbstq75C8/hq720.jpg" alt="Vibrant Experiences · Brand Film · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/7Tbbstq75C8/hqdefault.jpg'" />
         <div class="film-meta"><h3>Vibrant Experiences · Brand Film · Woo Hoo Media</h3><div class="play">Play ↗</div></div>
       </div>
       </div>
@@ -640,27 +650,27 @@
  <p class="section-tagline">Public narrative — for the State of Maharashtra and the Government of India.</p>
  <div class="film-grid" data-playlist-key="government">
       <div class="film-card" data-cursor data-yt="oJBxjkzgF30">
-        <img class="film-thumb" src="https://img.youtube.com/vi/oJBxjkzgF30/maxresdefault.jpg" alt="Maratha Reservation · Government of Maharashtra Communication Film · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/oJBxjkzgF30/hqdefault.jpg'" />
+        <img class="film-thumb" src="https://i.ytimg.com/vi/oJBxjkzgF30/hq720.jpg" alt="Maratha Reservation · Government of Maharashtra Communication Film · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/oJBxjkzgF30/hqdefault.jpg'" />
         <div class="film-meta"><h3>Maratha Reservation · Government of Maharashtra Communication Film · Woo Hoo Media</h3><div class="play">Play ↗</div></div>
       </div>
       <div class="film-card" data-cursor data-yt="HGfV0d4gVSk">
-        <img class="film-thumb" src="https://img.youtube.com/vi/HGfV0d4gVSk/maxresdefault.jpg" alt="Aaple Sarkar · Right to Service Act · Government of Maharashtra · Citizen Communication Film" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/HGfV0d4gVSk/hqdefault.jpg'" />
+        <img class="film-thumb" src="https://i.ytimg.com/vi/HGfV0d4gVSk/hq720.jpg" alt="Aaple Sarkar · Right to Service Act · Government of Maharashtra · Citizen Communication Film" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/HGfV0d4gVSk/hqdefault.jpg'" />
         <div class="film-meta"><h3>Aaple Sarkar · Right to Service Act · Government of Maharashtra · Citizen Communication Film</h3><div class="play">Play ↗</div></div>
       </div>
       <div class="film-card" data-cursor data-yt="k3-JKtdzjEA">
-        <img class="film-thumb" src="https://img.youtube.com/vi/k3-JKtdzjEA/maxresdefault.jpg" alt="Aaple Sarkar Portal · Government Services Explainer · Government of Maharashtra · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/k3-JKtdzjEA/hqdefault.jpg'" />
+        <img class="film-thumb" src="https://i.ytimg.com/vi/k3-JKtdzjEA/hq720.jpg" alt="Aaple Sarkar Portal · Government Services Explainer · Government of Maharashtra · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/k3-JKtdzjEA/hqdefault.jpg'" />
         <div class="film-meta"><h3>Aaple Sarkar Portal · Government Services Explainer · Government of Maharashtra · Woo Hoo Media</h3><div class="play">Play ↗</div></div>
       </div>
       <div class="film-card" data-cursor data-yt="K5CcanG4Rrc">
-        <img class="film-thumb" src="https://img.youtube.com/vi/K5CcanG4Rrc/maxresdefault.jpg" alt="Maharashtra&#x27;s AI Initiative · Government of Maharashtra · Policy Communication Film · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/K5CcanG4Rrc/hqdefault.jpg'" />
+        <img class="film-thumb" src="https://i.ytimg.com/vi/K5CcanG4Rrc/hq720.jpg" alt="Maharashtra&#x27;s AI Initiative · Government of Maharashtra · Policy Communication Film · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/K5CcanG4Rrc/hqdefault.jpg'" />
         <div class="film-meta"><h3>Maharashtra&#x27;s AI Initiative · Government of Maharashtra · Policy Communication Film · Woo Hoo Media</h3><div class="play">Play ↗</div></div>
       </div>
       <div class="film-card" data-cursor data-yt="dUvLXpBJtjk">
-        <img class="film-thumb" src="https://img.youtube.com/vi/dUvLXpBJtjk/maxresdefault.jpg" alt="CM Devendra Fadnavis · Introduction Film for Oracle Event · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/dUvLXpBJtjk/hqdefault.jpg'" />
+        <img class="film-thumb" src="https://i.ytimg.com/vi/dUvLXpBJtjk/hq720.jpg" alt="CM Devendra Fadnavis · Introduction Film for Oracle Event · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/dUvLXpBJtjk/hqdefault.jpg'" />
         <div class="film-meta"><h3>CM Devendra Fadnavis · Introduction Film for Oracle Event · Woo Hoo Media</h3><div class="play">Play ↗</div></div>
       </div>
       <div class="film-card" data-cursor data-yt="g3oISMiATEY">
-        <img class="film-thumb" src="https://img.youtube.com/vi/g3oISMiATEY/maxresdefault.jpg" alt="Farm Pond on Demand · Government of Maharashtra Scheme Film · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/g3oISMiATEY/hqdefault.jpg'" />
+        <img class="film-thumb" src="https://i.ytimg.com/vi/g3oISMiATEY/hq720.jpg" alt="Farm Pond on Demand · Government of Maharashtra Scheme Film · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/g3oISMiATEY/hqdefault.jpg'" />
         <div class="film-meta"><h3>Farm Pond on Demand · Government of Maharashtra Scheme Film · Woo Hoo Media</h3><div class="play">Play ↗</div></div>
       </div>
       </div>
@@ -672,27 +682,27 @@
  <p class="section-tagline">Films for pharma, wellness, and the body's quieter conversations.</p>
  <div class="film-grid" data-playlist-key="healthcare">
       <div class="film-card" data-cursor data-yt="u1BMsq5Bb00">
-        <img class="film-thumb" src="https://img.youtube.com/vi/u1BMsq5Bb00/maxresdefault.jpg" alt="Bone &amp; Muscle Health Naturally · UNS NutraTalk · Health Education Film · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/u1BMsq5Bb00/hqdefault.jpg'" />
+        <img class="film-thumb" src="https://i.ytimg.com/vi/u1BMsq5Bb00/hq720.jpg" alt="Bone &amp; Muscle Health Naturally · UNS NutraTalk · Health Education Film · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/u1BMsq5Bb00/hqdefault.jpg'" />
         <div class="film-meta"><h3>Bone &amp; Muscle Health Naturally · UNS NutraTalk · Health Education Film · Woo Hoo Media</h3><div class="play">Play ↗</div></div>
       </div>
       <div class="film-card" data-cursor data-yt="HcA3GsFm8po">
-        <img class="film-thumb" src="https://img.youtube.com/vi/HcA3GsFm8po/maxresdefault.jpg" alt="Weak Immunity? Here&#x27;s What You&#x27;re Missing" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/HcA3GsFm8po/hqdefault.jpg'" />
+        <img class="film-thumb" src="https://i.ytimg.com/vi/HcA3GsFm8po/hq720.jpg" alt="Weak Immunity? Here&#x27;s What You&#x27;re Missing" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/HcA3GsFm8po/hqdefault.jpg'" />
         <div class="film-meta"><h3>Weak Immunity? Here&#x27;s What You&#x27;re Missing</h3><div class="play">Play ↗</div></div>
       </div>
       <div class="film-card" data-cursor data-yt="aS5DzhLjwoM">
-        <img class="film-thumb" src="https://img.youtube.com/vi/aS5DzhLjwoM/maxresdefault.jpg" alt="Why Are You Always Tired? Fatigue Causes &amp; Solutions · UNS NutraTalk · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/aS5DzhLjwoM/hqdefault.jpg'" />
+        <img class="film-thumb" src="https://i.ytimg.com/vi/aS5DzhLjwoM/hq720.jpg" alt="Why Are You Always Tired? Fatigue Causes &amp; Solutions · UNS NutraTalk · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/aS5DzhLjwoM/hqdefault.jpg'" />
         <div class="film-meta"><h3>Why Are You Always Tired? Fatigue Causes &amp; Solutions · UNS NutraTalk · Woo Hoo Media</h3><div class="play">Play ↗</div></div>
       </div>
       <div class="film-card" data-cursor data-yt="T-Nqw9pC5kk">
-        <img class="film-thumb" src="https://img.youtube.com/vi/T-Nqw9pC5kk/maxresdefault.jpg" alt="What Are Nutraceuticals? · UNS NutraTalk · Category Explainer · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/T-Nqw9pC5kk/hqdefault.jpg'" />
+        <img class="film-thumb" src="https://i.ytimg.com/vi/T-Nqw9pC5kk/hq720.jpg" alt="What Are Nutraceuticals? · UNS NutraTalk · Category Explainer · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/T-Nqw9pC5kk/hqdefault.jpg'" />
         <div class="film-meta"><h3>What Are Nutraceuticals? · UNS NutraTalk · Category Explainer · Woo Hoo Media</h3><div class="play">Play ↗</div></div>
       </div>
       <div class="film-card" data-cursor data-yt="u4l5KnWYbZ4">
-        <img class="film-thumb" src="https://img.youtube.com/vi/u4l5KnWYbZ4/maxresdefault.jpg" alt="Recurrent UTIs: Causes &amp; Natural Solutions · UNS NutraTalk · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/u4l5KnWYbZ4/hqdefault.jpg'" />
+        <img class="film-thumb" src="https://i.ytimg.com/vi/u4l5KnWYbZ4/hq720.jpg" alt="Recurrent UTIs: Causes &amp; Natural Solutions · UNS NutraTalk · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/u4l5KnWYbZ4/hqdefault.jpg'" />
         <div class="film-meta"><h3>Recurrent UTIs: Causes &amp; Natural Solutions · UNS NutraTalk · Woo Hoo Media</h3><div class="play">Play ↗</div></div>
       </div>
       <div class="film-card" data-cursor data-yt="IXxmGpZhef4">
-        <img class="film-thumb" src="https://img.youtube.com/vi/IXxmGpZhef4/maxresdefault.jpg" alt="Can Nutraceuticals Replace Pharma? · UNS NutraTalk · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/IXxmGpZhef4/hqdefault.jpg'" />
+        <img class="film-thumb" src="https://i.ytimg.com/vi/IXxmGpZhef4/hq720.jpg" alt="Can Nutraceuticals Replace Pharma? · UNS NutraTalk · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/IXxmGpZhef4/hqdefault.jpg'" />
         <div class="film-meta"><h3>Can Nutraceuticals Replace Pharma? · UNS NutraTalk · Woo Hoo Media</h3><div class="play">Play ↗</div></div>
       </div>
       </div>
@@ -704,15 +714,15 @@
  <p class="section-tagline">Pieces we made for love, for milestones, for the archive.</p>
  <div class="film-grid" data-playlist-key="signature">
       <div class="film-card" data-cursor data-yt="bYj4DB2bhIs">
-        <img class="film-thumb" src="https://img.youtube.com/vi/bYj4DB2bhIs/maxresdefault.jpg" alt="Chntan N. Shah — 25 Years Behind the Camera · Showcase Film · Woo Hoo Media Labs" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/bYj4DB2bhIs/hqdefault.jpg'" />
+        <img class="film-thumb" src="https://i.ytimg.com/vi/bYj4DB2bhIs/hq720.jpg" alt="Chntan N. Shah — 25 Years Behind the Camera · Showcase Film · Woo Hoo Media Labs" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/bYj4DB2bhIs/hqdefault.jpg'" />
         <div class="film-meta"><h3>Chntan N. Shah — 25 Years Behind the Camera · Showcase Film · Woo Hoo Media Labs</h3><div class="play">Play ↗</div></div>
       </div>
       <div class="film-card" data-cursor data-yt="O1fE36Dj3yY">
-        <img class="film-thumb" src="https://img.youtube.com/vi/O1fE36Dj3yY/maxresdefault.jpg" alt="Shri Mahesh Chandra Shah · 75th Birthday Biography Tribute Film · A Family&#x27;s Gift · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/O1fE36Dj3yY/hqdefault.jpg'" />
+        <img class="film-thumb" src="https://i.ytimg.com/vi/O1fE36Dj3yY/hq720.jpg" alt="Shri Mahesh Chandra Shah · 75th Birthday Biography Tribute Film · A Family&#x27;s Gift · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/O1fE36Dj3yY/hqdefault.jpg'" />
         <div class="film-meta"><h3>Shri Mahesh Chandra Shah · 75th Birthday Biography Tribute Film · A Family&#x27;s Gift · Woo Hoo Media</h3><div class="play">Play ↗</div></div>
       </div>
       <div class="film-card" data-cursor data-yt="J4cuHyAPQWc">
-        <img class="film-thumb" src="https://img.youtube.com/vi/J4cuHyAPQWc/maxresdefault.jpg" alt="Norwood Diwali Film 2019 · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/J4cuHyAPQWc/hqdefault.jpg'" />
+        <img class="film-thumb" src="https://i.ytimg.com/vi/J4cuHyAPQWc/hq720.jpg" alt="Norwood Diwali Film 2019 · Woo Hoo Media" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/J4cuHyAPQWc/hqdefault.jpg'" />
         <div class="film-meta"><h3>Norwood Diwali Film 2019 · Woo Hoo Media</h3><div class="play">Play ↗</div></div>
       </div>
       </div>
@@ -896,11 +906,19 @@
  <div class="field"><label for="inquiry">Tell us about your project</label><textarea id="inquiry" name="inquiry" required placeholder="A film, an idea, a brief, a question — start anywhere."></textarea></div>
  <div class="submit-row">
  <button type="submit" data-cursor id="contact-submit">Send Inquiry →</button>
- <div class="alt">Or email: <a href="mailto:chntan.n.shah@gmail.com" data-cursor>chntan.n.shah@gmail.com</a></div>
+ <div class="alt">Or reach us directly:
+      <a class="contact-direct wa" href="https://wa.me/918828429899?text=Hi%20Chntan%2C%20I%27d%20like%20to%20discuss%20a%20film%20project%20with%20Woo%20Hoo%20Media%20Labs." target="_blank" rel="noopener" data-cursor>WhatsApp&nbsp;↗</a>
+      <a class="contact-direct" href="mailto:chntan.n.shah@gmail.com" data-cursor>chntan.n.shah@gmail.com</a>
+    </div>
  </div>
  <div class="form-status" id="form-status" aria-live="polite"></div>
  </form>
 </section>
+
+<div class="sticky-cta" id="sticky-cta" aria-hidden="true">
+  <a href="#contact" class="sticky-cta-btn" data-cursor>Start a film →</a>
+  <a href="https://wa.me/918828429899" target="_blank" rel="noopener" class="sticky-cta-wa" data-cursor>WhatsApp</a>
+</div>
 
 <footer class="endcard">
  <div class="endcard-top">

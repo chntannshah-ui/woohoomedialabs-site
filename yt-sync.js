@@ -20,7 +20,7 @@
   function card(v) {
     var i = esc(v.id), t = esc(v.title);
     return '<div class="film-card" data-cursor data-yt="' + i + '" data-ytsync="1">' +
-      '<img class="film-thumb" src="https://img.youtube.com/vi/' + i + '/maxresdefault.jpg" ' +
+      '<img class="film-thumb" src="https://i.ytimg.com/vi/' + i + '/hq720.jpg" ' +
       'alt="' + t + '" loading="lazy" onerror="this.onerror=null;this.src=\'https://img.youtube.com/vi/' + i + '/hqdefault.jpg\'" />' +
       '<div class="film-meta"><h3>' + t + '</h3><div class="play">Play \u2197</div></div></div>';
   }

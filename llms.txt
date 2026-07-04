@@ -30,7 +30,7 @@ Every film has its own page with an embedded player at https://www.woohoomediala
 - Government Films (11 films)
 - Healthcare Films (14 films)
 
-- [Browse the complete film library](https://www.woohoomedialabs.com/work/): all 70 films, each on its own page.
+- [Browse the complete film library](https://www.woohoomedialabs.com/work): all 70 films, each on its own page.
 
 ## Selected Work
 

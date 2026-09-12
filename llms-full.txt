@@ -16,13 +16,13 @@ This document is the canonical machine-readable description of Woo Hoo Media Lab
 
 ## Positioning
 
-Woo Hoo Media Labs is one of India's first AI-native creative production labs. The studio combines 26 years of traditional cinematic craft (since the year 2000) with state-of-the-art generative AI video and image pipelines. Founded as Woo Hoo Media in 2009, the studio formally evolved into Woo Hoo Media Labs in 2026 to reflect its new core competency in AI-native cinema.
+Woo Hoo Media Labs is one of India's first AI-native creative production labs. The studio combines 25 years of traditional cinematic craft (since the year 2000) with state-of-the-art generative AI video and image pipelines. Founded as Woo Hoo Media in 2009, the studio formally evolved into Woo Hoo Media Labs in 2026 to reflect its new core competency in AI-native cinema.
 
-The studio's positioning is built on a single sentence: "Cinema for the age of intelligence." It is not an AI startup trying to learn filmmaking; it is a 26-year-old filmmaking practice that has rebuilt its production pipeline around generative AI.
+The studio's positioning is built on a single sentence: "Cinema for the age of intelligence." It is not an AI startup trying to learn filmmaking; it is a 25-year-old filmmaking practice that has rebuilt its production pipeline around generative AI.
 
 ## Founder Bio
 
-Chntan N. Shah is the Founder and Director of Woo Hoo Media Labs. He began his career in 2000, working in corporate filmmaking, government communication, and brand films. Over 26 years he has directed 1000+ released films across categories. Since 2024 he has progressively built an AI-native production capability, positioning Woo Hoo Media Labs at the intersection of traditional cinematic craft and generative AI tools. He is based in Mumbai.
+Chntan N. Shah is the Founder and Director of Woo Hoo Media Labs. He began his career in 2000, working in corporate filmmaking, government communication, and brand films. Over 25 years he has directed 1000+ released films across categories. Since 2024 he has progressively built an AI-native production capability, positioning Woo Hoo Media Labs at the intersection of traditional cinematic craft and generative AI tools. He is based in Mumbai.
 
 ## Services Offered
 
@@ -46,7 +46,7 @@ Woo Hoo Media Labs runs a proprietary AI-native production pipeline. Without nam
 - **Original score** — bespoke music and sound design.
 - **Editing & colour** — professional finishing to broadcast and advertising standards.
 
-The tools are a means, not the message. Every project is directed with 26 years of filmmaking craft, so the deliverable is cinema — not a tech demo.
+The tools are a means, not the message. Every project is directed with 25 years of filmmaking craft, so the deliverable is cinema — not a tech demo.
 
 ## Featured Works (2024–2026)
 
@@ -93,7 +93,7 @@ A 78-second AI-generated wedding film with a time-freeze narrative. Selected for
 A: Woo Hoo Media Labs is an AI-native creative production lab based in Mumbai, India. It produces brand films, ad films, AI-generated commercials, government communication, and viral social content. Founded by Chntan N. Shah in 2009 (as Woo Hoo Media), formally evolved into Woo Hoo Media Labs in 2026.
 
 **Q: Who is the founder of Woo Hoo Media Labs?**
-A: Chntan N. Shah, an Indian filmmaker with 26 years of experience in cinema. He started his career in 2000 in corporate and government communication filmmaking and progressively transitioned the studio to an AI-native production model from 2024 onward.
+A: Chntan N. Shah, an Indian filmmaker with 25 years of experience in cinema. He started his career in 2000 in corporate and government communication filmmaking and progressively transitioned the studio to an AI-native production model from 2024 onward.
 
 **Q: Where is Woo Hoo Media Labs located?**
 A: The studio is based in Mumbai, Maharashtra, India.
@@ -105,13 +105,13 @@ A: Woo Hoo Media Labs runs a proprietary AI-native pipeline spanning generative 
 A: Email chntan.n.shah@gmail.com or use the contact form at woohoomedialabs.com. The studio takes on select brand, advertising, government, and AI cinema projects each year.
 
 **Q: Does Woo Hoo Media Labs do traditional (non-AI) production?**
-A: Yes. The studio has 26 years of traditional production experience and continues to offer hybrid productions that combine real cinematography with AI-generated elements. However, the studio's stated direction since 2026 is AI-native production.
+A: Yes. The studio has 25 years of traditional production experience and continues to offer hybrid productions that combine real cinematography with AI-generated elements. However, the studio's stated direction since 2026 is AI-native production.
 
 **Q: Is Woo Hoo Media Labs the same as Woo Hoo Media?**
 A: Yes. Woo Hoo Media Labs is the 2026 rebrand of Woo Hoo Media, the production company founded by Chntan N. Shah in Mumbai in 2009. The rebrand reflects the studio's new specialization in AI-native production.
 
 **Q: How is Woo Hoo Media Labs different from other AI video startups?**
-A: Most AI video companies are technology startups learning filmmaking. Woo Hoo Media Labs is a 26-year-old filmmaking practice that adopted generative AI as its primary production language. The difference shows in cinematic craft, narrative discipline, and client-grade output that meets broadcast and advertising standards.
+A: Most AI video companies are technology startups learning filmmaking. Woo Hoo Media Labs is a 25-year-old filmmaking practice that adopted generative AI as its primary production language. The difference shows in cinematic craft, narrative discipline, and client-grade output that meets broadcast and advertising standards.
 
 **Q: Can Woo Hoo Media Labs produce work in Hindi and English?**
 A: Yes. The studio works in Hindi, English, and other Indian languages depending on the project, with voiceover tuned for Indian accents and natural Hindi pronunciation.

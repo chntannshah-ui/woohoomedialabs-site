@@ -4,13 +4,21 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.woohoomedialabs.com/</loc>
-    <lastmod>2026-07-04</lastmod>
+    <lastmod>2026-09-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://www.woohoomedialabs.com/og-cover.jpg</image:loc>
       <image:title>Woo Hoo Media Labs — Cinema for the age of intelligence</image:title>
     </image:image>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/QEeodhoulw4/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>AI Showreel 2026 | Authored Intelligence | Chntan N. Shah | Woo Hoo Media Labs</video:title>
+      <video:description>The 2026 showreel of Chntan N. Shah and Woo Hoo Media Labs, Mumbai — 25 years of filmmaking, now authored with AI.</video:description>
+      <video:player_loc>https://www.youtube-nocookie.com/embed/QEeodhoulw4</video:player_loc>
+      <video:content_loc>https://www.youtube.com/watch?v=QEeodhoulw4</video:content_loc>
+      <video:publication_date>2026-09-12</video:publication_date>
+    </video:video>
   </url>
   <url>
     <loc>https://www.woohoomedialabs.com/work</loc>

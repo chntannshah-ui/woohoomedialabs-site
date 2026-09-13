@@ -31,15 +31,27 @@ function parse(xml) {
 async function feed(pid) {
   try {
     const r = await fetch('https://www.youtube.com/feeds/videos.xml?playlist_id=' + pid,
-      { headers: { 'user-agent': 'Mozilla/5.0' } });
+      { cache: 'no-store', headers: {
+        'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36',
+        'accept': 'application/atom+xml,application/xml;q=0.9,*/*;q=0.8',
+        'accept-language': 'en-US,en;q=0.9' } });
     if (!r.ok) return [];
     return parse(await r.text());
   } catch (e) { return []; }
 }
-export default async function handler() {
+export default async function handler(req) {
   try {
     const pairs = await Promise.all(SECTIONS.map(async ([k, p]) => [k, await feed(p)]));
     const playlists = Object.fromEntries(pairs);
+    // YouTube sometimes refuses datacenter fetches → fall back to the baked feed.json
+    // (regenerated daily by the refresh-playlists GitHub Action) for any empty grid.
+    if (Object.values(playlists).some((v) => !v.length)) {
+      try {
+        const b = await fetch(new URL('/feed.json', req.url), { cache: 'no-store' });
+        if (b.ok) { const baked = (await b.json()).playlists || {};
+          for (const k of Object.keys(playlists)) if (!playlists[k].length && baked[k]) playlists[k] = baked[k]; }
+      } catch (e) {}
+    }
     return new Response(JSON.stringify({ ok: true, playlists }), {
       headers: {
         'content-type': 'application/json; charset=utf-8',

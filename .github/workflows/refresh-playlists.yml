@@ -1,0 +1,26 @@
+name: Refresh YouTube playlists
+# Pulls the six playlists' current order from YouTube RSS every 6 hours,
+# rewrites feed.json + the baked homepage grids, and commits — Vercel redeploys.
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Build feed.json and bake grids
+        run: |
+          python3 build_playlists.py
+          python3 bake_grids.py
+      - name: Commit if changed
+        run: |
+          git config user.name "woohoo-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add feed.json playlists.json index.html
+          git diff --cached --quiet && echo "no change" || git commit -m "Auto: refresh YouTube playlists" && git push

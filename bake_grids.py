@@ -19,6 +19,7 @@ def card(v, vertical):
 n = 0
 for key, vids in feed.items():
     pat = re.compile(r'(<div class="film-grid[^"]*" data-playlist-key="%s">\n)(.*?)(\n\s*</div>\n\s*<a href="https://www.youtube.com/playlist)' % key, re.S)
+    if not vids: print("no videos for", key, "— leaving the baked grid alone"); continue
     m = pat.search(s)
     if not m: print("grid not found:", key); continue
     body = "".join(card(v, key in VERTICAL) for v in vids[:COUNT.get(key, 6)])

@@ -11,7 +11,7 @@ Sept 2026 — they now 404) and writes:
 Handles both page shapes: lockupViewModel (normal videos) and reelWatchEndpoint
 (Shorts / vertical playlists). Run:  python3 build_playlists.py
 """
-import json, re, urllib.request, html
+import json, re, time, urllib.request, html
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -72,6 +72,9 @@ feed, full, total = {}, [], 0
 for key, pid, name, icon, tagline, vertical in PLAYLISTS:
     try:
         vids = scrape(pid, vertical)
+        if not vids:                      # YouTube occasionally serves a consent/empty page
+            time.sleep(4)
+            vids = scrape(pid, vertical)
     except Exception as ex:
         print(f"  ! {name}: {ex} — keeping previous feed.json entry")
         vids = None

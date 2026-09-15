@@ -17,13 +17,18 @@
       .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;').replace(/'/g, '&#x27;');
   }
+  // A missing thumbnail size comes back as a 120x90 grey placeholder with HTTP 404 —
+  // the browser LOADS it, so onerror never fires. Walk a fallback chain on size instead.
+  var GUARD = "if(this.naturalWidth<200){var a=(this.dataset.fbs||'').split(' ').filter(Boolean);" +
+              "if(a.length){this.dataset.fbs=a.slice(1).join(' ');this.src=a[0];}}";
   function card(v, vertical) {
     var i = esc(v.id), t = esc(v.title);
-    var src = vertical ? 'https://i.ytimg.com/vi/' + i + '/frame0.jpg' : 'https://i.ytimg.com/vi/' + i + '/hq720.jpg';
-    var fb  = vertical ? 'https://i.ytimg.com/vi/' + i + '/oar2.jpg'  : 'https://img.youtube.com/vi/' + i + '/hqdefault.jpg';
+    var base = 'https://i.ytimg.com/vi/' + i + '/';
+    var src = base + (vertical ? 'frame0.jpg' : 'hq720.jpg');
+    var fbs = (vertical ? base + 'oar2.jpg' : base + 'sddefault.jpg') + ' ' + base + 'hqdefault.jpg';
     return '<div class="film-card" data-cursor data-yt="' + i + '" data-ytsync="1">' +
-      '<img class="film-thumb" src="' + src + '" ' +
-      'alt="' + t + '" loading="lazy" onerror="this.onerror=null;this.src=\'' + fb + '\'" />' +
+      '<img class="film-thumb" src="' + src + '" data-fbs="' + fbs + '" onload="' + GUARD + '" ' +
+      'alt="' + t + '" loading="lazy" onerror="this.onerror=null;this.src=\'' + base + 'hqdefault.jpg\'" />' +
       '<div class="film-meta"><h3>' + t + '</h3><div class="play">Play ↗</div></div></div>';
   }
   // single delegated handler, scoped to synced cards (no double-bind with app.js)

@@ -17,12 +17,14 @@
       .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;').replace(/'/g, '&#x27;');
   }
-  function card(v) {
+  function card(v, vertical) {
     var i = esc(v.id), t = esc(v.title);
+    var src = vertical ? 'https://i.ytimg.com/vi/' + i + '/frame0.jpg' : 'https://i.ytimg.com/vi/' + i + '/hq720.jpg';
+    var fb  = vertical ? 'https://i.ytimg.com/vi/' + i + '/oar2.jpg'  : 'https://img.youtube.com/vi/' + i + '/hqdefault.jpg';
     return '<div class="film-card" data-cursor data-yt="' + i + '" data-ytsync="1">' +
-      '<img class="film-thumb" src="https://i.ytimg.com/vi/' + i + '/hq720.jpg" ' +
-      'alt="' + t + '" loading="lazy" onerror="this.onerror=null;this.src=\'https://img.youtube.com/vi/' + i + '/hqdefault.jpg\'" />' +
-      '<div class="film-meta"><h3>' + t + '</h3><div class="play">Play \u2197</div></div></div>';
+      '<img class="film-thumb" src="' + src + '" ' +
+      'alt="' + t + '" loading="lazy" onerror="this.onerror=null;this.src=\'' + fb + '\'" />' +
+      '<div class="film-meta"><h3>' + t + '</h3><div class="play">Play ↗</div></div></div>';
   }
   // single delegated handler, scoped to synced cards (no double-bind with app.js)
   document.addEventListener('click', function (e) {
@@ -35,7 +37,8 @@
       var vids = data && data[key];
       if (!vids || !vids.length) return; // keep baked-in fallback
       var n = COUNT[key] || 6;
-      var html = vids.slice(0, n).map(card).join('');
+      var vert = grid.classList.contains('vertical');
+      var html = vids.slice(0, n).map(function (v) { return card(v, vert); }).join('');
       if (html) grid.innerHTML = html;
     });
   }

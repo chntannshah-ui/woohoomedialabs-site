@@ -30,10 +30,10 @@ UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML,
 
 def clean(t):
     try:
-        t = t.encode("utf-8").decode("unicode_escape").encode("latin-1", "ignore").decode("utf-8", "ignore") if "\u" in t else t
+        t = t.encode("utf-8").decode("unicode_escape").encode("latin-1", "ignore").decode("utf-8", "ignore") if "\\u" in t else t
     except Exception:
         pass
-    t = html.unescape(t).replace('\"', '"').replace("\/", "/")
+    t = html.unescape(t).replace('\\"', '"').replace("\\/", "/")
     return re.sub(r"\s*\|\s*", " · ", re.sub(r"\s+", " ", t)).strip()
 
 def scrape(pid, vertical):

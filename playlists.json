@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-21T05:02:30.239908+00:00",
+ "updated": "2026-09-21T12:55:03.010298+00:00",
  "playlists": [
   {
    "id": "PLAcjSzaUUVHkV3bR_j_R6dRuiUQp7I1DS",
@@ -682,8 +682,13 @@
    "tagline": "Films for pharma, wellness, and the body's quieter conversations.",
    "vertical": false,
    "url": "https://www.youtube.com/playlist?list=PLAcjSzaUUVHm_N6lKfpdQ0e1TqTJ5y7gg",
-   "total": 17,
+   "total": 18,
    "videos": [
+    {
+     "id": "f4SdPfGyOwQ",
+     "title": "Every Healthcare Brand Sells Day 1. This Sells Day 60. · Bruno Knows · Ad Film · Chntan N Shah",
+     "published": null
+    },
     {
      "id": "0lOWB_gZQJ4",
      "title": "Solgar Vitamin D3 — Sunlight in a Bottle · Wellness Ad Film · AI Product Film · Woo Hoo Media Labs",
@@ -882,7 +887,7 @@
    "tagline": "Ten days, one household, one very small inspector.",
    "vertical": true,
    "url": "https://www.youtube.com/playlist?list=PLaYnl50OiPxI",
-   "total": 21,
+   "total": 22,
    "videos": [
     {
      "id": "sOnoujpYdDM",
@@ -987,6 +992,11 @@
     {
      "id": "chHTrCZU1LY",
      "title": "Ek Mouse Aaya Hai... Bag Ke Saath 🐭 · Ghar Mein Bappa Din 1 #Shorts",
+     "published": null
+    },
+    {
+     "id": "NyQAeMVcAgU",
+     "title": "Papa Roz Goli Bhoolte Hai. Is Hafte Nahi. · Bappa Din 22 · Chntan N Shah · Woo Hoo Media Labs, No views - play Short",
      "published": null
     }
    ]

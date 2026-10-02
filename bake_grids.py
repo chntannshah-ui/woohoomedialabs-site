@@ -5,7 +5,7 @@ import json, re, html
 from pathlib import Path
 feed = json.loads(Path("feed.json").read_text())["playlists"]
 COUNT = {"signature": 3}          # default 6 cards per grid
-VERTICAL = {"faith", "bappa"}     # Shorts playlists — first frame as the thumbnail
+VERTICAL = {"mobile", "faith", "bappa"}     # Shorts playlists — first frame as the thumbnail
 s = Path("index.html").read_text()
 def esc(t): return html.escape(t, quote=True).replace("'", "&#x27;")
 # A missing thumbnail size comes back as a 120x90 grey placeholder with HTTP 404 —

@@ -7,6 +7,7 @@ export const config = { runtime: 'edge' };
 
 const SECTIONS = [
   ['ai',         'PLAcjSzaUUVHkV3bR_j_R6dRuiUQp7I1DS', false],
+  ['mobile',     'PLYINq7OWV4a4',                      true ],
   ['product',    'PLAcjSzaUUVHm1Vc7IenJvn5DONdYlO9WO', false],
   ['corporate',  'PLAcjSzaUUVHkC11dQr16d5rlJRrmxfW2-', false],
   ['government', 'PLAcjSzaUUVHnhfDWDkGhTKN2mRHSQ8Xyy', false],
@@ -36,7 +37,7 @@ function parseShorts(h) {
     const pre = h.slice(Math.max(0, m.index - 4000), m.index);
     const t = pre.match(/"accessibilityText":"((?:[^"\\]|\\.)+)"(?![\s\S]*"accessibilityText")/);
     let title = t ? t[1] : '';
-    title = title.replace(/,\s*[\d.,]+\s*(?:thousand|million|K|M)?\s*views?\s*-\s*play Short\s*$/, '');
+    title = title.replace(/,\s*(?:[\d.,]+\s*(?:thousand|million|K|M)?|No)\s*views?\s*-\s*play Short\s*$/i, '');
     out.push({ id, title: decode(title) });
   }
   return out;

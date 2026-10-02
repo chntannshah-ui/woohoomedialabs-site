@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-02T05:45:40.042423+00:00",
+ "updated": "2026-10-02T12:43:06.365205+00:00",
  "playlists": [
   {
    "id": "PLAcjSzaUUVHkV3bR_j_R6dRuiUQp7I1DS",
@@ -8,7 +8,7 @@
    "tagline": "Where craft meets generative intelligence.",
    "vertical": false,
    "url": "https://www.youtube.com/playlist?list=PLAcjSzaUUVHkV3bR_j_R6dRuiUQp7I1DS",
-   "total": 29,
+   "total": 30,
    "videos": [
     {
      "id": "7HnLfzH9VlI",
@@ -153,6 +153,11 @@
     {
      "id": "MAjVjixh2zY",
      "title": "REPLY ALL — The Email That Ended A Man · Office Comedy Short",
+     "published": null
+    },
+    {
+     "id": "wqovXc8_NOU",
+     "title": "Haath Chhoda Hai, Saath Nahin · A Diwali SIP Film · Chntan N Shah · Woo Hoo Media Labs",
      "published": null
     }
    ]
@@ -783,7 +788,7 @@
    "tagline": "Pieces made for love, for milestones, for the archive.",
    "vertical": false,
    "url": "https://www.youtube.com/playlist?list=PLAcjSzaUUVHl66UVP317jEsE95ZnwiAho",
-   "total": 10,
+   "total": 11,
    "videos": [
     {
      "id": "5Mw8nA2sHC8",
@@ -833,6 +838,11 @@
     {
      "id": "bYj4DB2bhIs",
      "title": "Chntan N. Shah — 25 Years Behind the Camera · Showcase Film · Woo Hoo Media Labs",
+     "published": null
+    },
+    {
+     "id": "wqovXc8_NOU",
+     "title": "Haath Chhoda Hai, Saath Nahin · A Diwali SIP Film · Chntan N Shah · Woo Hoo Media Labs",
      "published": null
     }
    ]

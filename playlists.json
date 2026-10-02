@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-02T12:43:06.365205+00:00",
+ "updated": "2026-10-02T15:08:54.633846+00:00",
  "playlists": [
   {
    "id": "PLAcjSzaUUVHkV3bR_j_R6dRuiUQp7I1DS",
@@ -8,7 +8,7 @@
    "tagline": "Where craft meets generative intelligence.",
    "vertical": false,
    "url": "https://www.youtube.com/playlist?list=PLAcjSzaUUVHkV3bR_j_R6dRuiUQp7I1DS",
-   "total": 30,
+   "total": 27,
    "videos": [
     {
      "id": "7HnLfzH9VlI",
@@ -76,11 +76,6 @@
      "published": null
     },
     {
-     "id": "XkKL54y9Jwc",
-     "title": "AMBLE — Take the Long Way · The Shoes That Walk Themselves",
-     "published": null
-    },
-    {
      "id": "OrFELQix6oI",
      "title": "BOSS BURGER · Cinematic Food Commercial · Ad Film · Woo Hoo Media Labs",
      "published": null
@@ -88,11 +83,6 @@
     {
      "id": "av6Xxoa6HfQ",
      "title": "Speed 4 Defence · Built for the Battlefield 🇮🇳 · AI-Native Brand Film",
-     "published": null
-    },
-    {
-     "id": "_4-qneNNGCk",
-     "title": "Nine Yards of Light · AABHA Saree Couture · AI Fashion Film · Woo Hoo Media Labs",
      "published": null
     },
     {
@@ -154,10 +144,51 @@
      "id": "MAjVjixh2zY",
      "title": "REPLY ALL — The Email That Ended A Man · Office Comedy Short",
      "published": null
-    },
+    }
+   ]
+  },
+  {
+   "id": "PLYINq7OWV4a4",
+   "name": "Made for Mobile",
+   "icon": "📱",
+   "tagline": "Films designed for the screen in your hand.",
+   "vertical": true,
+   "url": "https://www.youtube.com/playlist?list=PLYINq7OWV4a4",
+   "total": 7,
+   "videos": [
     {
      "id": "wqovXc8_NOU",
      "title": "Haath Chhoda Hai, Saath Nahin · A Diwali SIP Film · Chntan N Shah · Woo Hoo Media Labs",
+     "published": null
+    },
+    {
+     "id": "6NyAPeMzIik",
+     "title": "2nd Oct I Lal Bahadur Shastri Jayanti I Happy Birthday Shastriji I Shorts",
+     "published": null
+    },
+    {
+     "id": "fOUuYVk97R4",
+     "title": "RUDRA 1 · This system hijacks hostile drones · AI Defence Film #Shorts",
+     "published": null
+    },
+    {
+     "id": "XkKL54y9Jwc",
+     "title": "AMBLE — Take the Long Way · The Shoes That Walk Themselves",
+     "published": null
+    },
+    {
+     "id": "_4-qneNNGCk",
+     "title": "Nine Yards of Light · AABHA Saree Couture · AI Fashion Film · Woo Hoo Media Labs",
+     "published": null
+    },
+    {
+     "id": "fJpOsNIC8aE",
+     "title": "THE NEW BIRDS",
+     "published": null
+    },
+    {
+     "id": "ZsCsRmI-U8Y",
+     "title": "ONE OF NINE · An original song · For the love of Cats",
      "published": null
     }
    ]
@@ -169,7 +200,7 @@
    "tagline": "Hero films, demo reels, launch cinema — for products people actually buy.",
    "vertical": false,
    "url": "https://www.youtube.com/playlist?list=PLAcjSzaUUVHm1Vc7IenJvn5DONdYlO9WO",
-   "total": 30,
+   "total": 31,
    "videos": [
     {
      "id": "9qwhu4XNqww",
@@ -320,6 +351,11 @@
      "id": "jykewsrMPVw",
      "title": "Norwood LED Range · Product Showcase Film · Woo Hoo Media",
      "published": null
+    },
+    {
+     "id": "OS7v9bJhETA",
+     "title": "AI Defence Film · RUDRA 1 Counter-Drone System · Speed 4 Defence × Aerotronics India",
+     "published": null
     }
    ]
   },
@@ -330,8 +366,13 @@
    "tagline": "Brand films, anthems, and enterprise storytelling.",
    "vertical": false,
    "url": "https://www.youtube.com/playlist?list=PLAcjSzaUUVHkC11dQr16d5rlJRrmxfW2-",
-   "total": 56,
+   "total": 57,
    "videos": [
+    {
+     "id": "OS7v9bJhETA",
+     "title": "AI Defence Film · RUDRA 1 Counter-Drone System · Speed 4 Defence × Aerotronics India",
+     "published": null
+    },
     {
      "id": "LxwHWnaqlqg",
      "title": "Deploy in Days. Disappear from Sight. · Underground Bunkers — Speed 4 Defence · Woo Hoo Media Labs",
@@ -788,7 +829,7 @@
    "tagline": "Pieces made for love, for milestones, for the archive.",
    "vertical": false,
    "url": "https://www.youtube.com/playlist?list=PLAcjSzaUUVHl66UVP317jEsE95ZnwiAho",
-   "total": 11,
+   "total": 10,
    "videos": [
     {
      "id": "5Mw8nA2sHC8",
@@ -838,11 +879,6 @@
     {
      "id": "bYj4DB2bhIs",
      "title": "Chntan N. Shah — 25 Years Behind the Camera · Showcase Film · Woo Hoo Media Labs",
-     "published": null
-    },
-    {
-     "id": "wqovXc8_NOU",
-     "title": "Haath Chhoda Hai, Saath Nahin · A Diwali SIP Film · Chntan N Shah · Woo Hoo Media Labs",
      "published": null
     }
    ]
@@ -906,7 +942,7 @@
     },
     {
      "id": "qE0cKPB95kA",
-     "title": "Bhaiya Ko Prasad Mila. Aur Kuch Aur Bhi. 🛵🙏 · Bappa Din 17 · Chntan N Shah · Woo Hoo Media Labs, No views - play Short",
+     "title": "Bhaiya Ko Prasad Mila. Aur Kuch Aur Bhi. 🛵🙏 · Bappa Din 17 · Chntan N Shah · Woo Hoo Media Labs",
      "published": null
     },
     {
@@ -1006,7 +1042,7 @@
     },
     {
      "id": "NyQAeMVcAgU",
-     "title": "Papa Roz Goli Bhoolte Hai. Is Hafte Nahi. · Bappa Din 22 · Chntan N Shah · Woo Hoo Media Labs, No views - play Short",
+     "title": "Papa Roz Goli Bhoolte Hai. Is Hafte Nahi. · Bappa Din 22 · Chntan N Shah · Woo Hoo Media Labs",
      "published": null
     },
     {

@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-06T00:06:26.252089+00:00",
+ "updated": "2026-10-06T06:27:20.380303+00:00",
  "playlists": [
   {
    "id": "PLAcjSzaUUVHkV3bR_j_R6dRuiUQp7I1DS",
@@ -154,11 +154,16 @@
    "tagline": "Films designed for the screen in your hand.",
    "vertical": true,
    "url": "https://www.youtube.com/playlist?list=PLYINq7OWV4a4",
-   "total": 7,
+   "total": 8,
    "videos": [
     {
      "id": "wqovXc8_NOU",
      "title": "Haath Chhoda Hai, Saath Nahin · A Diwali SIP Film · Chntan N Shah · Woo Hoo Media Labs",
+     "published": null
+    },
+    {
+     "id": "W4d_oJNQLag",
+     "title": "A Fashion Film With Commitment Issues · TAANA · AI Fashion Film",
      "published": null
     },
     {

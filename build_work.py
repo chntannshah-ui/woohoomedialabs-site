@@ -46,25 +46,17 @@ def iso_dur(sec):
 def thumb(vid, q="hq720"): return f"https://i.ytimg.com/vi/{vid}/{q}.jpg"
 
 def player(vid, title):
-    embed = f"https://www.youtube-nocookie.com/embed/{vid}"
-    srcdoc = (
-        "<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%;background:#000}"
-        "a{display:flex;align-items:center;justify-content:center;height:100%;position:relative}"
-        "img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.85}"
-        "span{position:relative;width:84px;height:84px;border-radius:50%;background:rgba(10,10,10,.6);"
-        "display:flex;align-items:center;justify-content:center}svg{width:30px;height:30px;margin-left:4px;fill:#FFB000}</style>"
-        f"<a href='{embed}?autoplay=1&rel=0&modestbranding=1&playsinline=1' aria-label='Play'>"
-        f"<img src='{thumb(vid)}' onerror=\"this.onerror=null;this.src='{thumb(vid,'hqdefault')}'\" alt='{esc(title)}'>"
-        "<span><svg viewBox='0 0 24 24'><path d='M6 4l14 8-14 8z'/></svg></span></a>"
-    )
-    return (f'<div class="player"><iframe src="{embed}?rel=0&modestbranding=1&playsinline=1" '
-            f'srcdoc="{esc(srcdoc)}" title="{esc(title)}" loading="lazy" '
-            f'allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>')
+    return (f'<div class="player"><iframe src="https://www.youtube-nocookie.com/embed/{vid}?rel=0&modestbranding=1&playsinline=1" '
+            f'title="{esc(title)}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>')
+
+def ga(): return ('<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y7Z43CKEN7"></script>\n'
+                  '<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}'
+                  'gtag("js",new Date());gtag("config","G-Y7Z43CKEN7",{anonymize_ip:true});</script>\n')
 
 def nav(): return ('<nav><a href="/" aria-label="Woo Hoo Media Labs — home"><img src="/logo-white.png" alt="Woo Hoo Media Labs"></a>\n'
                    '<div class="links"><a href="/work">Work</a><a href="/#services">Services</a><a href="/#contact">Contact</a></div></nav>')
 def footer(): return f'<footer><div>© 2026 Woo Hoo Media Labs · Mumbai · India</div><div>{FOOTER_STRIP}</div></footer>'
-def head_common(): return ('<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0a0a0a">\n')
+def head_common(): return ga() + ('<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0a0a0a">\n')
 def icons(): return '<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"><link rel="shortcut icon" href="/favicon.ico">'
 def fonts(): return ('<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
                      '<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">')
@@ -76,7 +68,7 @@ for cat, _ in CATS:
 for f in ordered:
     f["title_c"] = clean(f["title"])
     f.setdefault("slug", slugify(f["title"]))
-    f["short"] = f["title_c"].split(" · ")[0]
+    f["short"] = f.get("short_title") or f["title_c"].split(" · ")[0]
     f["desc"] = f"{esc(f['short'])} — {CAT_PHRASE[f['category']]} produced by Woo Hoo Media Labs, the AI-native film and content production studio in Mumbai founded by Chntan N. Shah. {TAIL}"
 
 # ---- film pages

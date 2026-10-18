@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-17T20:40:03.139067+00:00",
+ "updated": "2026-10-18T04:40:00.232510+00:00",
  "playlists": [
   {
    "id": "PLAcjSzaUUVHkV3bR_j_R6dRuiUQp7I1DS",
@@ -154,7 +154,7 @@
    "tagline": "Films designed for the screen in your hand.",
    "vertical": true,
    "url": "https://www.youtube.com/playlist?list=PLYINq7OWV4a4",
-   "total": 11,
+   "total": 12,
    "videos": [
     {
      "id": "VjLfYWrN6oM",
@@ -209,6 +209,11 @@
     {
      "id": "NeRsqZAxWXc",
      "title": "Why Tesla Built a Car It Won't Sell · Explainer Lab · Chntan N Shah · Woo Hoo Media Labs",
+     "published": null
+    },
+    {
+     "id": "WjPrU06UpQg",
+     "title": "Why Every iPhone Ad Says 9:41 · Chntan N Shah · Woo Hoo Media Labs",
      "published": null
     }
    ]

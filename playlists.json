@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-18T15:55:27.261654+00:00",
+ "updated": "2026-10-18T20:49:39.763238+00:00",
  "playlists": [
   {
    "id": "PLAcjSzaUUVHkV3bR_j_R6dRuiUQp7I1DS",
@@ -208,7 +208,7 @@
     },
     {
      "id": "NeRsqZAxWXc",
-     "title": "Why Tesla Built a Car It Won't Sell · Explainer Lab · Chntan N Shah · Woo Hoo Media Labs",
+     "title": "Tesla's Flying Car Isn't Really for Sale. Here's Why · Chntan N Shah · Woo Hoo Media Labs",
      "published": null
     },
     {
@@ -225,8 +225,13 @@
    "tagline": "One sharp idea a day, taken apart.",
    "vertical": true,
    "url": "https://www.youtube.com/playlist?list=PLMDn4Kc8PmVw",
-   "total": 2,
+   "total": 3,
    "videos": [
+    {
+     "id": "w-f7GGghhq0",
+     "title": "Drishyam's Alibi Was a Real Psychology Trick · Chntan N Shah · Woo Hoo Media Labs",
+     "published": null
+    },
     {
      "id": "WjPrU06UpQg",
      "title": "Why Every iPhone Ad Says 9:41 · Chntan N Shah · Woo Hoo Media Labs",
@@ -234,7 +239,7 @@
     },
     {
      "id": "NeRsqZAxWXc",
-     "title": "Why Tesla Built a Car It Won't Sell · Explainer Lab · Chntan N Shah · Woo Hoo Media Labs",
+     "title": "Tesla's Flying Car Isn't Really for Sale. Here's Why · Chntan N Shah · Woo Hoo Media Labs",
      "published": null
     }
    ]
@@ -884,7 +889,7 @@
    "videos": [
     {
      "id": "sDeP9ACE8Es",
-     "title": "Maine Pyar Kiya Prequel? Here’s My Version · Pyaar Pehle Bhi Tha",
+     "title": "Maine Pyar Kiya Prequel: Pyaar Pehle Bhi Tha · Fan Film · Chntan N Shah · Woo Hoo Media Labs",
      "published": null
     },
     {

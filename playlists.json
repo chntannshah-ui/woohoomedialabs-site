@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-18T11:14:37.158539+00:00",
+ "updated": "2026-10-18T13:56:33.664522+00:00",
  "playlists": [
   {
    "id": "PLAcjSzaUUVHkV3bR_j_R6dRuiUQp7I1DS",
@@ -214,6 +214,27 @@
     {
      "id": "WjPrU06UpQg",
      "title": "Why Every iPhone Ad Says 9:41 · Chntan N Shah · Woo Hoo Media Labs",
+     "published": null
+    }
+   ]
+  },
+  {
+   "id": "PLMDn4Kc8PmVw",
+   "name": "Explainer Lab",
+   "icon": "🧪",
+   "tagline": "One sharp idea a day, taken apart.",
+   "vertical": true,
+   "url": "https://www.youtube.com/playlist?list=PLMDn4Kc8PmVw",
+   "total": 2,
+   "videos": [
+    {
+     "id": "WjPrU06UpQg",
+     "title": "Why Every iPhone Ad Says 9:41 · Chntan N Shah · Woo Hoo Media Labs",
+     "published": null
+    },
+    {
+     "id": "NeRsqZAxWXc",
+     "title": "Why Tesla Built a Car It Won't Sell · Explainer Lab · Chntan N Shah · Woo Hoo Media Labs",
      "published": null
     }
    ]
@@ -925,39 +946,52 @@
    "tagline": "Gods, myth and devotion — vertical.",
    "vertical": true,
    "url": "https://www.youtube.com/playlist?list=PLah1g5o0db8s",
-   "total": 8,
+   "total": 9,
    "videos": [
     {
-     "id": "VeELH5gpTSA",
-     "title": "AALA RE — Bappa comes home to Mumbai · Ganesh Chaturthi 2026 · Woo Hoo Media Labs"
+     "id": "fUZkEO8o-zI",
+     "title": "Shankheshwar Dada — The Story of the Conch · Shankheshwar Parshvanath · Chntan N Shah",
+     "published": null
+    },
+    {
+     "id": "kfcPkImZqKw",
+     "title": "What Micchami Dukkadam Actually Means · Chntan N Shah · Woo Hoo Media Labs",
+     "published": null
     },
     {
      "id": "JUc8PQOjY7k",
-     "title": "The 14 Dreams of Mata Trishala — explained in 100 seconds · Mahavir Janma Vanchan"
+     "title": "The 14 Dreams of Mata Trishala — explained in 100 seconds · Mahavir Janma Vanchan",
+     "published": null
     },
     {
      "id": "-Vvda6kt74k",
-     "title": "Chandkaushik — a Kalpasutra page comes alive · Paryushan begins"
+     "title": "Chandkaushik — a Kalpasutra page comes alive · Paryushan begins",
+     "published": null
     },
     {
      "id": "cxLfqPQoTKA",
-     "title": "A Thousand Fangs. One Flute. 🌊 Kaliya Mardan Like Never Before #shorts · Jai Shri Krishna"
+     "title": "A Thousand Fangs. One Flute. 🌊 Kaliya Mardan Like Never Before #shorts · Jai Shri Krishna",
+     "published": null
     },
     {
      "id": "xqcvTzXCA6s",
-     "title": "Hanuman — Every Pain Erased by One Name · Hanuman Chalisa · Jai Bajrangbali #jaibajrangbali #hanuman"
+     "title": "Hanuman — Every Pain Erased by One Name · Hanuman Chalisa · Jai Bajrangbali #jaibajrangbali #hanuman",
+     "published": null
     },
     {
      "id": "saG_OqQmqqM",
-     "title": "When Bappa Looks at You 🐘 Ganpati Bappa Morya · Cinematic Ganesha #shorts #ganpatibappamorya #bappa"
+     "title": "When Bappa Looks at You 🐘 Ganpati Bappa Morya · Cinematic Ganesha #shorts #ganpatibappamorya #bappa",
+     "published": null
     },
     {
      "id": "MGQ_dPvUiSs",
-     "title": "Time Forgot to Age Him 🔱 Mahadev, Here & Now · Har Har Mahadev #shorts"
+     "title": "Time Forgot to Age Him 🔱 Mahadev, Here & Now · Har Har Mahadev #shorts",
+     "published": null
     },
     {
      "id": "diBTu__JnrQ",
-     "title": "A Petal Lands on His Cheek, Yet He Transcends 🌸 #Vitaraga"
+     "title": "A Petal Lands on His Cheek, Yet He Transcends 🌸 #Vitaraga",
+     "published": null
     }
    ]
   },

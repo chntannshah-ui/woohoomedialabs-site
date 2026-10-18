@@ -5,7 +5,8 @@ import json, re, html
 from pathlib import Path
 feed = json.loads(Path("feed.json").read_text())["playlists"]
 COUNT = {"signature": 3}          # default 6 cards per grid
-VERTICAL = {"mobile", "faith", "bappa"}     # Shorts playlists — first frame as the thumbnail
+VERTICAL = {"mobile", "explainer", "faith", "bappa"}     # Shorts playlists — first frame as the thumbnail
+OAR_FIRST = {"explainer"}   # Shorts that open on a blank title card — lead with YouTube's Shorts thumbnail (oar2)
 s = Path("index.html").read_text()
 def esc(t): return html.escape(t, quote=True).replace("'", "&#x27;")
 # A missing thumbnail size comes back as a 120x90 grey placeholder with HTTP 404 —
@@ -13,11 +14,15 @@ def esc(t): return html.escape(t, quote=True).replace("'", "&#x27;")
 NEXT = ("onload=\"if(this.naturalWidth<200){var a=(this.dataset.fbs||'').split(' ').filter(Boolean);"
         "if(a.length){this.dataset.fbs=a.slice(1).join(' ');this.src=a[0];}}\"")
 
-def card(v, vertical):
+def card(v, vertical, oar_first=False):
     i, t = v["id"], esc(v["title"])
-    src = f"https://i.ytimg.com/vi/{i}/frame0.jpg" if vertical else f"https://i.ytimg.com/vi/{i}/hq720.jpg"
-    fbs = (f"https://i.ytimg.com/vi/{i}/oar2.jpg https://i.ytimg.com/vi/{i}/hqdefault.jpg" if vertical
-           else f"https://i.ytimg.com/vi/{i}/sddefault.jpg https://i.ytimg.com/vi/{i}/hqdefault.jpg")
+    if oar_first:
+        src = f"https://i.ytimg.com/vi/{i}/oar2.jpg"
+        fbs = f"https://i.ytimg.com/vi/{i}/frame0.jpg https://i.ytimg.com/vi/{i}/hqdefault.jpg"
+    else:
+        src = f"https://i.ytimg.com/vi/{i}/frame0.jpg" if vertical else f"https://i.ytimg.com/vi/{i}/hq720.jpg"
+        fbs = (f"https://i.ytimg.com/vi/{i}/oar2.jpg https://i.ytimg.com/vi/{i}/hqdefault.jpg" if vertical
+               else f"https://i.ytimg.com/vi/{i}/sddefault.jpg https://i.ytimg.com/vi/{i}/hqdefault.jpg")
     last = f"https://i.ytimg.com/vi/{i}/hqdefault.jpg"
     return (f'      <div class="film-card" data-cursor data-yt="{i}">\n'
             f'        <img class="film-thumb" src="{src}" alt="{t}" loading="lazy" data-fbs="{fbs}" {NEXT} '
@@ -30,7 +35,7 @@ for key, vids in feed.items():
     if not vids: print("no videos for", key, "— leaving the baked grid alone"); continue
     m = pat.search(s)
     if not m: print("grid not found:", key); continue
-    body = "".join(card(v, key in VERTICAL) for v in vids[:COUNT.get(key, 6)])
+    body = "".join(card(v, key in VERTICAL, key in OAR_FIRST) for v in vids[:COUNT.get(key, 6)])
     s = s[:m.start(2)] + body.rstrip("\n") + s[m.end(2):]
     n += 1
 Path("index.html").write_text(s)

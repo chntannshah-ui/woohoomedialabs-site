@@ -8,6 +8,7 @@ export const config = { runtime: 'edge' };
 const SECTIONS = [
   ['ai',         'PLAcjSzaUUVHkV3bR_j_R6dRuiUQp7I1DS', false],
   ['mobile',     'PLYINq7OWV4a4',                      true ],
+  ['explainer',  'PLMDn4Kc8PmVw',                      true ],
   ['product',    'PLAcjSzaUUVHm1Vc7IenJvn5DONdYlO9WO', false],
   ['corporate',  'PLAcjSzaUUVHkC11dQr16d5rlJRrmxfW2-', false],
   ['government', 'PLAcjSzaUUVHnhfDWDkGhTKN2mRHSQ8Xyy', false],

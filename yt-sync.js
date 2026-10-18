@@ -4,6 +4,8 @@
    fetch fails. Self-contained — does not depend on app.js internals. */
 (function () {
   var COUNT = { signature: 3 }; // default 6 cards per grid
+  // Shorts whose first frame is a blank title card: lead with YouTube's Shorts thumbnail (oar2)
+  var OAR_FIRST = { explainer: 1 };
   function openVid(id) {
     var modal = document.getElementById('modal');
     var iframe = document.getElementById('modal-iframe');
@@ -21,11 +23,11 @@
   // the browser LOADS it, so onerror never fires. Walk a fallback chain on size instead.
   var GUARD = "if(this.naturalWidth<200){var a=(this.dataset.fbs||'').split(' ').filter(Boolean);" +
               "if(a.length){this.dataset.fbs=a.slice(1).join(' ');this.src=a[0];}}";
-  function card(v, vertical) {
+  function card(v, vertical, oarFirst) {
     var i = esc(v.id), t = esc(v.title);
     var base = 'https://i.ytimg.com/vi/' + i + '/';
-    var src = base + (vertical ? 'frame0.jpg' : 'hq720.jpg');
-    var fbs = (vertical ? base + 'oar2.jpg' : base + 'sddefault.jpg') + ' ' + base + 'hqdefault.jpg';
+    var src = base + (oarFirst ? 'oar2.jpg' : vertical ? 'frame0.jpg' : 'hq720.jpg');
+    var fbs = (oarFirst ? base + 'frame0.jpg' : vertical ? base + 'oar2.jpg' : base + 'sddefault.jpg') + ' ' + base + 'hqdefault.jpg';
     return '<div class="film-card" data-cursor data-yt="' + i + '" data-ytsync="1">' +
       '<img class="film-thumb" src="' + src + '" data-fbs="' + fbs + '" onload="' + GUARD + '" ' +
       'alt="' + t + '" loading="lazy" onerror="this.onerror=null;this.src=\'' + base + 'hqdefault.jpg\'" />' +
@@ -43,7 +45,8 @@
       if (!vids || !vids.length) return; // keep baked-in fallback
       var n = COUNT[key] || 6;
       var vert = grid.classList.contains('vertical');
-      var html = vids.slice(0, n).map(function (v) { return card(v, vert); }).join('');
+      var oar = !!OAR_FIRST[key];
+      var html = vids.slice(0, n).map(function (v) { return card(v, vert, oar); }).join('');
       if (html) grid.innerHTML = html;
     });
   }

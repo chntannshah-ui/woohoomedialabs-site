@@ -18,6 +18,7 @@ from pathlib import Path
 PLAYLISTS = [
     ("ai",         "PLAcjSzaUUVHkV3bR_j_R6dRuiUQp7I1DS", "AI Films",                     "🤖", "Where craft meets generative intelligence.", False),
     ("mobile",     "PLYINq7OWV4a4",                      "Made for Mobile",              "📱", "Films designed for the screen in your hand.", True),
+    ("explainer",  "PLMDn4Kc8PmVw",                      "Explainer Lab",                "🧪", "One sharp idea a day, taken apart.", True),
     ("product",    "PLAcjSzaUUVHm1Vc7IenJvn5DONdYlO9WO", "Product Films",                "🚀", "Hero films, demo reels, launch cinema — for products people actually buy.", False),
     ("corporate",  "PLAcjSzaUUVHkC11dQr16d5rlJRrmxfW2-", "Corporate Communication",      "🎥", "Brand films, anthems, and enterprise storytelling.", False),
     ("government", "PLAcjSzaUUVHnhfDWDkGhTKN2mRHSQ8Xyy", "Government Films",             "🏛", "Public narrative — for the State of Maharashtra and the Government of India.", False),

@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-19T22:24:13.275812+00:00",
+ "updated": "2026-10-20T04:56:50.164598+00:00",
  "playlists": [
   {
    "id": "PLAcjSzaUUVHkV3bR_j_R6dRuiUQp7I1DS",
@@ -225,8 +225,13 @@
    "tagline": "One sharp idea a day, taken apart.",
    "vertical": true,
    "url": "https://www.youtube.com/playlist?list=PLMDn4Kc8PmVw",
-   "total": 4,
+   "total": 5,
    "videos": [
+    {
+     "id": "jSjRO-XGIPI",
+     "title": "Mausi Said UPI Tax After Diwali. I Checked. · Chntan N Shah · Woo Hoo Media Labs",
+     "published": null
+    },
     {
      "id": "dqBELDkhHX4",
      "title": "40 Minutes for One Song: Napster · Explainer Lab · Chntan N Shah · Woo Hoo Media Labs",

@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-21T21:46:24.315547+00:00",
+ "updated": "2026-10-22T04:56:09.594331+00:00",
  "playlists": [
   {
    "id": "PLAcjSzaUUVHkV3bR_j_R6dRuiUQp7I1DS",
@@ -225,8 +225,13 @@
    "tagline": "One sharp idea a day, taken apart.",
    "vertical": true,
    "url": "https://www.youtube.com/playlist?list=PLMDn4Kc8PmVw",
-   "total": 5,
+   "total": 6,
    "videos": [
+    {
+     "id": "h7KjmaR-aQ8",
+     "title": "India Orders in 10 Minutes, 95 Lakh Times a Day · Chntan N Shah · Woo Hoo Media Labs",
+     "published": null
+    },
     {
      "id": "jSjRO-XGIPI",
      "title": "Mausi Said UPI Tax After Diwali. I Checked. · Chntan N Shah · Woo Hoo Media Labs",

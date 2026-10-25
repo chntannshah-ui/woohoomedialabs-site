@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-24T20:54:21.817968+00:00",
+ "updated": "2026-10-25T04:48:55.476869+00:00",
  "playlists": [
   {
    "id": "PLAcjSzaUUVHkV3bR_j_R6dRuiUQp7I1DS",
@@ -966,43 +966,47 @@
    "tagline": "Gods, myth and devotion — vertical.",
    "vertical": true,
    "url": "https://www.youtube.com/playlist?list=PLah1g5o0db8s",
-   "total": 9,
+   "total": 8,
    "videos": [
     {
      "id": "fUZkEO8o-zI",
-     "title": "Shankheshwar Dada — The Story of the Conch · Shankheshwar Parshvanath · Chntan N Shah"
+     "title": "Shankheshwar Dada — The Story of the Conch · Shankheshwar Parshvanath · Chntan N Shah",
+     "published": null
     },
     {
      "id": "kfcPkImZqKw",
-     "title": "What Micchami Dukkadam Actually Means · Chntan N Shah · Woo Hoo Media Labs"
+     "title": "What Micchami Dukkadam Actually Means · Chntan N Shah · Woo Hoo Media Labs",
+     "published": null
     },
     {
      "id": "JUc8PQOjY7k",
-     "title": "The 14 Dreams of Mata Trishala — explained in 100 seconds · Mahavir Janma Vanchan"
+     "title": "The 14 Dreams of Mata Trishala — explained in 100 seconds · Mahavir Janma Vanchan",
+     "published": null
     },
     {
      "id": "-Vvda6kt74k",
-     "title": "Chandkaushik — a Kalpasutra page comes alive · Paryushan begins"
+     "title": "Chandkaushik — a Kalpasutra page comes alive · Paryushan begins",
+     "published": null
     },
     {
      "id": "cxLfqPQoTKA",
-     "title": "A Thousand Fangs. One Flute. 🌊 Kaliya Mardan Like Never Before #shorts · Jai Shri Krishna"
+     "title": "A Thousand Fangs. One Flute. 🌊 Kaliya Mardan Like Never Before #shorts · Jai Shri Krishna",
+     "published": null
     },
     {
      "id": "xqcvTzXCA6s",
-     "title": "Hanuman — Every Pain Erased by One Name · Hanuman Chalisa · Jai Bajrangbali #jaibajrangbali #hanuman"
+     "title": "Hanuman — Every Pain Erased by One Name · Hanuman Chalisa · Jai Bajrangbali #jaibajrangbali #hanuman",
+     "published": null
     },
     {
      "id": "saG_OqQmqqM",
-     "title": "When Bappa Looks at You 🐘 Ganpati Bappa Morya · Cinematic Ganesha #shorts #ganpatibappamorya #bappa"
-    },
-    {
-     "id": "MGQ_dPvUiSs",
-     "title": "Time Forgot to Age Him 🔱 Mahadev, Here & Now · Har Har Mahadev #shorts"
+     "title": "When Bappa Looks at You 🐘 Ganpati Bappa Morya · Cinematic Ganesha #shorts #ganpatibappamorya #bappa",
+     "published": null
     },
     {
      "id": "diBTu__JnrQ",
-     "title": "A Petal Lands on His Cheek, Yet He Transcends 🌸 #Vitaraga"
+     "title": "A Petal Lands on His Cheek, Yet He Transcends 🌸 #Vitaraga",
+     "published": null
     }
    ]
   },

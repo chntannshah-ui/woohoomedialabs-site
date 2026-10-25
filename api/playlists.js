@@ -6,6 +6,7 @@
 export const config = { runtime: 'edge' };
 
 const SECTIONS = [
+  ['awards',     'PLaZUfbxrw8y8',                      false],
   ['ai',         'PLAcjSzaUUVHkV3bR_j_R6dRuiUQp7I1DS', false],
   ['mobile',     'PLYINq7OWV4a4',                      true ],
   ['explainer',  'PLMDn4Kc8PmVw',                      true ],

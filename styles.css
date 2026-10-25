@@ -1086,3 +1086,14 @@ body.intro-lock { overflow: hidden; }
 .sticky-cta-wa{color:#fff;text-decoration:none;font-family:'Space Grotesk',sans-serif;font-size:.9rem;border:1px solid rgba(255,255,255,.35);padding:.66em 1em;border-radius:2em}
 @media (min-width:769px){.sticky-cta{display:none !important}}
 @media (max-width:768px){.sticky-cta{display:flex}}
+
+/* Award Winning Films — horizontal sliding carousel, 2 films in view (1 on phones) */
+.award-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; }
+.carousel-nav { display: flex; gap: 8px; flex-shrink: 0; margin-bottom: 18px; }
+.carousel-btn { width: 44px; height: 44px; border-radius: 50%; border: 1px solid currentColor; background: transparent; color: inherit; font-size: 18px; line-height: 1; cursor: pointer; opacity: .85; transition: opacity .25s, background .25s, color .25s, border-color .25s; }
+.carousel-btn:hover:not(:disabled) { background: var(--accent); color: var(--bg); border-color: var(--accent); opacity: 1; }
+.carousel-btn:disabled { opacity: .25; cursor: default; }
+.film-grid.carousel { display: flex; grid-template-columns: none; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
+.film-grid.carousel::-webkit-scrollbar { display: none; }
+.film-grid.carousel > .film-card { flex: 0 0 calc((100% - 16px) / 2); scroll-snap-align: start; }
+@media (max-width: 700px) { .film-grid.carousel { gap: 12px; } .film-grid.carousel > .film-card { flex-basis: 88%; } }

@@ -16,6 +16,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 PLAYLISTS = [
+    ("awards",     "PLaZUfbxrw8y8",                      "Award Winning Films",          "🏆", "Judged, juried, and won.", False),
     ("ai",         "PLAcjSzaUUVHkV3bR_j_R6dRuiUQp7I1DS", "AI Films",                     "🤖", "Where craft meets generative intelligence.", False),
     ("mobile",     "PLYINq7OWV4a4",                      "Made for Mobile",              "📱", "Films designed for the screen in your hand.", True),
     ("explainer",  "PLMDn4Kc8PmVw",                      "Explainer Lab",                "🧪", "One sharp idea a day, taken apart.", True),

@@ -3,7 +3,7 @@
    and re-renders the cards. Silently keeps the server-rendered cards if the
    fetch fails. Self-contained — does not depend on app.js internals. */
 (function () {
-  var COUNT = { signature: 3 }; // default 6 cards per grid
+  var COUNT = { signature: 3, awards: 24 }; // default 6 cards per grid
   // Shorts whose first frame is a blank title card: lead with YouTube's Shorts thumbnail (oar2)
   var OAR_FIRST = { explainer: 1 };
   function openVid(id) {
@@ -33,6 +33,25 @@
       'alt="' + t + '" loading="lazy" onerror="this.onerror=null;this.src=\'' + base + 'hqdefault.jpg\'" />' +
       '<div class="film-meta"><h3>' + t + '</h3><div class="play">Play ↗</div></div></div>';
   }
+  // Award carousel: arrows slide one film at a time; disabled at the ends
+  function initCarousels() {
+    document.querySelectorAll('.award-section').forEach(function (sec) {
+      var grid = sec.querySelector('.film-grid.carousel');
+      if (!grid) return;
+      var btns = sec.querySelectorAll('.carousel-btn');
+      function step() { var c = grid.querySelector('.film-card'); return c ? c.getBoundingClientRect().width + 16 : grid.clientWidth / 2; }
+      function upd() {
+        var max = grid.scrollWidth - grid.clientWidth - 2;
+        btns.forEach(function (b) { var d = +b.getAttribute('data-dir'); b.disabled = d < 0 ? grid.scrollLeft <= 2 : grid.scrollLeft >= max; });
+      }
+      btns.forEach(function (b) { b.onclick = function () { grid.scrollBy({ left: step() * (+b.getAttribute('data-dir')), behavior: 'smooth' }); }; });
+      grid.addEventListener('scroll', upd, { passive: true });
+      window.addEventListener('resize', upd);
+      upd();
+    });
+  }
+  window.whCarouselRefresh = initCarousels;
+  if (document.readyState !== 'loading') initCarousels(); else document.addEventListener('DOMContentLoaded', initCarousels);
   // single delegated handler, scoped to synced cards (no double-bind with app.js)
   document.addEventListener('click', function (e) {
     var t = e.target.closest ? e.target.closest('.film-card[data-ytsync]') : null;
@@ -49,6 +68,7 @@
       var html = vids.slice(0, n).map(function (v) { return card(v, vert, oar); }).join('');
       if (html) grid.innerHTML = html;
     });
+    if (window.whCarouselRefresh) window.whCarouselRefresh();
   }
   function get(url) {
     return fetch(url, { cache: 'no-cache' })

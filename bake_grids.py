@@ -4,7 +4,7 @@
 import json, re, html
 from pathlib import Path
 feed = json.loads(Path("feed.json").read_text())["playlists"]
-COUNT = {"signature": 3}          # default 6 cards per grid
+COUNT = {"signature": 3, "awards": 24}          # default 6 cards per grid
 VERTICAL = {"mobile", "explainer", "faith", "bappa"}     # Shorts playlists — first frame as the thumbnail
 OAR_FIRST = {"explainer"}   # Shorts that open on a blank title card — lead with YouTube's Shorts thumbnail (oar2)
 s = Path("index.html").read_text()

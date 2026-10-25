@@ -1,6 +1,27 @@
 {
- "updated": "2026-10-25T04:48:55.476869+00:00",
+ "updated": "2026-10-25T11:38:55.140479+00:00",
  "playlists": [
+  {
+   "id": "PLaZUfbxrw8y8",
+   "name": "Award Winning Films",
+   "icon": "🏆",
+   "tagline": "Judged, juried, and won.",
+   "vertical": false,
+   "url": "https://www.youtube.com/playlist?list=PLaZUfbxrw8y8",
+   "total": 2,
+   "videos": [
+    {
+     "id": "ZL2cB8E5XFE",
+     "title": "Teesra Raasta · UP Tourism · 1st Prize, Future Frames AI Film Hackathon 2026",
+     "published": null
+    },
+    {
+     "id": "834xd_qPw-I",
+     "title": "Din Ke Taare (ADG School) · 2nd Prize, Future Frames AI Film Hackathon 2026 · Chntan N. Shah",
+     "published": null
+    }
+   ]
+  },
   {
    "id": "PLAcjSzaUUVHkV3bR_j_R6dRuiUQp7I1DS",
    "name": "AI Films",
@@ -900,7 +921,7 @@
    "tagline": "Pieces made for love, for milestones, for the archive.",
    "vertical": false,
    "url": "https://www.youtube.com/playlist?list=PLAcjSzaUUVHl66UVP317jEsE95ZnwiAho",
-   "total": 11,
+   "total": 13,
    "videos": [
     {
      "id": "sDeP9ACE8Es",
@@ -955,6 +976,16 @@
     {
      "id": "bYj4DB2bhIs",
      "title": "Chntan N. Shah — 25 Years Behind the Camera · Showcase Film · Woo Hoo Media Labs",
+     "published": null
+    },
+    {
+     "id": "834xd_qPw-I",
+     "title": "Din Ke Taare (ADG School) · 2nd Prize, Future Frames AI Film Hackathon 2026 · Chntan N. Shah",
+     "published": null
+    },
+    {
+     "id": "ZL2cB8E5XFE",
+     "title": "Teesra Raasta · UP Tourism · 1st Prize, Future Frames AI Film Hackathon 2026",
      "published": null
     }
    ]

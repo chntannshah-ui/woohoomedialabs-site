@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-30T05:55:06.210979+00:00",
+ "updated": "2026-10-30T13:02:04.444766+00:00",
  "playlists": [
   {
    "id": "PLaZUfbxrw8y8",
@@ -251,8 +251,13 @@
    "tagline": "One sharp idea a day, taken apart.",
    "vertical": true,
    "url": "https://www.youtube.com/playlist?list=PLMDn4Kc8PmVw",
-   "total": 6,
+   "total": 7,
    "videos": [
+    {
+     "id": "VjH0vjW7Mic",
+     "title": "Free Fire Got Banned. Now It's Back, With a Curfew · Chntan N Shah · Woo Hoo Media Labs",
+     "published": null
+    },
     {
      "id": "F_jOWcoYsfE",
      "title": "Internet Lockdown? Why Websites Went Dark · Chntan N Shah · Woo Hoo Media Labs",

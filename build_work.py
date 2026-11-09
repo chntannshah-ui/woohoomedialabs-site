@@ -23,6 +23,7 @@ TAIL = ("Twenty-five years of cinematic craft. Authored Intelligence: "
 CATS = [  # display order on /work + description phrase
     ("Signature Films",         "a signature film from the studio reel"),
     ("AI Films",                "an AI-native film"),
+    ("Explainer Lab",           "an Explainer Lab episode"),
     ("Product Films",           "a product launch &amp; demo film"),
     ("Corporate Communication", "a corporate &amp; brand communication film"),
     ("Government Films",        "a government &amp; public communication film"),

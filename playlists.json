@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26T21:38:56.606613+00:00",
+ "updated": "2026-11-27T08:42:30.399563+00:00",
  "playlists": [
   {
    "id": "PLaZUfbxrw8y8",
@@ -276,8 +276,13 @@
    "tagline": "One sharp idea a day, taken apart.",
    "vertical": true,
    "url": "https://www.youtube.com/playlist?list=PLMDn4Kc8PmVw",
-   "total": 11,
+   "total": 12,
    "videos": [
+    {
+     "id": "hcRLyaDW0rk",
+     "title": "The $81 Billion Five-Year-Old · Explainer Lab · Chntan N Shah · Woo Hoo Media Labs",
+     "published": null
+    },
     {
      "id": "z24sNJNcuio",
      "title": "India Wants a 60 km Wall in the Sea · Explainer Lab · Chntan N Shah · Woo Hoo Media Labs",
